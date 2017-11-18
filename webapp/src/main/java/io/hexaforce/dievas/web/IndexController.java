@@ -12,20 +12,20 @@ public class IndexController {
 	@Autowired
 	private PetService petService;
 	
-	@RequestMapping("/")
-	public String welcome() {
-		return "index";
-	}
+//	@RequestMapping("/")
+//	public String welcome() {
+//		return "index";
+//	}
 
 	@RequestMapping("/index")
 	public String index() {
 		return "index";
 	}
 
-	@RequestMapping("/login")
-	public String login() {
-		return "login";
-	}
+//	@RequestMapping("/login")
+//	public String login() {
+//		return "login";
+//	}
 
 	@RequestMapping("/forms")
 	public String forms() {

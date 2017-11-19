@@ -7,7 +7,6 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>java:io.hexaforce.dievas.web.DievasWebApplication</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

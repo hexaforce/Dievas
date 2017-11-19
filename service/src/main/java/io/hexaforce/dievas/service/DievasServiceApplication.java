@@ -1,4 +1,4 @@
-package io.hexaforce.service;
+package io.hexaforce.dievas.service;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

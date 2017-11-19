@@ -1,4 +1,4 @@
-package io.hexaforce.dievas.web;
+package io.hexaforce.dievas.webapp;
 
 import java.util.Date;
 import java.util.Map;

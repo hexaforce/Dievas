@@ -9,8 +9,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import io.hexaforce.dievas.batch.DievasBatchApplication;
 import io.hexaforce.dievas.commons.DievasCommonApplication;
 import io.hexaforce.dievas.database.DievasDataApplication;
-import io.hexaforce.dievas.web.DievasWebApplication;
-import io.hexaforce.service.DievasServiceApplication;
+import io.hexaforce.dievas.service.DievasServiceApplication;
+import io.hexaforce.dievas.webapp.DievasWebApplication;
 
 @SpringBootApplication
 @EnableAutoConfiguration

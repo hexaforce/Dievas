@@ -1,8 +1,12 @@
 package io.hexaforce.dievas.system;
 
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.StaticResourceRequest;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,7 +14,15 @@ import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapter;
 import org.springframework.http.MediaType;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import com.zaxxer.hikari.HikariDataSource;
 
 import io.hexaforce.dievas.batch.DievasBatchApplication;
 import io.hexaforce.dievas.commons.DievasCommonApplication;
@@ -60,10 +72,54 @@ public class Dievas implements WebMvcConfigurer {
 			.run(args);
 	}
 	
+	@Override
+	public void addViewControllers(ViewControllerRegistry registry) {
+		// ログインページを登録
+		registry.addViewController("/login").setViewName("login");
+	}
+	
+	@Configuration
+	protected static class ApplicationSecurity extends WebSecurityConfigurerAdapter {
+		
+		@Autowired
+		private DataSource dataSource;
 
+		@Override
+		protected void configure(HttpSecurity http) throws Exception {
+			http.authorizeRequests()
+			// static配下のリソースへはすべてのアクセスを許可
+			.requestMatchers(StaticResourceRequest.toCommonLocations()).permitAll().anyRequest().fullyAuthenticated()
+			.and()
+			// ログインはフォーム入力ページとしアクセスを許可、失敗すると/login?errorへ遷移
+			.formLogin().loginPage("/login").failureUrl("/login?error").permitAll()
+			.and()
+			// 認証が成功するとトップページへ遷移
+			.formLogin().successForwardUrl("/index")
+			.and()
+			// ログアウト
+			.logout().permitAll()
+			;
+		}
+		
+		@Override
+		public void configure(AuthenticationManagerBuilder auth) throws Exception {
+			// 認証情報はデータベース管理
+			auth.jdbcAuthentication().dataSource(this.dataSource);
+		}
+		
+	}
 	
 	
-	
+    @Bean
+    public DataSource hikariDataSource() {
+        return new EmbeddedDatabaseBuilder()
+                .generateUniqueName(true)
+                .setType(EmbeddedDatabaseType.H2)
+                .setScriptEncoding("UTF-8")
+                .addScript("message.sql")
+                .addScript("validation.sql")
+                .build();
+    }
 	
 	
 //	@Controller

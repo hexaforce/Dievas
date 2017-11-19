@@ -1,8 +1,6 @@
 package io.hexaforce.dievas.database.rds.entity;
 
-import java.io.Serializable;
 import java.util.Collection;
-import java.util.Date;
 
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -13,11 +11,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import io.hexaforce.dievas.database.rds.AbstractEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,7 +29,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "actor")
-public class Actor implements Serializable {
+public class Actor extends AbstractEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -51,12 +48,6 @@ public class Actor implements Serializable {
 	@Size(min = 1, max = 45)
 	@Column(name = "last_name")
 	private String lastName;
-
-	@Basic(optional = false)
-	@NotNull
-	@Column(name = "last_update")
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date lastUpdate;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "actor")
 	private Collection<FilmActor> filmActorCollection;

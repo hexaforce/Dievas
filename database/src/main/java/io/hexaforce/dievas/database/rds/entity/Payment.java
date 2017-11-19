@@ -1,6 +1,5 @@
 package io.hexaforce.dievas.database.rds.entity;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -17,6 +16,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
+import io.hexaforce.dievas.database.rds.AbstractEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,7 +30,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "payment")
-public class Payment implements Serializable {
+public class Payment extends AbstractEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -50,12 +50,6 @@ public class Payment implements Serializable {
 	@Column(name = "payment_date")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date paymentDate;
-
-	@Basic(optional = false)
-	@NotNull
-	@Column(name = "last_update")
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date lastUpdate;
 
 	@JoinColumn(name = "staff_id", referencedColumnName = "staff_id")
 	@ManyToOne(optional = false)

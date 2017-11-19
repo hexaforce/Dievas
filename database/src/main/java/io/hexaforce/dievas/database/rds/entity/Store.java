@@ -1,8 +1,6 @@
 package io.hexaforce.dievas.database.rds.entity;
 
-import java.io.Serializable;
 import java.util.Collection;
-import java.util.Date;
 
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -16,10 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
 
+import io.hexaforce.dievas.database.rds.AbstractEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -33,19 +29,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "store")
-public class Store implements Serializable {
+public class Store extends AbstractEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional = false)
 	@Column(name = "store_id")
 	private Short storeId;
-
-	@Basic(optional = false)
-	@NotNull
-	@Column(name = "last_update")
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date lastUpdate;
 
 	@JoinColumn(name = "manager_staff_id", referencedColumnName = "staff_id")
 	@OneToOne(optional = false)

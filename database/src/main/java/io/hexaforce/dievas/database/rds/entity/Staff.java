@@ -1,8 +1,6 @@
 package io.hexaforce.dievas.database.rds.entity;
 
-import java.io.Serializable;
 import java.util.Collection;
-import java.util.Date;
 
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -17,11 +15,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import io.hexaforce.dievas.database.rds.AbstractEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -35,7 +32,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "staff")
-public class Staff implements Serializable {
+public class Staff extends AbstractEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -80,12 +77,6 @@ public class Staff implements Serializable {
 	@Size(max = 40)
 	@Column(name = "password")
 	private String password;
-
-	@Basic(optional = false)
-	@NotNull
-	@Column(name = "last_update")
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date lastUpdate;
 
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "managerStaffId")
 	private Store store;

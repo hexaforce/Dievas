@@ -85,6 +85,7 @@ public class Film implements Serializable {
 	@Size(max = 54)
 	@Column(name = "special_features")
 	private String specialFeatures;
+
 	@Basic(optional = false)
 	@NotNull
 	@Column(name = "last_update")

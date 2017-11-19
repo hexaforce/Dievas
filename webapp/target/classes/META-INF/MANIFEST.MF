@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: webapp
+Implementation-Version: 1.0.0.BUILD-SNAPSHOT
+Built-By: T.Tantaka <tantaka.tomokazu@gmail.com>
+Implementation-Vendor-Id: io.hexaforce
+Build-Jdk: 1.8.0_144
+Implementation-URL: http://projects.spring.io/spring-boot/spring-boot-
+ starter-parent/Dievas/webapp/
+Created-By: Maven Integration for Eclipse
+

@@ -82,6 +82,5 @@
 			<artifactId>ngstorage</artifactId>
 			<version>0.3.11</version>
 		</dependency>
-		
 	</dependencies>
 </project>

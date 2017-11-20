@@ -87,39 +87,31 @@ public class Dievas implements WebMvcConfigurer {
 		@Override
 		protected void configure(HttpSecurity http) throws Exception {
 			http.authorizeRequests()
-			// static配下のリソースへはすべてのアクセスを許可
 			.requestMatchers(StaticResourceRequest.toCommonLocations()).permitAll().anyRequest().fullyAuthenticated()
 			.and()
-			// ログインはフォーム入力ページとしアクセスを許可、失敗すると/login?errorへ遷移
-			.formLogin().loginPage("/login").failureUrl("/login?error").permitAll()
+			.formLogin().loginPage("/login").successForwardUrl("/Dievas").failureUrl("/login?error").permitAll()
 			.and()
-			// 認証が成功するとトップページへ遷移
-			.formLogin().successForwardUrl("/index")
-			.and()
-			// ログアウト
-			.logout().permitAll()
-			;
+			.logout().logoutUrl("/login?logout").permitAll();
 		}
 		
 		@Override
 		public void configure(AuthenticationManagerBuilder auth) throws Exception {
-			// 認証情報はデータベース管理
 			auth.jdbcAuthentication().dataSource(this.dataSource);
 		}
 		
 	}
 	
 	
-    @Bean
-    public DataSource hikariDataSource() {
-        return new EmbeddedDatabaseBuilder()
-                .generateUniqueName(true)
-                .setType(EmbeddedDatabaseType.H2)
-                .setScriptEncoding("UTF-8")
-                .addScript("message.sql")
-                .addScript("validation.sql")
-                .build();
-    }
+//    @Bean
+//    public DataSource hikariDataSource() {
+//        return new EmbeddedDatabaseBuilder()
+//                .generateUniqueName(true)
+//                .setType(EmbeddedDatabaseType.H2)
+//                .setScriptEncoding("UTF-8")
+//                .addScript("message.sql")
+//                .addScript("validation.sql")
+//                .build();
+//    }
 	
 	
 //	@Controller

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<!-- Thymeleafでmain.htmlのレイアウトを使用します。css、js、contentがmain.htmlよりコールされます　 -->
+<!-- Thymeleafでmain.htmlのレイアウトを使用します。css、js、contentがlayoutにあるmain.htmlよりコールされます　 -->
 <html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout/main :: layout ('index')}">
 
  <!-- ページ固有のスタイルシートはここにまとめて定義します -->
@@ -13,6 +13,7 @@
 <th:block th:fragment="js">
   <!-- ページ固有 Scripts -->
   <script th:src="@{/dashboard.js}"></script>
+  <script th:src="@{/user-search.js}"></script>
   <script th:src="@{/user-modification-list.js}"></script>
   <script th:src="@{/user-same-export.js}"></script>
   <script th:src="@{/exam-date.js}"></script>

@@ -14,15 +14,11 @@ import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapter;
 import org.springframework.http.MediaType;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
-import com.zaxxer.hikari.HikariDataSource;
 
 import io.hexaforce.dievas.batch.DievasBatchApplication;
 import io.hexaforce.dievas.commons.DievasCommonApplication;
@@ -100,7 +96,6 @@ public class Dievas implements WebMvcConfigurer {
 		}
 		
 	}
-	
 	
 //    @Bean
 //    public DataSource hikariDataSource() {
@@ -181,6 +176,7 @@ public class Dievas implements WebMvcConfigurer {
 				@Override
 				public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
 					// exposeIdsFor(config, "io.hexaforce.dievas.database.rds.entity");
+					// IDアノテーションでも出力されるようにします。厳格なRESTfulでは推奨されていないものです。
 					config.exposeIdsFor(Actor.class);
 					config.exposeIdsFor(ActorInfo.class);
 					config.exposeIdsFor(Address.class);
@@ -212,7 +208,6 @@ public class Dievas implements WebMvcConfigurer {
 		}
 	}
 	
-//	// IDアノテーションでも出力するようにします
 //	private void exposeIdsFor(RepositoryRestConfiguration config, String packages) {
 //		try {
 //			ImmutableSet<ClassInfo> classInfoList = ClassPath.from(Thread.currentThread().getContextClassLoader()).getTopLevelClasses(packages);

@@ -2,7 +2,6 @@ package io.hexaforce.dievas.webapp.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -31,13 +30,13 @@ public class WebAppController {
 
 	@RequestMapping("/content/{page}")
 	public String contentHandler(@PathVariable("page") final String page) {
-		log.info("contentHandler:"+page);
+		log.info("contentHandler:" + page);
 		return "content/" + page;
 	}
-	
+
 	@RequestMapping("/error/{page}")
 	String errorHandler(@PathVariable("page") final String page) {
-		log.info("errorHandler:"+page);
-		return "error/"+page;
+		log.info("errorHandler:" + page);
+		return "error/" + page;
 	}
 }

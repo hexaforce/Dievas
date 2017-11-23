@@ -27,6 +27,7 @@
 
 	<modules>
 		<module>commons</module>
+		<module>migration</module>
 		<module>database</module>
 		<module>batch</module>
 		<module>service</module>

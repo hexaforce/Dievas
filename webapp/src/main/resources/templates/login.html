@@ -1,24 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
- <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <!-- Meta, title, CSS, favicons, etc. -->
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Freude2 | 大学入試管理システム</title>
-  <!-- Bootstrap -->
-  <link th:href="@{/webjars/gentelella/vendors/bootstrap/dist/css/bootstrap.min.css}" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link th:href="@{/webjars/gentelella/vendors/font-awesome/css/font-awesome.min.css}" rel="stylesheet">
-  <!-- NProgress -->
-  <link th:href="@{/webjars/gentelella/vendors/nprogress/nprogress.css}" rel="stylesheet">
-  <!-- Animate.css -->
-  <link th:href="@{/webjars/gentelella/vendors/animate.css/animate.min.css}" rel="stylesheet">
-  <!-- Gentelella Alela! Theme Style -->
-  <link th:href="@{/webjars/gentelella/build/css/custom.min.css}" rel="stylesheet">
- </head>
- <body class="login">
+
+<!-- Thymeleafでlogin.htmlのレイアウトを使用します。　 -->
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout/login :: layout ('login')}">
+<th:block th:fragment="content (page)">
   <div>
    <a class="hiddenanchor" id="signup"></a>
    <a class="hiddenanchor" id="signin"></a>
@@ -89,5 +73,5 @@
     </div>
    </div>
   </div>
- </body>
+  </th:block>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <!-- Thymeleafでmain.htmlのレイアウトを使用します。css、js、contentがmain.htmlよりコールされます　 -->
-<html xmlns:th="http://www.thymeleaf.org" th:replace="~{partials/main :: layout ('index')}">
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout/main :: layout ('index')}">
 
  <!-- ページ固有のスタイルシートはここにまとめて定義します -->
 <th:block th:fragment="css">
@@ -12,42 +12,42 @@
  <!-- ページ固有のスクリプトはここにまとめて定義します -->
 <th:block th:fragment="js">
   <!-- ページ固有 Scripts -->
-  <script src="/user-search.js"></script>
-  <script src="/user-modification-list.js"></script>
-  <script src="/user-same-export.js"></script>
-  <script src="/exam-date.js"></script>
-  <script src="/exam-date-gantt.js"></script>
-  <script src="/exam-date-list.js"></script>
-  <script src="/exam-date-ticket-result.js"></script>
-  <script src="/exam-date-system.js"></script>
-  <script src="/exam-place-capacities-list.js"></script>
-  <script src="/photos-pdf-export.js"></script>
-  <script src="/photos-confirmation-pdf-export.js"></script>
-  <script src="/import-gpa.js"></script>
-  <script src="/examinees-numbering.js"></script>
-  <script src="/examinees-reservation.js"></script>
-  <script src="/examinees-reservation-cancel.js"></script>
-  <script src="/application-csv-export.js"></script>
-  <script src="/import-exam-result.js"></script>
-  <script src="/import-examinees-number-issue-paramater.js"></script>
-  <script src="/import-application-modify.js"></script>
-  <script src="/import-practical-examinees-number.js"></script>
-  <script src="/application-daily-summary-export.js"></script>
-  <script src="/application-preliminary-export.js"></script>
-  <script src="/change-log.js"></script>
-  <script src="/report-received.js"></script>
-  <script src="/report-processing-status.js"></script>
-  <script src="/payment-confirmation.js"></script>
-  <script src="/import-managemen-status-update.js"></script>
-  <script src="/batch-job-history.js"></script>
-  <script src="/ticket-check.js"></script>
-  <script src="/ticket-mail.js"></script>
-  <script src="/operator-list.js"></script>
-  <script src="/operator-add.js"></script>
-  <script src="/mailmagazine-list.js"></script>
-  <script src="/mailmagazine-add.js"></script>
-  <script src="/information-list.js"></script>
-  <script src="/information-add.js"></script>
+  <script th:src="@{/dashboard.js}"></script>
+  <script th:src="@{/user-modification-list.js}"></script>
+  <script th:src="@{/user-same-export.js}"></script>
+  <script th:src="@{/exam-date.js}"></script>
+  <script th:src="@{/exam-date-gantt.js}"></script>
+  <script th:src="@{/exam-date-list.js}"></script>
+  <script th:src="@{/exam-date-ticket-result.js}"></script>
+  <script th:src="@{/exam-date-system.js}"></script>
+  <script th:src="@{/exam-place-capacities-list.js}"></script>
+  <script th:src="@{/photos-pdf-export.js}"></script>
+  <script th:src="@{/photos-confirmation-pdf-export.js}"></script>
+  <script th:src="@{/import-gpa.js}"></script>
+  <script th:src="@{/examinees-numbering.js}"></script>
+  <script th:src="@{/examinees-reservation.js}"></script>
+  <script th:src="@{/examinees-reservation-cancel.js}"></script>
+  <script th:src="@{/application-csv-export.js}"></script>
+  <script th:src="@{/import-exam-result.js}"></script>
+  <script th:src="@{/import-examinees-number-issue-paramater.js}"></script>
+  <script th:src="@{/import-application-modify.js}"></script>
+  <script th:src="@{/import-practical-examinees-number.js}"></script>
+  <script th:src="@{/application-daily-summary-export.js}"></script>
+  <script th:src="@{/application-preliminary-export.js}"></script>
+  <script th:src="@{/change-log.js}"></script>
+  <script th:src="@{/report-received.js}"></script>
+  <script th:src="@{/report-processing-status.js}"></script>
+  <script th:src="@{/payment-confirmation.js}"></script>
+  <script th:src="@{/import-managemen-status-update.js}"></script>
+  <script th:src="@{/batch-job-history.js}"></script>
+  <script th:src="@{/ticket-check.js}"></script>
+  <script th:src="@{/ticket-mail.js}"></script>
+  <script th:src="@{/operator-list.js}"></script>
+  <script th:src="@{/operator-add.js}"></script>
+  <script th:src="@{/mailmagazine-list.js}"></script>
+  <script th:src="@{/mailmagazine-add.js}"></script>
+  <script th:src="@{/information-list.js}"></script>
+  <script th:src="@{/information-add.js}"></script>
 </th:block>
  
 <!-- content部分は非同期で取得します。 -->

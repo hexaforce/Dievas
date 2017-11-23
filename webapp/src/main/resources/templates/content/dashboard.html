@@ -63,11 +63,11 @@
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="u in ctrl.getAllUsers()">
-              <td>{{u.id}}</td>
-              <td>{{u.name}}</td>
-              <td>{{u.age}}</td>
-              <td>{{u.salary}}</td>
+            <tr ng-repeat="u in ctrl.getAllUsers().content">
+              <td>{{u.actorId}}</td>
+              <td>{{u.firstName}}</td>
+              <td>{{u.lastName}}</td>
+              <td>{{u.lastUpdate}}</td>
               <td>
                 <button type="button" ng-click="ctrl.editUser(u.id)" class="btn btn-success custom-width">Edit</button>
               </td>

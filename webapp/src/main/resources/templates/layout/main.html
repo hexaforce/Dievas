@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja"　th:fragment="layout (page)">
+<html lang="ja" ng-app="Dievas"　th:fragment="layout (page)">
  <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <!-- Meta, title, CSS, favicons, etc. -->
@@ -18,7 +18,7 @@
   <div th:replace="~{${page} :: css}" />
  </head>
  <body class="nav-md">
-  <div class="container body" ng-app="Freude2">
+  <div class="container body">
   <div class="main_container">
   <div th:replace="~{partials/side :: side (${page})}" />
   <div th:replace="~{partials/top :: top (${page})}" />
@@ -40,16 +40,15 @@
   <script th:src="@{/webjars/gentelella/vendors/nprogress/nprogress.js}"></script>
   <!-- AngularJS -->
   <script th:src="@{/webjars/angular/angular.min.js}"></script>
-  <script th:src="@{/webjars/angular-ui-router/release/angular-ui-router.min.js}"></script>
+  <script th:src="@{/webjars/lodash/dist/lodash.min.js}"></script>
   <script th:src="@{/webjars/restangular/dist/restangular.min.js}"></script>
+  <script th:src="@{/webjars/angular-ui-router/release/angular-ui-router.min.js}"></script>
   <script th:src="@{/webjars/ngstorage/ngStorage.min.js}"></script>
   <script th:src="@{/webjars/localforage/dist/localforage.min.js}"></script>
   <!-- Gentelella Alela! Theme Scripts -->
   <script th:src="@{/webjars/gentelella/build/js/custom.min.js}"></script>
   <!-- Freude2共有 -->
-  <script src="/common/Freude2.js"></script>
-  <script src="/common/Freude2-services.js"></script>
-  <script src="/common/Freude2-controllers.js"></script>
+  <script th:src="@{/common/Dievas.js}"></script>
   <div th:replace="~{${page} :: js}" />
  </body>
 </html>

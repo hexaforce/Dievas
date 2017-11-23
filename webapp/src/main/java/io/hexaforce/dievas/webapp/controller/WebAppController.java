@@ -29,15 +29,15 @@ public class WebAppController {
 		return "index";
 	}
 
-	@RequestMapping("/partials/{page}")
-	public String partialHandler(@PathVariable("page") final String page) {
-		log.info("partialHandler");
-		return "partials/" + page;
+	@RequestMapping("/content/{page}")
+	public String contentHandler(@PathVariable("page") final String page) {
+		log.info("contentHandler:"+page);
+		return "content/" + page;
 	}
 	
 	@RequestMapping("/error/{page}")
 	String errorHandler(@PathVariable("page") final String page) {
-		log.info("errorHandler");
+		log.info("errorHandler:"+page);
 		return "error/"+page;
 	}
 }

@@ -89,7 +89,7 @@ public class Dievas implements WebMvcConfigurer {
 			http.authorizeRequests()
 			.requestMatchers(StaticResourceRequest.toCommonLocations()).permitAll().anyRequest().fullyAuthenticated()
 			.and()
-			.formLogin().loginPage("/login").successForwardUrl("/Dievas").failureUrl("/login?error").permitAll()
+			.formLogin().loginPage("/login").successForwardUrl("/").failureUrl("/login?error").permitAll()
 			.and()
 			.logout().logoutUrl("/login?logout").permitAll();
 		}

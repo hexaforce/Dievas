@@ -6,7 +6,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
     
 	$urlRouterProvider.otherwise('/');
     
-    $stateProvider.state('index', {
+    $stateProvider
+    .state('index', {
       url: '/',
       templateUrl: 'content/dashboard',
       controller: 'UserController',
@@ -21,11 +22,22 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
 ////          return deferred.promise;
 ////        }
 //      }
-    });
-    
-    
-    
-    
+    })
+    .state('UserSearch', {
+        url: '/user-search',
+        templateUrl: 'content/user-search',
+        controller: 'UserSearchController',
+        controllerAs: 'ctrl'
+//        	,
+//        resolve: {
+//          usersSearch: function ($q, UserSearchService) {
+//            console.log('UserSearchService');
+//            var deferred = $q.defer();
+//            UserSearchService.loadAllUsers().then(deferred.resolve, deferred.resolve);
+//            return deferred.promise;
+//          }
+//        }
+      });
     
     
     

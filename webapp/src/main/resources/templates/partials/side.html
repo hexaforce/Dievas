@@ -33,132 +33,41 @@
        <span class="fa fa-chevron-down"></span>
       </a>
       <ul class="nav child_menu">
-       <li><a ng-href="#!/user-search">会員情報検索</a></li>
-       <li><a ng-href="#!/user-modification-list">個人情報変更依頼一覧</a></li>
-       <li><a ng-href="#!/user-same-export">同一人物疑惑票出力</a></li>
-      </ul>
-      </li>
-      <li>
-      <a>
-       <i class="fa fa-home"></i>日付・会場管理
-       <span class="fa fa-chevron-down"></span>
-      </a>
-      <ul class="nav child_menu">
-       <li><a ng-href="#!/exam-date">日付管理</a></li>
-       <li><a ng-href="#!/exam-date-gantt">ガントチャート</a></li>
-       <li><a ng-href="#!/exam-date-list">試験関連一覧</a></li>
-       <li><a ng-href="#!/exam-date-ticket-result">受験票・合否関連一覧</a></li>
-       <li><a ng-href="#!/exam-date-system">システム関連一覧</a></li>
-       <li><a ng-href="#!/exam-place-capacities-list">試験会場管理</a></li>
-      </ul>
-      </li>
-     </ul>
-    </div>
-    <div class="menu_section">
-     <h3>管理業務</h3>
-     <ul class="nav side-menu">
-      <li>
-      <a>
-       <i class="fa fa-home"></i>顔写真
-       <span class="fa fa-chevron-down"></span>
-      </a>
-      <ul class="nav child_menu">
-       <li><a ng-href="#!/photos-pdf-export">顔写真一覧表出力</a></li>
-       <li><a ng-href="#!/photos-confirmation-pdf-export">顔写真確認票出力</a></li>
-      </ul>
-      </li>
-      <li>
-      <a>
-       <i class="fa fa-home"></i>受験番号
-       <span class="fa fa-chevron-down"></span>
-      </a>
-      <ul class="nav child_menu">
-       <li><a ng-href="#!/import-gpa">受付番号・評定平均CSVデータ取込</a></li>
-       <li><a ng-href="#!/examinees-numbering">受験番号仮付番・付番処理</a></li>
-       <li><a ng-href="#!/examinees-reservation">受験番号予約</a></li>
-       <li><a ng-href="#!/examinees-reservation-cancel">受験番号予約取消</a></li>
-      </ul>
-      </li>
-       <li>
-       <a>
-        <i class="fa fa-home"></i>ＣＳＶ出力／取込
-        <span class="fa fa-chevron-down"></span>
-       </a>
-       <ul class="nav child_menu">
-        <li><a ng-href="#!/application-csv-export">受験生データCSV出力</a></li>
-        <li><a ng-href="#!/import-exam-result">合否データ取込</a></li>
-        <li><a ng-href="#!/import-examinees-number-issue-paramater">受験番号付番パラメータ</a></li>
-        <li><a ng-href="#!/import-application-modify">受験番号取消CSVデータ取込</a></li>
-        <li><a ng-href="#!/import-practical-examinees-number">実技試験番号管理</a></li>
-       </ul>
-       </li>
-       <li>
-       <a>
-        <i class="fa fa-home"></i>帳票出力
-        <span class="fa fa-chevron-down"></span>
-       </a>
-       <ul class="nav child_menu">
-        <li><a ng-href="#!/application-daily-summary-export">日別集計表出力</a></li>
-        <li><a ng-href="#!/application-preliminary-export">志願者速報出力</a></li>
-        <li><a ng-href="#!/change-log">変更ログ表出力</a></li>
-        <li><a ng-href="#!/report-received">受領件数報告レポート出力</a></li>
-        <li><a ng-href="#!/report-processing-status">処理状況レポート出力</a></li>
-       </ul>
-       </li>
-       <li>
-       <a>
-        <i class="fa fa-home"></i>確認業務
-        <span class="fa fa-chevron-down"></span>
-       </a>
-       <ul class="nav child_menu">
-        <li><a ng-href="#!/payment-confirmation">入金済み書類未着確認</a></li>
-        <li><a ng-href="#!/import-managemen-status-update">書類確認</a></li>
-       </ul>
-       </li>
-       <li>
-       <a>
-        <i class="fa fa-home"></i>システム
-        <span class="fa fa-chevron-down"></span>
-       </a>
-       <ul class="nav child_menu">
-        <li><a ng-href="#!/batch-job-history">バッチジョブ実行履歴</a></li>
-        <li><a ng-href="#!/ticket-check">メール送信前受験票確認</a></li>
-        <li><a ng-href="#!/ticket-mail">受験票メール送信ログ</a></li>
-       </ul>
-       </li>
-      </ul>
-    </div>
-    <div class="menu_section">
-     <h3>メンテナンス</h3>
-     <ul class="nav side-menu">
-      <li>
-      <a>
-       <i class="fa fa-bug"></i>オペレーター管理
-       <span class="fa fa-chevron-down"></span>
-      </a>
-      <ul class="nav child_menu">
-       <li><a ng-href="#!/operator-list">オペレーター一覧</a></li>
-       <li><a ng-href="#!/operator-add">オペレーター登録</a></li>
-      </ul>
-      </li>
-      <li>
-      <a>
-       <i class="fa fa-windows"></i>メール配信管理
-       <span class="fa fa-chevron-down"></span>
-      </a>
-      <ul class="nav child_menu">
-       <li><a ng-href="#!/mailmagazine-list">メール配信一覧</a></li>
-       <li><a ng-href="#!/mailmagazine-add">メール配信登録</a></li>
-      </ul>
-      </li>
-      <li>
-      <a>
-       <i class="fa fa-windows"></i>お知らせ管理
-       <span class="fa fa-chevron-down"></span>
-      </a>
-      <ul class="nav child_menu">
-       <li><a ng-href="#!/information-list">お知らせ一覧</a></li>
-       <li><a ng-href="#!/information-add">お知らせ登録</a></li>
+       <li><a ng-href="#!/users"></a>情報検索</li>
+       <li><a ng-href="#!/user-modifications"></a>個人情報変更依頼一覧</li>
+       <li><a ng-href="#!/user-same-export"></a>同一人物疑惑票出力</li>
+       <li><a ng-href="#!/exam-date-gantt"></a>ガントチャート</li>
+       <li><a ng-href="#!/exam-date-list"></a>試験関連一覧</li>
+       <li><a ng-href="#!/exam-date-ticket-result"></a>受験票・合否関連一覧</li>
+       <li><a ng-href="#!/exam-date-system"></a>システム関連一覧</li>
+       <li><a ng-href="#!/exam-place-capacities-list"></a>試験会場管理</li>
+       <li><a ng-href="#!/photos-pdf-export"></a>顔写真一覧表出力</li>
+       <li><a ng-href="#!/photos-confirmation-pdf-export"></a>顔写真確認票出力</li>
+       <li><a ng-href="#!/csv-import-gpa"></a>受付番号・評定平均CSVデータ取込</li>
+       <li><a ng-href="#!/examinees-numbering"></a>受験番号仮付番・付番処理</li>
+       <li><a ng-href="#!/examinees-reservation-1"></a>受験番号予約</li>
+       <li><a ng-href="#!/examinees-reservation-2"></a>受験番号予約取消</li>
+       <li><a ng-href="#!/application-csv-export"></a>受験生データCSV出力</li>
+       <li><a ng-href="#!/csv-import-exam_result_02"></a>合否データ取込</li>
+       <li><a ng-href="#!/csv-import-examinees_number_issue_paramater"></a>受験番号付番パラメータ</li>
+       <li><a ng-href="#!/csv-import-application_modify"></a>受験番号取消CSVデータ取込</li>
+       <li><a ng-href="#!/csv-import-practical_examinees_number"></a>実技試験番号管理</li>
+       <li><a ng-href="#!/application-daily-summary-export"></a>日別集計表出力</li>
+       <li><a ng-href="#!/application-preliminary"></a>志願者速報出力</li>
+       <li><a ng-href="#!/change-log"></a>変更ログ表出力</li>
+       <li><a ng-href="#!/report-received"></a>受領件数報告レポート出力</li>
+       <li><a ng-href="#!/report-processing-status"></a>処理状況レポート出力</li>
+       <li><a ng-href="#!/payment-confirmation"></a>入金済み書類未着確認</li>
+       <li><a ng-href="#!/csv-import-managemen_status_update"></a>書類確認</li>
+       <li><a ng-href="#!/batch-job-history"></a>バッチジョブ実行履歴</li>
+       <li><a ng-href="#!/ticket-check"></a>メール送信前受験票確認</li>
+       <li><a ng-href="#!/ticket-mail"></a>受験票メール送信ログ</li>
+       <li><a ng-href="#!/operators"></a>オペレーター一覧</li>
+       <li><a ng-href="#!/operator-add"></a>オペレーター登録</li>
+       <li><a ng-href="#!/mailmagazine-list"></a>メール配信一覧</li>
+       <li><a ng-href="#!/mailmagazine-add"></a>メール配信登録</li>
+       <li><a ng-href="#!/informations"></a>お知らせ一覧</li>
+       <li><a ng-href="#!/information-add"></a>お知らせ登録</li>
       </ul>
       </li>
      </ul>

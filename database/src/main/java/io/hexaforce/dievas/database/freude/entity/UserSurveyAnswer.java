@@ -14,19 +14,18 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-/**
- * The persistent class for the user_survey_answer database table.
- * 
- */
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "user_survey_answer")
 @NamedQuery(name = "UserSurveyAnswer.findAll", query = "SELECT u FROM UserSurveyAnswer u")
 public class UserSurveyAnswer implements Serializable {
 	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
 
 	@Lob
 	private String answer;
@@ -37,6 +36,10 @@ public class UserSurveyAnswer implements Serializable {
 
 	private byte deleted;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+
 	@Column(name = "survey_id")
 	private int surveyId;
 
@@ -46,64 +49,5 @@ public class UserSurveyAnswer implements Serializable {
 
 	@Column(name = "user_id")
 	private int userId;
-
-	public UserSurveyAnswer() {
-	}
-
-	public String getAnswer() {
-		return this.answer;
-	}
-
-	public Date getCreatedAt() {
-		return this.createdAt;
-	}
-
-	public byte getDeleted() {
-		return this.deleted;
-	}
-
-	public int getId() {
-		return this.id;
-	}
-
-	public int getSurveyId() {
-		return this.surveyId;
-	}
-
-	public Date getUpdatedAt() {
-		return this.updatedAt;
-	}
-
-	public int getUserId() {
-		return this.userId;
-	}
-
-	public void setAnswer(String answer) {
-		this.answer = answer;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public void setDeleted(byte deleted) {
-		this.deleted = deleted;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public void setSurveyId(int surveyId) {
-		this.surveyId = surveyId;
-	}
-
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
 
 }

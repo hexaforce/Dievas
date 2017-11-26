@@ -12,21 +12,17 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-/**
- * The persistent class for the exam database table.
- * 
- */
 @Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @NamedQuery(name = "Exam.findAll", query = "SELECT e FROM Exam e")
 public class Exam implements Serializable {
 	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
 
 	@Column(name = "course_id")
 	private Integer courseId;
@@ -64,14 +60,18 @@ public class Exam implements Serializable {
 	@Column(name = "exam_fee")
 	private Integer examFee;
 
+	@Column(name = "examination_ticket_template_name")
+	private String examinationTicketTemplateName;
+
 	@Column(name = "exam_prop_form_id")
 	private Integer examPropFormId;
 
 	@Column(name = "exam_type_id")
 	private Integer examTypeId;
 
-	@Column(name = "examination_ticket_template_name")
-	private String examinationTicketTemplateName;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 
 	@Column(name = "mailinglabel_template_name")
 	private String mailinglabelTemplateName;
@@ -112,8 +112,5 @@ public class Exam implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "updated_at")
 	private Date updatedAt;
-
-	public Exam() {
-	}
 
 }

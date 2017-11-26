@@ -7,7 +7,7 @@ app.controller('DashboardController', ['DashboardService', '$scope', function (D
   $scope.init = function () {
     console.log('DashboardController.js: init()');
     DashboardService.init();
-    $scope.serviceName = DashboardService.getInitResult()[0].message;
   }
+  $scope.serviceName = DashboardService.getInitResult()[0].message;
   
 }]);

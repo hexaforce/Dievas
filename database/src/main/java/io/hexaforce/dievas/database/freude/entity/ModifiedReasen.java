@@ -14,19 +14,18 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-/**
- * The persistent class for the modified_reasen database table.
- * 
- */
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "modified_reasen")
 @NamedQuery(name = "ModifiedReasen.findAll", query = "SELECT m FROM ModifiedReasen m")
 public class ModifiedReasen implements Serializable {
 	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "created_at")
@@ -36,6 +35,10 @@ public class ModifiedReasen implements Serializable {
 
 	@Column(name = "history_id")
 	private int historyId;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 
 	@Lob
 	@Column(name = "modified_reasen")
@@ -47,64 +50,5 @@ public class ModifiedReasen implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "updated_at")
 	private Date updatedAt;
-
-	public ModifiedReasen() {
-	}
-
-	public Date getCreatedAt() {
-		return this.createdAt;
-	}
-
-	public byte getDeleted() {
-		return this.deleted;
-	}
-
-	public int getHistoryId() {
-		return this.historyId;
-	}
-
-	public int getId() {
-		return this.id;
-	}
-
-	public String getModifiedReasen() {
-		return this.modifiedReasen;
-	}
-
-	public String getModifiedTermName() {
-		return this.modifiedTermName;
-	}
-
-	public Date getUpdatedAt() {
-		return this.updatedAt;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public void setDeleted(byte deleted) {
-		this.deleted = deleted;
-	}
-
-	public void setHistoryId(int historyId) {
-		this.historyId = historyId;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public void setModifiedReasen(String modifiedReasen) {
-		this.modifiedReasen = modifiedReasen;
-	}
-
-	public void setModifiedTermName(String modifiedTermName) {
-		this.modifiedTermName = modifiedTermName;
-	}
-
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
 
 }

@@ -14,19 +14,18 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-/**
- * The persistent class for the batch_job_condition database table.
- * 
- */
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "batch_job_condition")
 @NamedQuery(name = "BatchJobCondition.findAll", query = "SELECT b FROM BatchJobCondition b")
 public class BatchJobCondition implements Serializable {
 	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
 
 	@Column(name = "batch_job_history_id")
 	private int batchJobHistoryId;
@@ -41,6 +40,10 @@ public class BatchJobCondition implements Serializable {
 	@Column(name = "display_text")
 	private String displayText;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+
 	@Lob
 	private String name;
 
@@ -50,72 +53,5 @@ public class BatchJobCondition implements Serializable {
 
 	@Lob
 	private String value;
-
-	public BatchJobCondition() {
-	}
-
-	public int getBatchJobHistoryId() {
-		return this.batchJobHistoryId;
-	}
-
-	public Date getCreatedAt() {
-		return this.createdAt;
-	}
-
-	public byte getDeleted() {
-		return this.deleted;
-	}
-
-	public String getDisplayText() {
-		return this.displayText;
-	}
-
-	public int getId() {
-		return this.id;
-	}
-
-	public String getName() {
-		return this.name;
-	}
-
-	public Date getUpdatedAt() {
-		return this.updatedAt;
-	}
-
-	public String getValue() {
-		return this.value;
-	}
-
-	public void setBatchJobHistoryId(int batchJobHistoryId) {
-		this.batchJobHistoryId = batchJobHistoryId;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public void setDeleted(byte deleted) {
-		this.deleted = deleted;
-	}
-
-	public void setDisplayText(String displayText) {
-		this.displayText = displayText;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
-
-	public void setValue(String value) {
-		this.value = value;
-	}
 
 }

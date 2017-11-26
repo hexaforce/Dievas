@@ -13,19 +13,18 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-/**
- * The persistent class for the log_output_history database table.
- * 
- */
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "log_output_history")
 @NamedQuery(name = "LogOutputHistory.findAll", query = "SELECT l FROM LogOutputHistory l")
 public class LogOutputHistory implements Serializable {
 	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
 
 	@Column(name = "approve_or_refuse")
 	private int approveOrRefuse;
@@ -38,6 +37,10 @@ public class LogOutputHistory implements Serializable {
 
 	@Column(name = "file_key")
 	private String fileKey;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 
 	private String location;
 
@@ -54,88 +57,5 @@ public class LogOutputHistory implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "updated_at")
 	private Date updatedAt;
-
-	public LogOutputHistory() {
-	}
-
-	public int getApproveOrRefuse() {
-		return this.approveOrRefuse;
-	}
-
-	public Date getCreatedAt() {
-		return this.createdAt;
-	}
-
-	public byte getDeleted() {
-		return this.deleted;
-	}
-
-	public String getFileKey() {
-		return this.fileKey;
-	}
-
-	public int getId() {
-		return this.id;
-	}
-
-	public String getLocation() {
-		return this.location;
-	}
-
-	public int getLogOutputId() {
-		return this.logOutputId;
-	}
-
-	public String getOriginalName() {
-		return this.originalName;
-	}
-
-	public Date getOutputAt() {
-		return this.outputAt;
-	}
-
-	public Date getUpdatedAt() {
-		return this.updatedAt;
-	}
-
-	public void setApproveOrRefuse(int approveOrRefuse) {
-		this.approveOrRefuse = approveOrRefuse;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public void setDeleted(byte deleted) {
-		this.deleted = deleted;
-	}
-
-	public void setFileKey(String fileKey) {
-		this.fileKey = fileKey;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public void setLocation(String location) {
-		this.location = location;
-	}
-
-	public void setLogOutputId(int logOutputId) {
-		this.logOutputId = logOutputId;
-	}
-
-	public void setOriginalName(String originalName) {
-		this.originalName = originalName;
-	}
-
-	public void setOutputAt(Date outputAt) {
-		this.outputAt = outputAt;
-	}
-
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
 
 }

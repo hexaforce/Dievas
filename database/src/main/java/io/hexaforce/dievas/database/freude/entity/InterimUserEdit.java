@@ -13,19 +13,18 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-/**
- * The persistent class for the interim_user_edit database table.
- * 
- */
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "interim_user_edit")
 @NamedQuery(name = "InterimUserEdit.findAll", query = "SELECT i FROM InterimUserEdit i")
 public class InterimUserEdit implements Serializable {
 	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "created_at")
@@ -34,6 +33,10 @@ public class InterimUserEdit implements Serializable {
 	private byte deleted;
 
 	private String email;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 
 	@Column(name = "modify_nonce")
 	private String modifyNonce;
@@ -48,72 +51,5 @@ public class InterimUserEdit implements Serializable {
 
 	@Column(name = "user_id")
 	private int userId;
-
-	public InterimUserEdit() {
-	}
-
-	public Date getCreatedAt() {
-		return this.createdAt;
-	}
-
-	public byte getDeleted() {
-		return this.deleted;
-	}
-
-	public String getEmail() {
-		return this.email;
-	}
-
-	public int getId() {
-		return this.id;
-	}
-
-	public String getModifyNonce() {
-		return this.modifyNonce;
-	}
-
-	public Date getModifyNonceExpiresAt() {
-		return this.modifyNonceExpiresAt;
-	}
-
-	public Date getUpdatedAt() {
-		return this.updatedAt;
-	}
-
-	public int getUserId() {
-		return this.userId;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public void setDeleted(byte deleted) {
-		this.deleted = deleted;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public void setModifyNonce(String modifyNonce) {
-		this.modifyNonce = modifyNonce;
-	}
-
-	public void setModifyNonceExpiresAt(Date modifyNonceExpiresAt) {
-		this.modifyNonceExpiresAt = modifyNonceExpiresAt;
-	}
-
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
 
 }

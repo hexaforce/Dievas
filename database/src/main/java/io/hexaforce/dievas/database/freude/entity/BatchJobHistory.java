@@ -13,19 +13,18 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-/**
- * The persistent class for the batch_job_history database table.
- * 
- */
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "batch_job_history")
 @NamedQuery(name = "BatchJobHistory.findAll", query = "SELECT b FROM BatchJobHistory b")
 public class BatchJobHistory implements Serializable {
 	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
 
 	@Column(name = "batch_name")
 	private String batchName;
@@ -52,6 +51,10 @@ public class BatchJobHistory implements Serializable {
 	@Column(name = "file_key")
 	private String fileKey;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+
 	private String location;
 
 	@Column(name = "original_name")
@@ -74,136 +77,5 @@ public class BatchJobHistory implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "updated_at")
 	private Date updatedAt;
-
-	public BatchJobHistory() {
-	}
-
-	public String getBatchName() {
-		return this.batchName;
-	}
-
-	public byte getBatchStatusType() {
-		return this.batchStatusType;
-	}
-
-	public Date getCreatedAt() {
-		return this.createdAt;
-	}
-
-	public byte getDeleted() {
-		return this.deleted;
-	}
-
-	public Date getEndedAt() {
-		return this.endedAt;
-	}
-
-	public int getExamCategoryId() {
-		return this.examCategoryId;
-	}
-
-	public int getFailedCount() {
-		return this.failedCount;
-	}
-
-	public String getFileKey() {
-		return this.fileKey;
-	}
-
-	public int getId() {
-		return this.id;
-	}
-
-	public String getLocation() {
-		return this.location;
-	}
-
-	public String getOriginalName() {
-		return this.originalName;
-	}
-
-	public Date getReceivedAt() {
-		return this.receivedAt;
-	}
-
-	public int getReceivedOperatorId() {
-		return this.receivedOperatorId;
-	}
-
-	public Date getStartedAt() {
-		return this.startedAt;
-	}
-
-	public int getSuccessCount() {
-		return this.successCount;
-	}
-
-	public Date getUpdatedAt() {
-		return this.updatedAt;
-	}
-
-	public void setBatchName(String batchName) {
-		this.batchName = batchName;
-	}
-
-	public void setBatchStatusType(byte batchStatusType) {
-		this.batchStatusType = batchStatusType;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public void setDeleted(byte deleted) {
-		this.deleted = deleted;
-	}
-
-	public void setEndedAt(Date endedAt) {
-		this.endedAt = endedAt;
-	}
-
-	public void setExamCategoryId(int examCategoryId) {
-		this.examCategoryId = examCategoryId;
-	}
-
-	public void setFailedCount(int failedCount) {
-		this.failedCount = failedCount;
-	}
-
-	public void setFileKey(String fileKey) {
-		this.fileKey = fileKey;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public void setLocation(String location) {
-		this.location = location;
-	}
-
-	public void setOriginalName(String originalName) {
-		this.originalName = originalName;
-	}
-
-	public void setReceivedAt(Date receivedAt) {
-		this.receivedAt = receivedAt;
-	}
-
-	public void setReceivedOperatorId(int receivedOperatorId) {
-		this.receivedOperatorId = receivedOperatorId;
-	}
-
-	public void setStartedAt(Date startedAt) {
-		this.startedAt = startedAt;
-	}
-
-	public void setSuccessCount(int successCount) {
-		this.successCount = successCount;
-	}
-
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
 
 }

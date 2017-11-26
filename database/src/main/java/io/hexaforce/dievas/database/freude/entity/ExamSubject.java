@@ -13,19 +13,18 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-/**
- * The persistent class for the exam_subject database table.
- * 
- */
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "exam_subject")
 @NamedQuery(name = "ExamSubject.findAll", query = "SELECT e FROM ExamSubject e")
 public class ExamSubject implements Serializable {
 	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "created_at")
@@ -36,62 +35,15 @@ public class ExamSubject implements Serializable {
 	@Column(name = "exam_id")
 	private int examId;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+
 	@Column(name = "subject_id")
 	private int subjectId;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "updated_at")
 	private Date updatedAt;
-
-	public ExamSubject() {
-	}
-
-	public Date getCreatedAt() {
-		return this.createdAt;
-	}
-
-	public byte getDeleted() {
-		return this.deleted;
-	}
-
-	public int getExamId() {
-		return this.examId;
-	}
-
-	public int getId() {
-		return this.id;
-	}
-
-	public int getSubjectId() {
-		return this.subjectId;
-	}
-
-	public Date getUpdatedAt() {
-		return this.updatedAt;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public void setDeleted(byte deleted) {
-		this.deleted = deleted;
-	}
-
-	public void setExamId(int examId) {
-		this.examId = examId;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public void setSubjectId(int subjectId) {
-		this.subjectId = subjectId;
-	}
-
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
 
 }

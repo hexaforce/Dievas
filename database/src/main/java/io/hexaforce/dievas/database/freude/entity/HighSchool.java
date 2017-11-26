@@ -13,19 +13,18 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-/**
- * The persistent class for the high_school database table.
- * 
- */
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "high_school")
 @NamedQuery(name = "HighSchool.findAll", query = "SELECT h FROM HighSchool h")
 public class HighSchool implements Serializable {
 	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "created_at")
@@ -42,6 +41,10 @@ public class HighSchool implements Serializable {
 	@Column(name = "high_school_code")
 	private String highSchoolCode;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+
 	private String name;
 
 	@Column(name = "prefecture_code")
@@ -50,80 +53,5 @@ public class HighSchool implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "updated_at")
 	private Date updatedAt;
-
-	public HighSchool() {
-	}
-
-	public Date getCreatedAt() {
-		return this.createdAt;
-	}
-
-	public byte getDeleted() {
-		return this.deleted;
-	}
-
-	public byte getEducationalInstituteType() {
-		return this.educationalInstituteType;
-	}
-
-	public byte getEstablishOrganizationType() {
-		return this.establishOrganizationType;
-	}
-
-	public String getHighSchoolCode() {
-		return this.highSchoolCode;
-	}
-
-	public int getId() {
-		return this.id;
-	}
-
-	public String getName() {
-		return this.name;
-	}
-
-	public String getPrefectureCode() {
-		return this.prefectureCode;
-	}
-
-	public Date getUpdatedAt() {
-		return this.updatedAt;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public void setDeleted(byte deleted) {
-		this.deleted = deleted;
-	}
-
-	public void setEducationalInstituteType(byte educationalInstituteType) {
-		this.educationalInstituteType = educationalInstituteType;
-	}
-
-	public void setEstablishOrganizationType(byte establishOrganizationType) {
-		this.establishOrganizationType = establishOrganizationType;
-	}
-
-	public void setHighSchoolCode(String highSchoolCode) {
-		this.highSchoolCode = highSchoolCode;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public void setPrefectureCode(String prefectureCode) {
-		this.prefectureCode = prefectureCode;
-	}
-
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
 
 }

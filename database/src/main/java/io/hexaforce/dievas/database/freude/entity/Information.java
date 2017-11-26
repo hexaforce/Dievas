@@ -13,18 +13,17 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-/**
- * The persistent class for the information database table.
- * 
- */
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @NamedQuery(name = "Information.findAll", query = "SELECT i FROM Information i")
 public class Information implements Serializable {
 	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "closed_at")
@@ -38,6 +37,10 @@ public class Information implements Serializable {
 
 	@Column(name = "display_order")
 	private int displayOrder;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "new_disp_at")
@@ -57,96 +60,5 @@ public class Information implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "updated_at")
 	private Date updatedAt;
-
-	public Information() {
-	}
-
-	public Date getClosedAt() {
-		return this.closedAt;
-	}
-
-	public Date getCreatedAt() {
-		return this.createdAt;
-	}
-
-	public byte getDeleted() {
-		return this.deleted;
-	}
-
-	public int getDisplayOrder() {
-		return this.displayOrder;
-	}
-
-	public int getId() {
-		return this.id;
-	}
-
-	public Date getNewDispAt() {
-		return this.newDispAt;
-	}
-
-	public Date getOpenedAt() {
-		return this.openedAt;
-	}
-
-	public String getText() {
-		return this.text;
-	}
-
-	public String getTitle() {
-		return this.title;
-	}
-
-	public byte getType() {
-		return this.type;
-	}
-
-	public Date getUpdatedAt() {
-		return this.updatedAt;
-	}
-
-	public void setClosedAt(Date closedAt) {
-		this.closedAt = closedAt;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public void setDeleted(byte deleted) {
-		this.deleted = deleted;
-	}
-
-	public void setDisplayOrder(int displayOrder) {
-		this.displayOrder = displayOrder;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public void setNewDispAt(Date newDispAt) {
-		this.newDispAt = newDispAt;
-	}
-
-	public void setOpenedAt(Date openedAt) {
-		this.openedAt = openedAt;
-	}
-
-	public void setText(String text) {
-		this.text = text;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public void setType(byte type) {
-		this.type = type;
-	}
-
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
 
 }

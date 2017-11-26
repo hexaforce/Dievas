@@ -7,354 +7,79 @@
 app.config(['$stateProvider', '$urlRouterProvider',
   function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
-    var ApplicationCsvExport = {
-      name: 'ApplicationCsvExport',
-      url: '/application-csv-export',
-      templateUrl: 'content/application-csv-export',
-      controller: 'ApplicationCsvExportController',
-      controllerAs: 'ctrl'
-    };
-    var ApplicationDailySummaryExport = {
-      name: 'ApplicationDailySummaryExport',
-      url: '/application-daily-summary-export',
-      templateUrl: 'content/application-daily-summary-export',
-      controller: 'ApplicationDailySummaryExportController',
-      controllerAs: 'ctrl'
-    };
-    var ApplicationDefectExport = {
-      name: 'ApplicationDefectExport',
-      url: '/application-defect-export',
-      templateUrl: 'content/application-defect-export',
-      controller: 'ApplicationDefectExportController',
-      controllerAs: 'ctrl'
-    };
-    var ApplicationHandicappedOrNotNumberedExport = {
-      name: 'ApplicationHandicappedOrNotNumberedExport',
-      url: '/application-handicapped-or-not-numbered-export',
-      templateUrl: 'content/application-handicapped-or-not-numbered-export',
-      controller: 'ApplicationHandicappedOrNotNumberedExportController',
-      controllerAs: 'ctrl'
-    };
-    var ApplicationPreliminaryExport = {
-      name: 'ApplicationPreliminaryExport',
-      url: '/application-preliminary-export',
-      templateUrl: 'content/application-preliminary-export',
-      controller: 'ApplicationPreliminaryExportController',
-      controllerAs: 'ctrl'
-    };
-    var BatchJobHistory = {
-      name: 'BatchJobHistory',
-      url: '/batch-job-history',
-      templateUrl: 'content/batch-job-history',
-      controller: 'BatchJobHistoryController',
-      controllerAs: 'ctrl'
-    };
-    var ChangeLog = {
-      name: 'ChangeLog',
-      url: '/change-log',
-      templateUrl: 'content/change-log',
-      controller: 'ChangeLogController',
-      controllerAs: 'ctrl'
-    };
-    var CsvImport = {
-      name: 'CsvImport',
-      url: '/csv-import',
-      templateUrl: 'content/csv-import',
-      controller: 'CsvImportController',
-      controllerAs: 'ctrl'
-    };
-    var Dashboard = {
-      name: 'Dashboard',
-      url: '/dashboard',
-      templateUrl: 'content/dashboard',
-      controller: 'DashboardController',
-      controllerAs: 'ctrl'
-    };
-    var ExamDateGantt = {
-      name: 'ExamDateGantt',
-      url: '/exam-date-gantt',
-      templateUrl: 'content/exam-date-gantt',
-      controller: 'ExamDateGanttController',
-      controllerAs: 'ctrl'
-    };
-    var ExamDateList = {
-      name: 'ExamDateList',
-      url: '/exam-date-list',
-      templateUrl: 'content/exam-date-list',
-      controller: 'ExamDateListController',
-      controllerAs: 'ctrl'
-    };
-    var ExamDateSystem = {
-      name: 'ExamDateSystem',
-      url: '/exam-date-system',
-      templateUrl: 'content/exam-date-system',
-      controller: 'ExamDateSystemController',
-      controllerAs: 'ctrl'
-    };
-    var ExamDateTicketResult = {
-      name: 'ExamDateTicketResult',
-      url: '/exam-date-ticket-result',
-      templateUrl: 'content/exam-date-ticket-result',
-      controller: 'ExamDateTicketResultController',
-      controllerAs: 'ctrl'
-    };
-    var ExamPlaceCapacitiesEdit = {
-      name: 'ExamPlaceCapacitiesEdit',
-      url: '/exam-place-capacities-edit',
-      templateUrl: 'content/exam-place-capacities-edit',
-      controller: 'ExamPlaceCapacitiesEditController',
-      controllerAs: 'ctrl'
-    };
-    var ExamPlaceCapacitiesList = {
-      name: 'ExamPlaceCapacitiesList',
-      url: '/exam-place-capacities-list',
-      templateUrl: 'content/exam-place-capacities-list',
-      controller: 'ExamPlaceCapacitiesListController',
-      controllerAs: 'ctrl'
-    };
-    var ExamResult = {
-      name: 'ExamResult',
-      url: '/exam-result',
-      templateUrl: 'content/exam-result',
-      controller: 'ExamResultController',
-      controllerAs: 'ctrl'
-    };
-    var ExamineesNumberedMail = {
-      name: 'ExamineesNumberedMail',
-      url: '/examinees-numbered-mail',
-      templateUrl: 'content/examinees-numbered-mail',
-      controller: 'ExamineesNumberedMailController',
-      controllerAs: 'ctrl'
-    };
-    var ExamineesNumbering = {
-      name: 'ExamineesNumbering',
-      url: '/examinees-numbering',
-      templateUrl: 'content/examinees-numbering',
-      controller: 'ExamineesNumberingController',
-      controllerAs: 'ctrl'
-    };
-    var ExamineesReservation = {
-      name: 'ExamineesReservation',
-      url: '/examinees-reservation',
-      templateUrl: 'content/examinees-reservation',
-      controller: 'ExamineesReservationController',
-      controllerAs: 'ctrl'
-    };
-    var GpaCsvExport = {
-      name: 'GpaCsvExport',
-      url: '/gpa-csv-export',
-      templateUrl: 'content/gpa-csv-export',
-      controller: 'GpaCsvExportController',
-      controllerAs: 'ctrl'
-    };
-    var InformationAdd = {
-      name: 'InformationAdd',
-      url: '/information-add',
-      templateUrl: 'content/information-add',
-      controller: 'InformationAddController',
-      controllerAs: 'ctrl'
-    };
-    var InformationEdit = {
-      name: 'InformationEdit',
-      url: '/information-edit',
-      templateUrl: 'content/information-edit',
-      controller: 'InformationEditController',
-      controllerAs: 'ctrl'
-    };
-    var Information = {
-      name: 'Information',
-      url: '/information',
-      templateUrl: 'content/information',
-      controller: 'InformationController',
-      controllerAs: 'ctrl'
-    };
-    var Informations = {
-      name: 'Informations',
-      url: '/informations',
-      templateUrl: 'content/informations',
-      controller: 'InformationsController',
-      controllerAs: 'ctrl'
-    };
-    var MailMagazineAdd = {
-      name: 'MailMagazineAdd',
-      url: '/mail-magazine-add',
-      templateUrl: 'content/mail-magazine-add',
-      controller: 'MailMagazineAddController',
-      controllerAs: 'ctrl'
-    };
-    var MailMagazineEdit = {
-      name: 'MailMagazineEdit',
-      url: '/mail-magazine-edit',
-      templateUrl: 'content/mail-magazine-edit',
-      controller: 'MailMagazineEditController',
-      controllerAs: 'ctrl'
-    };
-    var MailMagazineList = {
-      name: 'MailMagazineList',
-      url: '/mail-magazine-list',
-      templateUrl: 'content/mail-magazine-list',
-      controller: 'MailMagazineListController',
-      controllerAs: 'ctrl'
-    };
-    var MailMagazine = {
-      name: 'MailMagazine',
-      url: '/mail-magazine',
-      templateUrl: 'content/mail-magazine',
-      controller: 'MailMagazineController',
-      controllerAs: 'ctrl'
-    };
-    var OperatorAdd = {
-      name: 'OperatorAdd',
-      url: '/operator-add',
-      templateUrl: 'content/operator-add',
-      controller: 'OperatorAddController',
-      controllerAs: 'ctrl'
-    };
-    var OperatorEdit = {
-      name: 'OperatorEdit',
-      url: '/operator-edit',
-      templateUrl: 'content/operator-edit',
-      controller: 'OperatorEditController',
-      controllerAs: 'ctrl'
-    };
-    var Operator = {
-      name: 'Operator',
-      url: '/operator',
-      templateUrl: 'content/operator',
-      controller: 'OperatorController',
-      controllerAs: 'ctrl'
-    };
-    var Operators = {
-      name: 'Operators',
-      url: '/operators',
-      templateUrl: 'content/operators',
-      controller: 'OperatorsController',
-      controllerAs: 'ctrl'
-    };
-    var PasswordEdit = {
-      name: 'PasswordEdit',
-      url: '/password-edit',
-      templateUrl: 'content/password-edit',
-      controller: 'PasswordEditController',
-      controllerAs: 'ctrl'
-    };
-    var PaymentConfirmation = {
-      name: 'PaymentConfirmation',
-      url: '/payment-confirmation',
-      templateUrl: 'content/payment-confirmation',
-      controller: 'PaymentConfirmationController',
-      controllerAs: 'ctrl'
-    };
-    var PhotosConfirmationPdfExport = {
-      name: 'PhotosConfirmationPdfExport',
-      url: '/photos-confirmation-pdf-export',
-      templateUrl: 'content/photos-confirmation-pdf-export',
-      controller: 'PhotosConfirmationPdfExportController',
-      controllerAs: 'ctrl'
-    };
-    var PhotosPdfExport = {
-      name: 'PhotosPdfExport',
-      url: '/photos-pdf-export',
-      templateUrl: 'content/photos-pdf-export',
-      controller: 'PhotosPdfExportController',
-      controllerAs: 'ctrl'
-    };
-    var ReportProcessingResult = {
-      name: 'ReportProcessingResult',
-      url: '/report-processing-result',
-      templateUrl: 'content/report-processing-result',
-      controller: 'ReportProcessingResultController',
-      controllerAs: 'ctrl'
-    };
-    var ReportProcessingStatus = {
-      name: 'ReportProcessingStatus',
-      url: '/report-processing-status',
-      templateUrl: 'content/report-processing-status',
-      controller: 'ReportProcessingStatusController',
-      controllerAs: 'ctrl'
-    };
-    var ReportReceivedTotal = {
-      name: 'ReportReceivedTotal',
-      url: '/report-received-total',
-      templateUrl: 'content/report-received-total',
-      controller: 'ReportReceivedTotalController',
-      controllerAs: 'ctrl'
-    };
-    var TicketCheck = {
-      name: 'TicketCheck',
-      url: '/ticket-check',
-      templateUrl: 'content/ticket-check',
-      controller: 'TicketCheckController',
-      controllerAs: 'ctrl'
-    };
-    var TicketMail = {
-      name: 'TicketMail',
-      url: '/ticket-mail',
-      templateUrl: 'content/ticket-mail',
-      controller: 'TicketMailController',
-      controllerAs: 'ctrl'
-    };
-    var UserApplicationModification = {
-      name: 'UserApplicationModification',
-      url: '/user-application-modification',
-      templateUrl: 'content/user-application-modification',
-      controller: 'UserApplicationModificationController',
-      controllerAs: 'ctrl'
-    };
-    var UserEdit = {
-      name: 'UserEdit',
-      url: '/user-edit',
-      templateUrl: 'content/user-edit',
-      controller: 'UserEditController',
-      controllerAs: 'ctrl'
-    };
-    var UserModificationComparison = {
-      name: 'UserModificationComparison',
-      url: '/user-modification-comparison',
-      templateUrl: 'content/user-modification-comparison',
-      controller: 'UserModificationComparisonController',
-      controllerAs: 'ctrl'
-    };
-    var UserModifications = {
-      name: 'UserModifications',
-      url: '/user-modifications',
-      templateUrl: 'content/user-modifications',
-      controller: 'UserModificationsController',
-      controllerAs: 'ctrl'
-    };
-    var UserSameExport = {
-      name: 'UserSameExport',
-      url: '/user-same-export',
-      templateUrl: 'content/user-same-export',
-      controller: 'UserSameExportController',
-      controllerAs: 'ctrl'
-    };
-    var UserSearch = {
-      name: 'UserSearch',
-      url: '/user-search',
-      templateUrl: 'content/user-search',
-      controller: 'UserSearchController',
-      controllerAs: 'ctrl'
-    };
-    var User = {
-      name: 'User',
-      url: '/user',
-      templateUrl: 'content/user',
-      controller: 'UserController',
-      controllerAs: 'ctrl'
-    };
-    var Users = {
-      name: 'Users',
-      url: '/users',
-      templateUrl: 'content/users',
-      controller: 'UsersController',
-      controllerAs: 'ctrl'
-    };
+    var MemberInformationSearch = { name : 'MemberInformationSearch', url : '/member-information-search', templateUrl : 'content/member-information-search', controller : 'MemberInformationSearchController', controllerAs : 'ctrl' };
+    var PersonalInformationChangeRequest = { name : 'PersonalInformationChangeRequest', url : '/personal-information-change-request', templateUrl : 'content/personal-information-change-request', controller : 'PersonalInformationChangeRequestController', controllerAs : 'ctrl' };
+    var DuplicateSamePerson = { name : 'DuplicateSamePerson', url : '/duplicate-same-person', templateUrl : 'content/duplicate-same-person', controller : 'DuplicateSamePersonController', controllerAs : 'ctrl' };
+    var ExamScheduleGanttChart = { name : 'ExamScheduleGanttChart', url : '/exam-schedule-gantt-chart', templateUrl : 'content/exam-schedule-gantt-chart', controller : 'ExamScheduleGanttChartController', controllerAs : 'ctrl' };
+    var ExamRelated = { name : 'ExamRelated', url : '/exam-related', templateUrl : 'content/exam-related', controller : 'ExamRelatedController', controllerAs : 'ctrl' };
+    var ExamVoucherPassRejection = { name : 'ExamVoucherPassRejection', url : '/exam-voucher-pass-rejection', templateUrl : 'content/exam-voucher-pass-rejection', controller : 'ExamVoucherPassRejectionController', controllerAs : 'ctrl' };
+    var SystemRelatedList = { name : 'SystemRelatedList', url : '/system-related-list', templateUrl : 'content/system-related-list', controller : 'SystemRelatedListController', controllerAs : 'ctrl' };
+    var ExamLocationManagement = { name : 'ExamLocationManagement', url : '/exam-location-management', templateUrl : 'content/exam-location-management', controller : 'ExamLocationManagementController', controllerAs : 'ctrl' };
+    var FacePhotographs = { name : 'FacePhotographs', url : '/face-photographs', templateUrl : 'content/face-photographs', controller : 'FacePhotographsController', controllerAs : 'ctrl' };
+    var FacePhotographsConfirmation = { name : 'FacePhotographsConfirmation', url : '/face-photographs-confirmation', templateUrl : 'content/face-photographs-confirmation', controller : 'FacePhotographsConfirmationController', controllerAs : 'ctrl' };
+    var ImportRatingAverage = { name : 'ImportRatingAverage', url : '/import-rating-average-', templateUrl : 'content/import-rating-average-', controller : 'ImportRatingAverageController', controllerAs : 'ctrl' };
+    var ExaminationNumberTemporaryProcess = { name : 'ExaminationNumberTemporaryProcess', url : '/examination-number-temporary-process', templateUrl : 'content/examination-number-temporary-process', controller : 'ExaminationNumberTemporaryProcessController', controllerAs : 'ctrl' };
+    var ExaminationNumberBooking = { name : 'ExaminationNumberBooking', url : '/examination-number-booking', templateUrl : 'content/examination-number-booking', controller : 'ExaminationNumberBookingController', controllerAs : 'ctrl' };
+    var ExaminationNumberReservationCancellation = { name : 'ExaminationNumberReservationCancellation', url : '/examination-number-reservation-cancellation', templateUrl : 'content/examination-number-reservation-cancellation', controller : 'ExaminationNumberReservationCancellationController', controllerAs : 'ctrl' };
+    var ExamineeReport = { name : 'ExamineeReport', url : '/examinee-report', templateUrl : 'content/examinee-report', controller : 'ExamineeReportController', controllerAs : 'ctrl' };
+    var AcceptanceImportPassRejection = { name : 'AcceptanceImportPassRejection', url : '/acceptance-import-pass-rejection', templateUrl : 'content/acceptance-import-pass-rejection', controller : 'AcceptanceImportPassRejectionController', controllerAs : 'ctrl' };
+    var ExaminationNumberNumberingParameter = { name : 'ExaminationNumberNumberingParameter', url : '/examination-number-numbering-parameter', templateUrl : 'content/examination-number-numbering-parameter', controller : 'ExaminationNumberNumberingParameterController', controllerAs : 'ctrl' };
+    var ExaminationNumberCancellation = { name : 'ExaminationNumberCancellation', url : '/examination-number-cancellation', templateUrl : 'content/examination-number-cancellation', controller : 'ExaminationNumberCancellationController', controllerAs : 'ctrl' };
+    var PracticalExaminationNumberManagement = { name : 'PracticalExaminationNumberManagement', url : '/practical-examination-number-management', templateUrl : 'content/practical-examination-number-management', controller : 'PracticalExaminationNumberManagementController', controllerAs : 'ctrl' };
+    var DailySchedule = { name : 'DailySchedule', url : '/daily-schedule', templateUrl : 'content/daily-schedule', controller : 'DailyScheduleController', controllerAs : 'ctrl' };
+    var ApplicantPreliminaryReport = { name : 'ApplicantPreliminaryReport', url : '/applicant-preliminary-report', templateUrl : 'content/applicant-preliminary-report', controller : 'ApplicantPreliminaryReportController', controllerAs : 'ctrl' };
+    var ChangeLog = { name : 'ChangeLog', url : '/change-log', templateUrl : 'content/change-log', controller : 'ChangeLogController', controllerAs : 'ctrl' };
+    var AcceptanceReport = { name : 'AcceptanceReport', url : '/acceptance-report', templateUrl : 'content/acceptance-report', controller : 'AcceptanceReportController', controllerAs : 'ctrl' };
+    var ProcessingStatusReport = { name : 'ProcessingStatusReport', url : '/processing-status-report', templateUrl : 'content/processing-status-report', controller : 'ProcessingStatusReportController', controllerAs : 'ctrl' };
+    var PaymentAndDocumentArrived = { name : 'PaymentAndDocumentArrived', url : '/payment-and-document-arrived-', templateUrl : 'content/payment-and-document-arrived-', controller : 'PaymentAndDocumentArrivedController', controllerAs : 'ctrl' };
+    var DocumentConfirmation = { name : 'DocumentConfirmation', url : '/document-confirmation', templateUrl : 'content/document-confirmation', controller : 'DocumentConfirmationController', controllerAs : 'ctrl' };
+    var BatchJobExecutionHistory = { name : 'BatchJobExecutionHistory', url : '/batch-job-execution-history', templateUrl : 'content/batch-job-execution-history', controller : 'BatchJobExecutionHistoryController', controllerAs : 'ctrl' };
+    var ExaminationMailTransmissionExamVoucher = { name : 'ExaminationMailTransmissionExamVoucher', url : '/examination-mail-transmission-exam-voucher', templateUrl : 'content/examination-mail-transmission-exam-voucher', controller : 'ExaminationMailTransmissionExamVoucherController', controllerAs : 'ctrl' };
+    var OperatorList = { name : 'OperatorList', url : '/operator-list', templateUrl : 'content/operator-list', controller : 'OperatorListController', controllerAs : 'ctrl' };
+    var OperatorRegistration = { name : 'OperatorRegistration', url : '/operator-registration', templateUrl : 'content/operator-registration', controller : 'OperatorRegistrationController', controllerAs : 'ctrl' };
+    var MailDistributionList = { name : 'MailDistributionList', url : '/mail-distribution-list', templateUrl : 'content/mail-distribution-list', controller : 'MailDistributionListController', controllerAs : 'ctrl' };
+    var MailDeliveryRegistration = { name : 'MailDeliveryRegistration', url : '/mail-delivery-registration', templateUrl : 'content/mail-delivery-registration', controller : 'MailDeliveryRegistrationController', controllerAs : 'ctrl' };
+    var NoticeList = { name : 'NoticeList', url : '/notice-list', templateUrl : 'content/notice-list', controller : 'NoticeListController', controllerAs : 'ctrl' };
+    var NoticeRegistration = { name : 'NoticeRegistration', url : '/notice-registration', templateUrl : 'content/notice-registration', controller : 'NoticeRegistrationController', controllerAs : 'ctrl' };
     $stateProvider.state('index', {
       url: '/',
       templateUrl: 'content/dashboard',
-      controller: 'UserController',
+      controller: 'DashboardController',
       controllerAs: 'ctrl'
-    }).state(ApplicationCsvExport).state(ApplicationDailySummaryExport).state(ApplicationDefectExport).state(ApplicationHandicappedOrNotNumberedExport).state(ApplicationPreliminaryExport).state(BatchJobHistory).state(ChangeLog).state(CsvImport).state(Dashboard).state(ExamDateGantt).state(ExamDateList).state(ExamDateSystem).state(ExamDateTicketResult).state(ExamPlaceCapacitiesEdit).state(ExamPlaceCapacitiesList).state(ExamResult).state(ExamineesNumberedMail).state(ExamineesNumbering).state(ExamineesReservation).state(GpaCsvExport).state(InformationAdd).state(InformationEdit).state(Information).state(Informations).state(MailMagazineAdd).state(MailMagazineEdit).state(MailMagazineList).state(MailMagazine).state(OperatorAdd).state(OperatorEdit).state(Operator).state(Operators).state(PasswordEdit).state(PaymentConfirmation).state(PhotosConfirmationPdfExport).state(PhotosPdfExport).state(ReportProcessingResult).state(ReportProcessingStatus).state(ReportReceivedTotal).state(TicketCheck).state(TicketMail).state(UserApplicationModification).state(UserEdit).state(UserModificationComparison).state(UserModifications).state(UserSameExport).state(UserSearch).state(User).state(Users);
+    })
+    .state(MemberInformationSearch)
+    .state(PersonalInformationChangeRequest)
+    .state(DuplicateSamePerson)
+    .state(ExamScheduleGanttChart)
+    .state(ExamRelated)
+    .state(ExamVoucherPassRejection)
+    .state(SystemRelatedList)
+    .state(ExamLocationManagement)
+    .state(FacePhotographs)
+    .state(FacePhotographsConfirmation)
+    .state(ImportRatingAverage)
+    .state(ExaminationNumberTemporaryProcess)
+    .state(ExaminationNumberBooking)
+    .state(ExaminationNumberReservationCancellation)
+    .state(ExamineeReport)
+    .state(AcceptanceImportPassRejection)
+    .state(ExaminationNumberNumberingParameter)
+    .state(ExaminationNumberCancellation)
+    .state(PracticalExaminationNumberManagement)
+    .state(DailySchedule)
+    .state(ApplicantPreliminaryReport)
+    .state(ChangeLog)
+    .state(AcceptanceReport)
+    .state(ProcessingStatusReport)
+    .state(PaymentAndDocumentArrived)
+    .state(DocumentConfirmation)
+    .state(BatchJobExecutionHistory)
+    .state(ExaminationMailTransmissionExamVoucher)
+    .state(OperatorList)
+    .state(OperatorRegistration)
+    .state(MailDistributionList)
+    .state(MailDeliveryRegistration)
+    .state(NoticeList)
+    .state(NoticeRegistration);
   }
 ]);

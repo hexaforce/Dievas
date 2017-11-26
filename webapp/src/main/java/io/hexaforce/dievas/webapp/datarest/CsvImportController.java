@@ -1,7 +1,10 @@
 package io.hexaforce.dievas.webapp.datarest;
+
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
 import io.hexaforce.dievas.database.freude.entity.CsvImport;
+
 /**
  * CsvImport router function.
  * 
@@ -10,4 +13,5 @@ import io.hexaforce.dievas.database.freude.entity.CsvImport;
  */
 
 @RepositoryRestResource(collectionResourceRel = "csv_import", path = "csv_import")
-public interface CsvImportController extends PagingAndSortingRepository<CsvImport, Integer> {}
+public interface CsvImportController extends PagingAndSortingRepository<CsvImport, Integer> {
+}

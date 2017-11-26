@@ -1,7 +1,9 @@
 package io.hexaforce.dievas.database.freude.repository;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import io.hexaforce.dievas.database.freude.entity.ExamFee;
+
 /**
  * ExamFee data accessor.
  * 
@@ -10,4 +12,5 @@ import io.hexaforce.dievas.database.freude.entity.ExamFee;
  */
 
 @Repository
-public interface ExamFeeRepository extends JpaRepository<ExamFee, Integer> {}
+public interface ExamFeeRepository extends JpaRepository<ExamFee, Integer> {
+}

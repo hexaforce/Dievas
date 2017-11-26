@@ -1,7 +1,9 @@
 package io.hexaforce.dievas.database.freude.repository;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import io.hexaforce.dievas.database.freude.entity.UserProfile;
+
 /**
  * UserProfile data accessor.
  * 
@@ -10,4 +12,5 @@ import io.hexaforce.dievas.database.freude.entity.UserProfile;
  */
 
 @Repository
-public interface UserProfileRepository extends JpaRepository<UserProfile, Integer> {}
+public interface UserProfileRepository extends JpaRepository<UserProfile, Integer> {
+}

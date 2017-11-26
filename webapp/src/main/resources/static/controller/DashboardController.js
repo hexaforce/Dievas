@@ -1,9 +1,12 @@
 'use strict';
-/**************************************************************************
- * DashboardService
- **************************************************************************/
-app.factory('DashboardService', [ 'DievasConfig', 'Restangular', '$localStorage', '$http', '$q',
-  function (DievasConfig, Restangular, $localStorage, $http, $q) {
-	var factory = {};return factory;
-  }
-]);
+/*******************************************************************************
+ * DashboardController
+ ******************************************************************************/
+app.controller('DashboardController', ['DashboardService', '$scope',
+	  function (DashboardService, $scope) {
+	    $scope.init = function () {
+	      console.log('DashboardController: init()');
+	      DashboardService.init();
+	    }
+	  }
+	]);

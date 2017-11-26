@@ -1,7 +1,9 @@
 package io.hexaforce.dievas.database.freude.repository;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import io.hexaforce.dievas.database.freude.entity.ValidationRule;
+
 /**
  * ValidationRule data accessor.
  * 
@@ -10,4 +12,5 @@ import io.hexaforce.dievas.database.freude.entity.ValidationRule;
  */
 
 @Repository
-public interface ValidationRuleRepository extends JpaRepository<ValidationRule, Integer> {}
+public interface ValidationRuleRepository extends JpaRepository<ValidationRule, Integer> {
+}

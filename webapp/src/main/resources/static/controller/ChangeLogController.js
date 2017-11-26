@@ -1,9 +1,5 @@
 'use strict';
-/**************************************************************************
- * ChangeLogService
- **************************************************************************/
-app.factory('ChangeLogService', [ 'DievasConfig', 'Restangular', '$localStorage', '$http', '$q',
-  function (DievasConfig, Restangular, $localStorage, $http, $q) {
-	var factory = {};return factory;
-  }
-]);
+/*************************************************************************
+ * ChangeLogController
+ *************************************************************************/
+app.controller('ChangeLogController', ['ChangeLogService', '$scope', function (ChangeLogService, $scope) {function init() {}}]);

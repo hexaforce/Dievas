@@ -11,7 +11,12 @@ import io.hexaforce.dievas.service.ChangeLogService;
  * @version 1.0.0.BUILD-SNAPSHOT
  * @author T.Tantaka <relics9@gmail.com>
  */
+
 @Transactional
 @Service("changeLogService")
 public class ChangeLogServiceImpl implements ChangeLogService {
+	@Override
+	public String serviceName() {
+		return "changeLog";
+	}
 }

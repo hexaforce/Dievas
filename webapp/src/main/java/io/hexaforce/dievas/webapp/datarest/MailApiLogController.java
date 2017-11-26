@@ -1,7 +1,10 @@
 package io.hexaforce.dievas.webapp.datarest;
+
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
 import io.hexaforce.dievas.database.freude.entity.MailApiLog;
+
 /**
  * MailApiLog router function.
  * 
@@ -10,4 +13,5 @@ import io.hexaforce.dievas.database.freude.entity.MailApiLog;
  */
 
 @RepositoryRestResource(collectionResourceRel = "mail_api_log", path = "mail_api_log")
-public interface MailApiLogController extends PagingAndSortingRepository<MailApiLog, Integer> {}
+public interface MailApiLogController extends PagingAndSortingRepository<MailApiLog, Integer> {
+}

@@ -1,7 +1,9 @@
 package io.hexaforce.dievas.database.freude.repository;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import io.hexaforce.dievas.database.freude.entity.ParentRelation;
+
 /**
  * ParentRelation data accessor.
  * 
@@ -10,4 +12,5 @@ import io.hexaforce.dievas.database.freude.entity.ParentRelation;
  */
 
 @Repository
-public interface ParentRelationRepository extends JpaRepository<ParentRelation, Integer> {}
+public interface ParentRelationRepository extends JpaRepository<ParentRelation, Integer> {
+}

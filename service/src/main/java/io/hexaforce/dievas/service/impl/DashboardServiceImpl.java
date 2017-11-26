@@ -11,7 +11,12 @@ import io.hexaforce.dievas.service.DashboardService;
  * @version 1.0.0.BUILD-SNAPSHOT
  * @author T.Tantaka <relics9@gmail.com>
  */
+
 @Transactional
 @Service("dashboardService")
 public class DashboardServiceImpl implements DashboardService {
+	@Override
+	public String serviceName() {
+		return "dashboard";
+	}
 }

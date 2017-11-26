@@ -1,7 +1,10 @@
 package io.hexaforce.dievas.webapp.datarest;
+
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
 import io.hexaforce.dievas.database.freude.entity.UserProfileReflectionRequest;
+
 /**
  * UserProfileReflectionRequest router function.
  * 
@@ -10,4 +13,6 @@ import io.hexaforce.dievas.database.freude.entity.UserProfileReflectionRequest;
  */
 
 @RepositoryRestResource(collectionResourceRel = "user_profile_reflection_request", path = "user_profile_reflection_request")
-public interface UserProfileReflectionRequestController extends PagingAndSortingRepository<UserProfileReflectionRequest, Integer> {}
+public interface UserProfileReflectionRequestController
+		extends PagingAndSortingRepository<UserProfileReflectionRequest, Integer> {
+}

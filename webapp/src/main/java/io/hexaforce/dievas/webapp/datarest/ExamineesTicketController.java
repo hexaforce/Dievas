@@ -1,7 +1,10 @@
 package io.hexaforce.dievas.webapp.datarest;
+
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
 import io.hexaforce.dievas.database.freude.entity.ExamineesTicket;
+
 /**
  * ExamineesTicket router function.
  * 
@@ -10,4 +13,5 @@ import io.hexaforce.dievas.database.freude.entity.ExamineesTicket;
  */
 
 @RepositoryRestResource(collectionResourceRel = "examinees_ticket", path = "examinees_ticket")
-public interface ExamineesTicketController extends PagingAndSortingRepository<ExamineesTicket, Integer> {}
+public interface ExamineesTicketController extends PagingAndSortingRepository<ExamineesTicket, Integer> {
+}

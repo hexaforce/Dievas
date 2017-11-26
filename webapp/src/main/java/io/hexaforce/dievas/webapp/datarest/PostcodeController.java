@@ -1,7 +1,10 @@
 package io.hexaforce.dievas.webapp.datarest;
+
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
 import io.hexaforce.dievas.database.freude.entity.Postcode;
+
 /**
  * Postcode router function.
  * 
@@ -10,4 +13,5 @@ import io.hexaforce.dievas.database.freude.entity.Postcode;
  */
 
 @RepositoryRestResource(collectionResourceRel = "postcode", path = "postcode")
-public interface PostcodeController extends PagingAndSortingRepository<Postcode, Integer> {}
+public interface PostcodeController extends PagingAndSortingRepository<Postcode, Integer> {
+}

@@ -1,7 +1,10 @@
 package io.hexaforce.dievas.webapp.datarest;
+
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
 import io.hexaforce.dievas.database.freude.entity.InterimUser;
+
 /**
  * InterimUser router function.
  * 
@@ -10,4 +13,5 @@ import io.hexaforce.dievas.database.freude.entity.InterimUser;
  */
 
 @RepositoryRestResource(collectionResourceRel = "interim_user", path = "interim_user")
-public interface InterimUserController extends PagingAndSortingRepository<InterimUser, Integer> {}
+public interface InterimUserController extends PagingAndSortingRepository<InterimUser, Integer> {
+}

@@ -1,7 +1,10 @@
 package io.hexaforce.dievas.webapp.datarest;
+
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
 import io.hexaforce.dievas.database.freude.entity.ValidationRule;
+
 /**
  * ValidationRule router function.
  * 
@@ -10,4 +13,5 @@ import io.hexaforce.dievas.database.freude.entity.ValidationRule;
  */
 
 @RepositoryRestResource(collectionResourceRel = "validation_rule", path = "validation_rule")
-public interface ValidationRuleController extends PagingAndSortingRepository<ValidationRule, Integer> {}
+public interface ValidationRuleController extends PagingAndSortingRepository<ValidationRule, Integer> {
+}

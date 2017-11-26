@@ -1,5 +1,16 @@
 'use strict';
-/*************************************************************************
- * DashboardController
- *************************************************************************/
-app.controller('DashboardController', ['DashboardService', '$scope', function (DashboardService, $scope) {function init() {}}]);
+/**************************************************************************
+ * DashboardService
+ **************************************************************************/
+app.factory('DashboardService', ['Exam', 'DievasConfig', 'Restangular', '$localStorage', '$http', '$q',
+  function (Exam, DievasConfig, Restangular, $localStorage, $http, $q) {
+	var factory = {
+      init:init	
+	};
+	return factory;
+	function init(){
+		Exam.getList();
+      console.log('DashboardService: init()');
+	}
+  }
+]);

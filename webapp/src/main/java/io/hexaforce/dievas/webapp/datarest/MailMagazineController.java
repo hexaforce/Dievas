@@ -1,7 +1,10 @@
 package io.hexaforce.dievas.webapp.datarest;
+
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
 import io.hexaforce.dievas.database.freude.entity.MailMagazine;
+
 /**
  * MailMagazine router function.
  * 
@@ -10,4 +13,5 @@ import io.hexaforce.dievas.database.freude.entity.MailMagazine;
  */
 
 @RepositoryRestResource(collectionResourceRel = "mail_magazine", path = "mail_magazine")
-public interface MailMagazineController extends PagingAndSortingRepository<MailMagazine, Integer> {}
+public interface MailMagazineController extends PagingAndSortingRepository<MailMagazine, Integer> {
+}

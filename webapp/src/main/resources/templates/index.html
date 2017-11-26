@@ -1,120 +1,107 @@
 <!DOCTYPE html>
 
 <!-- Thymeleafでmain.htmlのレイアウトを使用します。css、js、contentがlayoutにあるmain.htmlよりコールされます　 -->
-<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout/main :: layout ('index')}">
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{layout/main :: layout ('index')}">
 
- <!-- ページ固有のスタイルシートはここにまとめて定義します -->
+<!-- ページ固有のスタイルシートはここにまとめて定義します -->
 <th:block th:fragment="css">
-  <!-- ページ固有 Stylesheet -->
-  
+	<!-- ページ固有 Stylesheet -->
+
 </th:block>
- 
- <!-- ページ固有のスクリプトはここにまとめて定義します -->
+
+<!-- ページ固有のスクリプトはここにまとめて定義します -->
 <th:block th:fragment="js">
-  <!-- ページ固有 Scripts -->
-<script th:src="@{/service/ApplicationCsvExportService.js}"></script>
-<script th:src="@{/controller/ApplicationCsvExportController.js}"></script>
-<script th:src="@{/service/ApplicationDailySummaryExportService.js}"></script>
-<script th:src="@{/controller/ApplicationDailySummaryExportController.js}"></script>
-<script th:src="@{/service/ApplicationDefectExportService.js}"></script>
-<script th:src="@{/controller/ApplicationDefectExportController.js}"></script>
-<script th:src="@{/service/ApplicationHandicappedOrNotNumberedExportService.js}"></script>
-<script th:src="@{/controller/ApplicationHandicappedOrNotNumberedExportController.js}"></script>
-<script th:src="@{/service/ApplicationPreliminaryExportService.js}"></script>
-<script th:src="@{/controller/ApplicationPreliminaryExportController.js}"></script>
-<script th:src="@{/service/BatchJobHistoryService.js}"></script>
-<script th:src="@{/controller/BatchJobHistoryController.js}"></script>
-<script th:src="@{/service/ChangeLogService.js}"></script>
-<script th:src="@{/controller/ChangeLogController.js}"></script>
-<script th:src="@{/service/CsvImportService.js}"></script>
-<script th:src="@{/controller/CsvImportController.js}"></script>
-<script th:src="@{/service/DashboardService.js}"></script>
-<script th:src="@{/controller/DashboardController.js}"></script>
-<script th:src="@{/service/ExamDateGanttService.js}"></script>
-<script th:src="@{/controller/ExamDateGanttController.js}"></script>
-<script th:src="@{/service/ExamDateListService.js}"></script>
-<script th:src="@{/controller/ExamDateListController.js}"></script>
-<script th:src="@{/service/ExamDateSystemService.js}"></script>
-<script th:src="@{/controller/ExamDateSystemController.js}"></script>
-<script th:src="@{/service/ExamDateTicketResultService.js}"></script>
-<script th:src="@{/controller/ExamDateTicketResultController.js}"></script>
-<script th:src="@{/service/ExamPlaceCapacitiesEditService.js}"></script>
-<script th:src="@{/controller/ExamPlaceCapacitiesEditController.js}"></script>
-<script th:src="@{/service/ExamPlaceCapacitiesListService.js}"></script>
-<script th:src="@{/controller/ExamPlaceCapacitiesListController.js}"></script>
-<script th:src="@{/service/ExamResultService.js}"></script>
-<script th:src="@{/controller/ExamResultController.js}"></script>
-<script th:src="@{/service/ExamineesNumberedMailService.js}"></script>
-<script th:src="@{/controller/ExamineesNumberedMailController.js}"></script>
-<script th:src="@{/service/ExamineesNumberingService.js}"></script>
-<script th:src="@{/controller/ExamineesNumberingController.js}"></script>
-<script th:src="@{/service/ExamineesReservationService.js}"></script>
-<script th:src="@{/controller/ExamineesReservationController.js}"></script>
-<script th:src="@{/service/GpaCsvExportService.js}"></script>
-<script th:src="@{/controller/GpaCsvExportController.js}"></script>
-<script th:src="@{/service/InformationAddService.js}"></script>
-<script th:src="@{/controller/InformationAddController.js}"></script>
-<script th:src="@{/service/InformationEditService.js}"></script>
-<script th:src="@{/controller/InformationEditController.js}"></script>
-<script th:src="@{/service/InformationService.js}"></script>
-<script th:src="@{/controller/InformationController.js}"></script>
-<script th:src="@{/service/InformationsService.js}"></script>
-<script th:src="@{/controller/InformationsController.js}"></script>
-<script th:src="@{/service/MailMagazineAddService.js}"></script>
-<script th:src="@{/controller/MailMagazineAddController.js}"></script>
-<script th:src="@{/service/MailMagazineEditService.js}"></script>
-<script th:src="@{/controller/MailMagazineEditController.js}"></script>
-<script th:src="@{/service/MailMagazineListService.js}"></script>
-<script th:src="@{/controller/MailMagazineListController.js}"></script>
-<script th:src="@{/service/MailMagazineService.js}"></script>
-<script th:src="@{/controller/MailMagazineController.js}"></script>
-<script th:src="@{/service/OperatorAddService.js}"></script>
-<script th:src="@{/controller/OperatorAddController.js}"></script>
-<script th:src="@{/service/OperatorEditService.js}"></script>
-<script th:src="@{/controller/OperatorEditController.js}"></script>
-<script th:src="@{/service/OperatorService.js}"></script>
-<script th:src="@{/controller/OperatorController.js}"></script>
-<script th:src="@{/service/OperatorsService.js}"></script>
-<script th:src="@{/controller/OperatorsController.js}"></script>
-<script th:src="@{/service/PasswordEditService.js}"></script>
-<script th:src="@{/controller/PasswordEditController.js}"></script>
-<script th:src="@{/service/PaymentConfirmationService.js}"></script>
-<script th:src="@{/controller/PaymentConfirmationController.js}"></script>
-<script th:src="@{/service/PhotosConfirmationPdfExportService.js}"></script>
-<script th:src="@{/controller/PhotosConfirmationPdfExportController.js}"></script>
-<script th:src="@{/service/PhotosPdfExportService.js}"></script>
-<script th:src="@{/controller/PhotosPdfExportController.js}"></script>
-<script th:src="@{/service/ReportProcessingResultService.js}"></script>
-<script th:src="@{/controller/ReportProcessingResultController.js}"></script>
-<script th:src="@{/service/ReportProcessingStatusService.js}"></script>
-<script th:src="@{/controller/ReportProcessingStatusController.js}"></script>
-<script th:src="@{/service/ReportReceivedTotalService.js}"></script>
-<script th:src="@{/controller/ReportReceivedTotalController.js}"></script>
-<script th:src="@{/service/TicketCheckService.js}"></script>
-<script th:src="@{/controller/TicketCheckController.js}"></script>
-<script th:src="@{/service/TicketMailService.js}"></script>
-<script th:src="@{/controller/TicketMailController.js}"></script>
-<script th:src="@{/service/UserApplicationModificationService.js}"></script>
-<script th:src="@{/controller/UserApplicationModificationController.js}"></script>
-<script th:src="@{/service/UserEditService.js}"></script>
-<script th:src="@{/controller/UserEditController.js}"></script>
-<script th:src="@{/service/UserModificationComparisonService.js}"></script>
-<script th:src="@{/controller/UserModificationComparisonController.js}"></script>
-<script th:src="@{/service/UserModificationsService.js}"></script>
-<script th:src="@{/controller/UserModificationsController.js}"></script>
-<script th:src="@{/service/UserSameExportService.js}"></script>
-<script th:src="@{/controller/UserSameExportController.js}"></script>
-<script th:src="@{/service/UserSearchService.js}"></script>
-<script th:src="@{/controller/UserSearchController.js}"></script>
-<script th:src="@{/service/UserService.js}"></script>
-<script th:src="@{/controller/UserController.js}"></script>
-<script th:src="@{/service/UsersService.js}"></script>
-<script th:src="@{/controller/UsersController.js}"></script>
+	<!-- ページ固有 Scripts -->
+	<script th:src="@{/service/DashboardService.js}"></script>
+	<script th:src="@{/controller/DashboardController.js}"></script>
+	<script th:src="@{/service/MemberInformationSearchService.js}"></script>
+	<script th:src="@{/controller/MemberInformationSearchController.js}"></script>
+	<script th:src="@{/service/PersonalInformationChangeRequestService.js}"></script>
+	<script
+		th:src="@{/controller/PersonalInformationChangeRequestController.js}"></script>
+	<script th:src="@{/service/DuplicateSamePersonService.js}"></script>
+	<script th:src="@{/controller/DuplicateSamePersonController.js}"></script>
+	<script th:src="@{/service/ExamScheduleGanttChartService.js}"></script>
+	<script th:src="@{/controller/ExamScheduleGanttChartController.js}"></script>
+	<script th:src="@{/service/ExamRelatedService.js}"></script>
+	<script th:src="@{/controller/ExamRelatedController.js}"></script>
+	<script th:src="@{/service/ExamVoucherPassRejectionService.js}"></script>
+	<script th:src="@{/controller/ExamVoucherPassRejectionController.js}"></script>
+	<script th:src="@{/service/SystemRelatedListService.js}"></script>
+	<script th:src="@{/controller/SystemRelatedListController.js}"></script>
+	<script th:src="@{/service/ExamLocationManagementService.js}"></script>
+	<script th:src="@{/controller/ExamLocationManagementController.js}"></script>
+	<script th:src="@{/service/FacePhotographsService.js}"></script>
+	<script th:src="@{/controller/FacePhotographsController.js}"></script>
+	<script th:src="@{/service/FacePhotographsConfirmationService.js}"></script>
+	<script
+		th:src="@{/controller/FacePhotographsConfirmationController.js}"></script>
+	<script th:src="@{/service/ImportRatingAverageService.js}"></script>
+	<script th:src="@{/controller/ImportRatingAverageController.js}"></script>
+	<script
+		th:src="@{/service/ExaminationNumberTemporaryProcessService.js}"></script>
+	<script
+		th:src="@{/controller/ExaminationNumberTemporaryProcessController.js}"></script>
+	<script th:src="@{/service/ExaminationNumberBookingService.js}"></script>
+	<script th:src="@{/controller/ExaminationNumberBookingController.js}"></script>
+	<script
+		th:src="@{/service/ExaminationNumberReservationCancellationService.js}"></script>
+	<script
+		th:src="@{/controller/ExaminationNumberReservationCancellationController.js}"></script>
+	<script th:src="@{/service/ExamineeReportService.js}"></script>
+	<script th:src="@{/controller/ExamineeReportController.js}"></script>
+	<script th:src="@{/service/AcceptanceImportPassRejectionService.js}"></script>
+	<script
+		th:src="@{/controller/AcceptanceImportPassRejectionController.js}"></script>
+	<script
+		th:src="@{/service/ExaminationNumberNumberingParameterService.js}"></script>
+	<script
+		th:src="@{/controller/ExaminationNumberNumberingParameterController.js}"></script>
+	<script th:src="@{/service/ExaminationNumberCancellationService.js}"></script>
+	<script
+		th:src="@{/controller/ExaminationNumberCancellationController.js}"></script>
+	<script
+		th:src="@{/service/PracticalExaminationNumberManagementService.js}"></script>
+	<script
+		th:src="@{/controller/PracticalExaminationNumberManagementController.js}"></script>
+	<script th:src="@{/service/DailyScheduleService.js}"></script>
+	<script th:src="@{/controller/DailyScheduleController.js}"></script>
+	<script th:src="@{/service/ApplicantPreliminaryReportService.js}"></script>
+	<script th:src="@{/controller/ApplicantPreliminaryReportController.js}"></script>
+	<script th:src="@{/service/ChangeLogService.js}"></script>
+	<script th:src="@{/controller/ChangeLogController.js}"></script>
+	<script th:src="@{/service/AcceptanceReportService.js}"></script>
+	<script th:src="@{/controller/AcceptanceReportController.js}"></script>
+	<script th:src="@{/service/ProcessingStatusReportService.js}"></script>
+	<script th:src="@{/controller/ProcessingStatusReportController.js}"></script>
+	<script th:src="@{/service/PaymentAndDocumentArrivedService.js}"></script>
+	<script th:src="@{/controller/PaymentAndDocumentArrivedController.js}"></script>
+	<script th:src="@{/service/DocumentConfirmationService.js}"></script>
+	<script th:src="@{/controller/DocumentConfirmationController.js}"></script>
+	<script th:src="@{/service/BatchJobExecutionHistoryService.js}"></script>
+	<script th:src="@{/controller/BatchJobExecutionHistoryController.js}"></script>
+	<script
+		th:src="@{/service/ExaminationMailTransmissionExamVoucherService.js}"></script>
+	<script
+		th:src="@{/controller/ExaminationMailTransmissionExamVoucherController.js}"></script>
+	<script th:src="@{/service/OperatorListService.js}"></script>
+	<script th:src="@{/controller/OperatorListController.js}"></script>
+	<script th:src="@{/service/OperatorRegistrationService.js}"></script>
+	<script th:src="@{/controller/OperatorRegistrationController.js}"></script>
+	<script th:src="@{/service/MailDistributionListService.js}"></script>
+	<script th:src="@{/controller/MailDistributionListController.js}"></script>
+	<script th:src="@{/service/MailDeliveryRegistrationService.js}"></script>
+	<script th:src="@{/controller/MailDeliveryRegistrationController.js}"></script>
+	<script th:src="@{/service/NoticeListService.js}"></script>
+	<script th:src="@{/controller/NoticeListController.js}"></script>
+	<script th:src="@{/service/NoticeRegistrationService.js}"></script>
+	<script th:src="@{/controller/NoticeRegistrationController.js}"></script>
 </th:block>
- 
+
 <!-- content部分は非同期で取得します。 -->
 <th:block th:fragment="content (page)">
- <div ui-view class="right_col" role="main"/>
+	<div ui-view class="right_col" role="main" />
 </th:block>
 
 </html>

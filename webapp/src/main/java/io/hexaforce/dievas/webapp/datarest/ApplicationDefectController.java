@@ -1,7 +1,10 @@
 package io.hexaforce.dievas.webapp.datarest;
+
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
 import io.hexaforce.dievas.database.freude.entity.ApplicationDefect;
+
 /**
  * ApplicationDefect router function.
  * 
@@ -10,4 +13,5 @@ import io.hexaforce.dievas.database.freude.entity.ApplicationDefect;
  */
 
 @RepositoryRestResource(collectionResourceRel = "application_defect", path = "application_defect")
-public interface ApplicationDefectController extends PagingAndSortingRepository<ApplicationDefect, Integer> {}
+public interface ApplicationDefectController extends PagingAndSortingRepository<ApplicationDefect, Integer> {
+}

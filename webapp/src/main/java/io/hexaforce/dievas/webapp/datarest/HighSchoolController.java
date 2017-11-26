@@ -1,7 +1,10 @@
 package io.hexaforce.dievas.webapp.datarest;
+
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
 import io.hexaforce.dievas.database.freude.entity.HighSchool;
+
 /**
  * HighSchool router function.
  * 
@@ -10,4 +13,5 @@ import io.hexaforce.dievas.database.freude.entity.HighSchool;
  */
 
 @RepositoryRestResource(collectionResourceRel = "high_school", path = "high_school")
-public interface HighSchoolController extends PagingAndSortingRepository<HighSchool, Integer> {}
+public interface HighSchoolController extends PagingAndSortingRepository<HighSchool, Integer> {
+}

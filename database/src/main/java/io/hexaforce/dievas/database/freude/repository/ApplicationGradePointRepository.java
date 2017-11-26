@@ -1,7 +1,9 @@
 package io.hexaforce.dievas.database.freude.repository;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import io.hexaforce.dievas.database.freude.entity.ApplicationGradePoint;
+
 /**
  * ApplicationGradePoint data accessor.
  * 
@@ -10,4 +12,5 @@ import io.hexaforce.dievas.database.freude.entity.ApplicationGradePoint;
  */
 
 @Repository
-public interface ApplicationGradePointRepository extends JpaRepository<ApplicationGradePoint, Integer> {}
+public interface ApplicationGradePointRepository extends JpaRepository<ApplicationGradePoint, Integer> {
+}

@@ -1,7 +1,10 @@
 package io.hexaforce.dievas.webapp.datarest;
+
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
 import io.hexaforce.dievas.database.freude.entity.ExamDateDetail;
+
 /**
  * ExamDateDetail router function.
  * 
@@ -10,4 +13,5 @@ import io.hexaforce.dievas.database.freude.entity.ExamDateDetail;
  */
 
 @RepositoryRestResource(collectionResourceRel = "exam_date_detail", path = "exam_date_detail")
-public interface ExamDateDetailController extends PagingAndSortingRepository<ExamDateDetail, Integer> {}
+public interface ExamDateDetailController extends PagingAndSortingRepository<ExamDateDetail, Integer> {
+}

@@ -1,7 +1,10 @@
 package io.hexaforce.dievas.webapp.datarest;
+
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
 import io.hexaforce.dievas.database.freude.entity.NpsApiLog;
+
 /**
  * NpsApiLog router function.
  * 
@@ -10,4 +13,5 @@ import io.hexaforce.dievas.database.freude.entity.NpsApiLog;
  */
 
 @RepositoryRestResource(collectionResourceRel = "nps_api_log", path = "nps_api_log")
-public interface NpsApiLogController extends PagingAndSortingRepository<NpsApiLog, Integer> {}
+public interface NpsApiLogController extends PagingAndSortingRepository<NpsApiLog, Integer> {
+}

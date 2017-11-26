@@ -8,6 +8,7 @@ app.config(function (RestangularProvider) {
   RestangularProvider.setBaseUrl('/rest');
   // Request interceptor.
   RestangularProvider.setFullRequestInterceptor(function (element, operation, route, url, headers, params, httpConfig) {
+	  console.log('[Request] Restangular:' + operation + ' URL:' + url);
     return {
       element: element,
       params: params,
@@ -17,9 +18,22 @@ app.config(function (RestangularProvider) {
   });
   // Response interceptor.
   RestangularProvider.addResponseInterceptor(function (data, operation, what, url, response, deferred) {
-    return response.data;
+	  console.log('[Response] Restangular:' + operation + ' URL:' + url + '(' + response.config.method + ')' + ' response:' + response.status + '(' + response.statusText + ') xhr:' + response.xhrStatus);
+    return response.data.content;
   });
-}).factory('AdminUser', ['Restangular', function (Restangular) {
+});
+/******************************************************************************
+ * Dievas implement REST
+ ******************************************************************************/
+app.factory('AdminUser', ['Restangular', function (Restangular) {
+  return Restangular.withConfig(function (RestangularConfigurer) {
+    RestangularConfigurer.setBaseUrl('/api');
+  }).service('admin_user');
+}]);
+/******************************************************************************
+ * Spring Data REST
+ ******************************************************************************/
+app.factory('AdminUser', ['Restangular', function (Restangular) {
   return Restangular.withConfig(function (RestangularConfigurer) {}).service('admin_user');
 }]).factory('Application', ['Restangular', function (Restangular) {
   return Restangular.withConfig(function (RestangularConfigurer) {}).service('application');

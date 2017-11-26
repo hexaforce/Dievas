@@ -1,7 +1,10 @@
 package io.hexaforce.dievas.webapp.datarest;
+
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
 import io.hexaforce.dievas.database.freude.entity.Role;
+
 /**
  * Role router function.
  * 
@@ -10,4 +13,5 @@ import io.hexaforce.dievas.database.freude.entity.Role;
  */
 
 @RepositoryRestResource(collectionResourceRel = "role", path = "role")
-public interface RoleController extends PagingAndSortingRepository<Role, Integer> {}
+public interface RoleController extends PagingAndSortingRepository<Role, Integer> {
+}

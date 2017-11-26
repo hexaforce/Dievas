@@ -1,7 +1,10 @@
 package io.hexaforce.dievas.webapp.datarest;
+
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
 import io.hexaforce.dievas.database.freude.entity.ExamFee;
+
 /**
  * ExamFee router function.
  * 
@@ -10,4 +13,5 @@ import io.hexaforce.dievas.database.freude.entity.ExamFee;
  */
 
 @RepositoryRestResource(collectionResourceRel = "exam_fee", path = "exam_fee")
-public interface ExamFeeController extends PagingAndSortingRepository<ExamFee, Integer> {}
+public interface ExamFeeController extends PagingAndSortingRepository<ExamFee, Integer> {
+}

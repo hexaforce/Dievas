@@ -1,7 +1,10 @@
 package io.hexaforce.dievas.webapp.datarest;
+
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
 import io.hexaforce.dievas.database.freude.entity.ModifiedUserProfile;
+
 /**
  * ModifiedUserProfile router function.
  * 
@@ -10,4 +13,5 @@ import io.hexaforce.dievas.database.freude.entity.ModifiedUserProfile;
  */
 
 @RepositoryRestResource(collectionResourceRel = "modified_user_profile", path = "modified_user_profile")
-public interface ModifiedUserProfileController extends PagingAndSortingRepository<ModifiedUserProfile, Integer> {}
+public interface ModifiedUserProfileController extends PagingAndSortingRepository<ModifiedUserProfile, Integer> {
+}

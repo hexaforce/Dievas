@@ -1,7 +1,10 @@
 package io.hexaforce.dievas.webapp.datarest;
+
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
 import io.hexaforce.dievas.database.freude.entity.ModifiedTerm;
+
 /**
  * ModifiedTerm router function.
  * 
@@ -10,4 +13,5 @@ import io.hexaforce.dievas.database.freude.entity.ModifiedTerm;
  */
 
 @RepositoryRestResource(collectionResourceRel = "modified_term", path = "modified_term")
-public interface ModifiedTermController extends PagingAndSortingRepository<ModifiedTerm, Integer> {}
+public interface ModifiedTermController extends PagingAndSortingRepository<ModifiedTerm, Integer> {
+}

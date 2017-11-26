@@ -1,7 +1,10 @@
 package io.hexaforce.dievas.webapp.datarest;
+
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
 import io.hexaforce.dievas.database.freude.entity.ApplicationUserSurveyAnswer;
+
 /**
  * ApplicationUserSurveyAnswer router function.
  * 
@@ -10,4 +13,6 @@ import io.hexaforce.dievas.database.freude.entity.ApplicationUserSurveyAnswer;
  */
 
 @RepositoryRestResource(collectionResourceRel = "application_user_survey_answer", path = "application_user_survey_answer")
-public interface ApplicationUserSurveyAnswerController extends PagingAndSortingRepository<ApplicationUserSurveyAnswer, Integer> {}
+public interface ApplicationUserSurveyAnswerController
+		extends PagingAndSortingRepository<ApplicationUserSurveyAnswer, Integer> {
+}

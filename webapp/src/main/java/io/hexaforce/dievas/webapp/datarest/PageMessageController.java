@@ -1,7 +1,10 @@
 package io.hexaforce.dievas.webapp.datarest;
+
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
 import io.hexaforce.dievas.database.freude.entity.PageMessage;
+
 /**
  * PageMessage router function.
  * 
@@ -10,4 +13,5 @@ import io.hexaforce.dievas.database.freude.entity.PageMessage;
  */
 
 @RepositoryRestResource(collectionResourceRel = "page_message", path = "page_message")
-public interface PageMessageController extends PagingAndSortingRepository<PageMessage, Integer> {}
+public interface PageMessageController extends PagingAndSortingRepository<PageMessage, Integer> {
+}

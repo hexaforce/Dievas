@@ -1,7 +1,10 @@
 package io.hexaforce.dievas.webapp.datarest;
+
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
 import io.hexaforce.dievas.database.freude.entity.ModifiedUserSurveyAnswer;
+
 /**
  * ModifiedUserSurveyAnswer router function.
  * 
@@ -10,4 +13,6 @@ import io.hexaforce.dievas.database.freude.entity.ModifiedUserSurveyAnswer;
  */
 
 @RepositoryRestResource(collectionResourceRel = "modified_user_survey_answer", path = "modified_user_survey_answer")
-public interface ModifiedUserSurveyAnswerController extends PagingAndSortingRepository<ModifiedUserSurveyAnswer, Integer> {}
+public interface ModifiedUserSurveyAnswerController
+		extends PagingAndSortingRepository<ModifiedUserSurveyAnswer, Integer> {
+}

@@ -1,16 +1,16 @@
-<div class="">
-	<div th:replace="~{partials/title :: title (${page})}" />
-	<div class="clearfix"></div>
-	<div class="row">
-		<div class="col-md-12 col-sm-12 col-xs-12">
-			<div class="x_panel">
-				<div class="x_title">
-					<h2>{{functionName}}</h2>
-					<div th:replace="~{partials/toolbox :: toolbox (${page})}" />
-					<div class="clearfix"></div>
-				</div>
-				<div class="x_content"></div>
-			</div>
-		</div>
-	</div>
+<div class="" ng-init="init()">
+  <div th:replace="~{partials/title :: title (${page})}" />
+  <div class="clearfix"></div>
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel">
+        <div class="x_title">
+          <h2>{{serviceName}}</h2>
+          <div th:replace="~{partials/toolbox :: toolbox (${page})}" />
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content"></div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import io.hexaforce.dievas.service.DailyScheduleService;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * DailySchedule service implement.
@@ -12,11 +13,15 @@ import io.hexaforce.dievas.service.DailyScheduleService;
  * @author T.Tantaka <relics9@gmail.com>
  */
 
+@Slf4j
 @Transactional
 @Service("dailyScheduleService")
 public class DailyScheduleServiceImpl implements DailyScheduleService {
+	
 	@Override
-	public String serviceName() {
-		return "dailySchedule";
+	public String init() {
+		log.info("DailyScheduleServiceImpl.java init()");
+		return "dailyScheduleService";
 	}
+
 }

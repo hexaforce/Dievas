@@ -8,5 +8,7 @@ package io.hexaforce.dievas.service;
  */
 
 public interface ApplicantPreliminaryReportService {
-	String serviceName();
+	
+	String init();
+	
 }

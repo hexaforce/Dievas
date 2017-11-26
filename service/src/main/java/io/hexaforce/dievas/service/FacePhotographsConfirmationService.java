@@ -8,5 +8,7 @@ package io.hexaforce.dievas.service;
  */
 
 public interface FacePhotographsConfirmationService {
-	String serviceName();
+	
+	String init();
+	
 }

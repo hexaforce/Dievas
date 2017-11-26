@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import io.hexaforce.dievas.service.ExamineeReportService;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * ExamineeReport service implement.
@@ -12,11 +13,15 @@ import io.hexaforce.dievas.service.ExamineeReportService;
  * @author T.Tantaka <relics9@gmail.com>
  */
 
+@Slf4j
 @Transactional
 @Service("examineeReportService")
 public class ExamineeReportServiceImpl implements ExamineeReportService {
+	
 	@Override
-	public String serviceName() {
-		return "examineeReport";
+	public String init() {
+		log.info("ExamineeReportServiceImpl.java init()");
+		return "examineeReportService";
 	}
+
 }

@@ -8,5 +8,7 @@ package io.hexaforce.dievas.service;
  */
 
 public interface DailyScheduleService {
-	String serviceName();
+	
+	String init();
+	
 }

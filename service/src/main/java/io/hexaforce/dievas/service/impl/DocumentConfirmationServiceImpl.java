@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import io.hexaforce.dievas.service.DocumentConfirmationService;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * DocumentConfirmation service implement.
@@ -12,11 +13,15 @@ import io.hexaforce.dievas.service.DocumentConfirmationService;
  * @author T.Tantaka <relics9@gmail.com>
  */
 
+@Slf4j
 @Transactional
 @Service("documentConfirmationService")
 public class DocumentConfirmationServiceImpl implements DocumentConfirmationService {
+	
 	@Override
-	public String serviceName() {
-		return "documentConfirmation";
+	public String init() {
+		log.info("DocumentConfirmationServiceImpl.java init()");
+		return "documentConfirmationService";
 	}
+
 }

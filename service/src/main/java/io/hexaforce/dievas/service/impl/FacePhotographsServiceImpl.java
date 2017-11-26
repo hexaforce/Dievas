@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import io.hexaforce.dievas.service.FacePhotographsService;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * FacePhotographs service implement.
@@ -12,11 +13,15 @@ import io.hexaforce.dievas.service.FacePhotographsService;
  * @author T.Tantaka <relics9@gmail.com>
  */
 
+@Slf4j
 @Transactional
 @Service("facePhotographsService")
 public class FacePhotographsServiceImpl implements FacePhotographsService {
+	
 	@Override
-	public String serviceName() {
-		return "facePhotographs";
+	public String init() {
+		log.info("FacePhotographsServiceImpl.java init()");
+		return "facePhotographsService";
 	}
+
 }

@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import io.hexaforce.dievas.service.BatchJobExecutionHistoryService;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * BatchJobExecutionHistory service implement.
@@ -12,11 +13,15 @@ import io.hexaforce.dievas.service.BatchJobExecutionHistoryService;
  * @author T.Tantaka <relics9@gmail.com>
  */
 
+@Slf4j
 @Transactional
 @Service("batchJobExecutionHistoryService")
 public class BatchJobExecutionHistoryServiceImpl implements BatchJobExecutionHistoryService {
+	
 	@Override
-	public String serviceName() {
-		return "batchJobExecutionHistory";
+	public String init() {
+		log.info("BatchJobExecutionHistoryServiceImpl.java init()");
+		return "batchJobExecutionHistoryService";
 	}
+
 }

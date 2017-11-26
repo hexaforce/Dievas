@@ -1,9 +1,25 @@
 'use strict';
-/**************************************************************************
+/*******************************************************************************
  * ExaminationMailTransmissionExamVoucherService
- **************************************************************************/
-app.factory('ExaminationMailTransmissionExamVoucherService', [ 'DievasConfig', 'Restangular', '$localStorage', '$http', '$q',
-  function (DievasConfig, Restangular, $localStorage, $http, $q) {
-	var factory = {};return factory;
+ ******************************************************************************/
+app.factory('ExaminationMailTransmissionExamVoucherService', ['ExaminationMailTransmissionExamVoucher', 'DievasConfig', 'Restangular', '$localStorage', '$http', '$q',
+  function (ExaminationMailTransmissionExamVoucher, DievasConfig, Restangular, $localStorage, $http, $q) {
+    var factory = {
+      init: init,
+      getInitResult: getInitResult
+    };
+    return factory;
+
+    function init() {
+      console.log('ExaminationMailTransmissionExamVoucherService.js: init()');
+      ExaminationMailTransmissionExamVoucher.getList().then(function (result) {
+        console.log('Service name >> ' + result[0].message);
+        $localStorage.result = result;
+      });
+    }
+
+    function getInitResult() {
+      return $localStorage.result;
+    }
   }
 ]);

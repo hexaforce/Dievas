@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import io.hexaforce.dievas.service.ExaminationNumberCancellationService;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * ExaminationNumberCancellation service implement.
@@ -12,11 +13,15 @@ import io.hexaforce.dievas.service.ExaminationNumberCancellationService;
  * @author T.Tantaka <relics9@gmail.com>
  */
 
+@Slf4j
 @Transactional
 @Service("examinationNumberCancellationService")
 public class ExaminationNumberCancellationServiceImpl implements ExaminationNumberCancellationService {
+	
 	@Override
-	public String serviceName() {
-		return "examinationNumberCancellation";
+	public String init() {
+		log.info("ExaminationNumberCancellationServiceImpl.java init()");
+		return "examinationNumberCancellationService";
 	}
+
 }

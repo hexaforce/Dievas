@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import io.hexaforce.dievas.service.ExaminationMailTransmissionExamVoucherService;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * ExaminationMailTransmissionExamVoucher service implement.
@@ -12,12 +13,15 @@ import io.hexaforce.dievas.service.ExaminationMailTransmissionExamVoucherService
  * @author T.Tantaka <relics9@gmail.com>
  */
 
+@Slf4j
 @Transactional
 @Service("examinationMailTransmissionExamVoucherService")
-public class ExaminationMailTransmissionExamVoucherServiceImpl
-		implements ExaminationMailTransmissionExamVoucherService {
+public class ExaminationMailTransmissionExamVoucherServiceImpl implements ExaminationMailTransmissionExamVoucherService {
+	
 	@Override
-	public String serviceName() {
-		return "examinationMailTransmissionExamVoucher";
+	public String init() {
+		log.info("ExaminationMailTransmissionExamVoucherServiceImpl.java init()");
+		return "examinationMailTransmissionExamVoucherService";
 	}
+
 }

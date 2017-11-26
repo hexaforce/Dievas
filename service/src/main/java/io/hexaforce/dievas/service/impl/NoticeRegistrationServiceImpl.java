@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import io.hexaforce.dievas.service.NoticeRegistrationService;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * NoticeRegistration service implement.
@@ -12,11 +13,15 @@ import io.hexaforce.dievas.service.NoticeRegistrationService;
  * @author T.Tantaka <relics9@gmail.com>
  */
 
+@Slf4j
 @Transactional
 @Service("noticeRegistrationService")
 public class NoticeRegistrationServiceImpl implements NoticeRegistrationService {
+	
 	@Override
-	public String serviceName() {
-		return "noticeRegistration";
+	public String init() {
+		log.info("NoticeRegistrationServiceImpl.java init()");
+		return "noticeRegistrationService";
 	}
+
 }

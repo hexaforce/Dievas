@@ -8,5 +8,7 @@ package io.hexaforce.dievas.service;
  */
 
 public interface DashboardService {
-	String serviceName();
+	
+	String init();
+	
 }

@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import io.hexaforce.dievas.service.ExaminationNumberTemporaryProcessService;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * ExaminationNumberTemporaryProcess service implement.
@@ -12,11 +13,15 @@ import io.hexaforce.dievas.service.ExaminationNumberTemporaryProcessService;
  * @author T.Tantaka <relics9@gmail.com>
  */
 
+@Slf4j
 @Transactional
 @Service("examinationNumberTemporaryProcessService")
 public class ExaminationNumberTemporaryProcessServiceImpl implements ExaminationNumberTemporaryProcessService {
+	
 	@Override
-	public String serviceName() {
-		return "examinationNumberTemporaryProcess";
+	public String init() {
+		log.info("ExaminationNumberTemporaryProcessServiceImpl.java init()");
+		return "examinationNumberTemporaryProcessService";
 	}
+
 }

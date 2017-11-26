@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import io.hexaforce.dievas.service.SystemRelatedListService;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * SystemRelatedList service implement.
@@ -12,11 +13,15 @@ import io.hexaforce.dievas.service.SystemRelatedListService;
  * @author T.Tantaka <relics9@gmail.com>
  */
 
+@Slf4j
 @Transactional
 @Service("systemRelatedListService")
 public class SystemRelatedListServiceImpl implements SystemRelatedListService {
+	
 	@Override
-	public String serviceName() {
-		return "systemRelatedList";
+	public String init() {
+		log.info("SystemRelatedListServiceImpl.java init()");
+		return "systemRelatedListService";
 	}
+
 }

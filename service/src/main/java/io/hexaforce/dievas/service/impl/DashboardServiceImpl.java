@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import io.hexaforce.dievas.service.DashboardService;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Dashboard service implement.
@@ -12,11 +13,15 @@ import io.hexaforce.dievas.service.DashboardService;
  * @author T.Tantaka <relics9@gmail.com>
  */
 
+@Slf4j
 @Transactional
 @Service("dashboardService")
 public class DashboardServiceImpl implements DashboardService {
+	
 	@Override
-	public String serviceName() {
-		return "dashboard";
+	public String init() {
+		log.info("DashboardServiceImpl.java init()");
+		return "dashboardService";
 	}
+
 }

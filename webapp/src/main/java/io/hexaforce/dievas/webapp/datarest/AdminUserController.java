@@ -14,4 +14,5 @@ import io.hexaforce.dievas.database.freude.entity.AdminUser;
 
 @RepositoryRestResource(collectionResourceRel = "admin_user", path = "admin_user")
 public interface AdminUserController extends PagingAndSortingRepository<AdminUser, Integer> {
+	
 }

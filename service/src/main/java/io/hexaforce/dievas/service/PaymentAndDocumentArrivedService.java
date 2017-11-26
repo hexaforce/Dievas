@@ -8,5 +8,7 @@ package io.hexaforce.dievas.service;
  */
 
 public interface PaymentAndDocumentArrivedService {
-	String serviceName();
+	
+	String init();
+	
 }

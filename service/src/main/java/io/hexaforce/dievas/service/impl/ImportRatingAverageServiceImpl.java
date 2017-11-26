@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import io.hexaforce.dievas.service.ImportRatingAverageService;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * ImportRatingAverage service implement.
@@ -12,11 +13,15 @@ import io.hexaforce.dievas.service.ImportRatingAverageService;
  * @author T.Tantaka <relics9@gmail.com>
  */
 
+@Slf4j
 @Transactional
 @Service("importRatingAverageService")
 public class ImportRatingAverageServiceImpl implements ImportRatingAverageService {
+	
 	@Override
-	public String serviceName() {
-		return "importRatingAverage";
+	public String init() {
+		log.info("ImportRatingAverageServiceImpl.java init()");
+		return "importRatingAverageService";
 	}
+
 }

@@ -19,17 +19,225 @@ app.config(function (RestangularProvider) {
   // Response interceptor.
   RestangularProvider.addResponseInterceptor(function (data, operation, what, url, response, deferred) {
 	  console.log('[Response] Restangular:' + operation + ' URL:' + url + '(' + response.config.method + ')' + ' response:' + response.status + '(' + response.statusText + ') xhr:' + response.xhrStatus);
-    return response.data.content;
+	  if (url.indexOf("/rest") == 0)
+		  return response.data.content;
+	  if (url.indexOf("/api") == 0)
+		  return response.data;
+	  return response;
   });
 });
 /******************************************************************************
  * Dievas implement REST
  ******************************************************************************/
-app.factory('AdminUser', ['Restangular', function (Restangular) {
-  return Restangular.withConfig(function (RestangularConfigurer) {
-    RestangularConfigurer.setBaseUrl('/api');
-  }).service('admin_user');
-}]);
+app.factory('Dashboard', ['Restangular', function (Restangular) {
+	  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('dashboard');
+		}])
+
+		.factory('MemberInformationSearch', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('member_information_search');
+		}])
+
+		.factory('PersonalInformationChangeRequest', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('personal_information_change_request');
+		}])
+
+		.factory('DuplicateSamePerson', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('duplicate_same_person');
+		}])
+
+		.factory('ExamScheduleGanttChart', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('exam_schedule_gantt_chart');
+		}])
+
+		.factory('ExamRelated', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('exam_related');
+		}])
+
+		.factory('ExamVoucherPassRejection', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('exam_voucher_pass_rejection');
+		}])
+
+		.factory('SystemRelatedList', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('system_related_list');
+		}])
+
+		.factory('ExamLocationManagement', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('exam_location_management');
+		}])
+
+		.factory('FacePhotographs', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('face_photographs');
+		}])
+
+		.factory('FacePhotographsConfirmation', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('face_photographs_confirmation');
+		}])
+
+		.factory('ImportRatingAverage', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('import_rating_average_');
+		}])
+
+		.factory('ExaminationNumberTemporaryProcess', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('examination_number_temporary_process');
+		}])
+
+		.factory('ExaminationNumberBooking', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('examination_number_booking');
+		}])
+
+		.factory('ExaminationNumberReservationCancellation', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('examination_number_reservation_cancellation');
+		}])
+
+		.factory('ExamineeReport', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('examinee_report');
+		}])
+
+		.factory('AcceptanceImportPassRejection', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('acceptance_import_pass_rejection');
+		}])
+
+		.factory('ExaminationNumberNumberingParameter', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('examination_number_numbering_parameter');
+		}])
+
+		.factory('ExaminationNumberCancellation', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('examination_number_cancellation');
+		}])
+
+		.factory('PracticalExaminationNumberManagement', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('practical_examination_number_management');
+		}])
+
+		.factory('DailySchedule', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('daily_schedule');
+		}])
+
+		.factory('ApplicantPreliminaryReport', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('applicant_preliminary_report');
+		}])
+
+		.factory('ChangeLog', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('change_log');
+		}])
+
+		.factory('AcceptanceReport', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('acceptance_report');
+		}])
+
+		.factory('ProcessingStatusReport', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('processing_status_report');
+		}])
+
+		.factory('PaymentAndDocumentArrived', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('payment_and_document_arrived_');
+		}])
+
+		.factory('DocumentConfirmation', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('document_confirmation');
+		}])
+
+		.factory('BatchJobExecutionHistory', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('batch_job_execution_history');
+		}])
+
+		.factory('ExaminationMailTransmissionExamVoucher', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('examination_mail_transmission_exam_voucher');
+		}])
+
+		.factory('OperatorList', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('operator_list');
+		}])
+
+		.factory('OperatorRegistration', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('operator_registration');
+		}])
+
+		.factory('MailDistributionList', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('mail_distribution_list');
+		}])
+
+		.factory('MailDeliveryRegistration', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('mail_delivery_registration');
+		}])
+
+		.factory('NoticeList', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('notice_list');
+		}])
+
+		.factory('NoticeRegistration', ['Restangular', function (Restangular) {
+		  return Restangular.withConfig(function (RestangularConfigurer) {
+		    RestangularConfigurer.setBaseUrl('/api');
+		  }).service('notice_registration');
+		}]);
 /******************************************************************************
  * Spring Data REST
  ******************************************************************************/

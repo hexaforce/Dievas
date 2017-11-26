@@ -8,5 +8,7 @@ package io.hexaforce.dievas.service;
  */
 
 public interface MailDeliveryRegistrationService {
-	String serviceName();
+	
+	String init();
+	
 }

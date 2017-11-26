@@ -13,4 +13,5 @@ import io.hexaforce.dievas.database.freude.entity.AdminUser;
 
 @Repository
 public interface AdminUserRepository extends JpaRepository<AdminUser, Integer> {
+	
 }

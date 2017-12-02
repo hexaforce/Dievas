@@ -24,17 +24,10 @@ import io.hexaforce.dievas.service.DashboardService;
 import io.hexaforce.dievas.service.model.Dashboard;
 import lombok.extern.slf4j.Slf4j;
 
-/**
- * Dashboard router function.
- * 
- * @version 1.0.0.BUILD-SNAPSHOT
- * @author T.Tantaka <relics9@gmail.com>
- */
-
 @Slf4j
 @RestController
 @RequestMapping("/api")
-public class DashboardController {
+public class ImplementsReferenceController {
 
 	@Autowired
 	private DashboardService dashboardService;
@@ -43,13 +36,13 @@ public class DashboardController {
 	@GetMapping(value = "/dashboard/")
 	public ResponseEntity<List<Dashboard>> findAll() {
 		
-		List<Dashboard> dashboardList = dashboardService.findAll();
+		List<Dashboard> implementsReferenceList = dashboardService.findAll();
 		
-		if (dashboardList.isEmpty()) {
+		if (implementsReferenceList.isEmpty()) {
 			log.debug("Data not found.");
 			return new ResponseEntity<List<Dashboard>>(HttpStatus.NO_CONTENT);
 		} else {
-			return new ResponseEntity<List<Dashboard>>(dashboardList, HttpStatus.OK);
+			return new ResponseEntity<List<Dashboard>>(implementsReferenceList, HttpStatus.OK);
 		}
 		
 	}
@@ -58,10 +51,10 @@ public class DashboardController {
 	@GetMapping(value = "/dashboard/{id}")
 	public ResponseEntity<Dashboard> findById(@PathVariable("id") Integer id) {
 		
-		Optional<Dashboard> dashboard = dashboardService.findById(id);
+		Optional<Dashboard> implementsReference = dashboardService.findById(id);
 		
-		if (dashboard.isPresent()) {
-			return new ResponseEntity<Dashboard>(dashboard.get(), HttpStatus.OK);
+		if (implementsReference.isPresent()) {
+			return new ResponseEntity<Dashboard>(implementsReference.get(), HttpStatus.OK);
 		} else {
 			log.debug("Data not found.");
 			return new ResponseEntity<Dashboard>(HttpStatus.NO_CONTENT);
@@ -72,30 +65,30 @@ public class DashboardController {
 
 	@ResponseBody
 	@PostMapping(value = "/dashboard/")
-	public ResponseEntity<?> save(@RequestBody Dashboard dashboard, UriComponentsBuilder uriComponentsBuilder) {
-		log.info("Creating new record : {}", dashboard);
+	public ResponseEntity<?> save(@RequestBody Dashboard implementsReference, UriComponentsBuilder uriComponentsBuilder) {
+		log.info("Creating new record : {}", implementsReference);
 
-		if (dashboardService.exists(dashboard)) {
-			log.error("Unable to create. A dashboard with name {} already exist", dashboard);
+		if (dashboardService.exists(implementsReference)) {
+			log.error("Unable to create. A ImplementsReference with name {} already exist", implementsReference);
 			return new ResponseEntity<DievasServerMesseage>(
-					new DievasServerMesseage("Unable to create. A User with name " + dashboard.getXxx() + " already exist."),
+					new DievasServerMesseage("Unable to create. A User with name " + implementsReference.getXxx() + " already exist."),
 					HttpStatus.CONFLICT);
 		}
 		
-		Dashboard createddashboard = dashboardService.save(dashboard);
+		Dashboard createdImplementsReference = dashboardService.save(implementsReference);
 		HttpHeaders httpHeaders = new HttpHeaders();
-		httpHeaders.setLocation(uriComponentsBuilder.path("/api/dashboard/{id}").buildAndExpand(createddashboard.getXxx()).toUri());
+		httpHeaders.setLocation(uriComponentsBuilder.path("/api/dashboard/{id}").buildAndExpand(createdImplementsReference.getXxx()).toUri());
 		return new ResponseEntity<String>(httpHeaders, HttpStatus.CREATED);
 	}
 	
 	@ResponseBody
 	@PutMapping(value = "/dashboard/{id}")
-	public ResponseEntity<?> update(@PathVariable("id") Integer id, @RequestBody Dashboard dashboard) {
+	public ResponseEntity<?> update(@PathVariable("id") Integer id, @RequestBody Dashboard implementsReference) {
 		log.info("Updating User with id {}", id);
-		Optional<Dashboard> currentdashboard = dashboardService.findById(id);
-		if (currentdashboard.isPresent()) {
-			dashboardService.save(dashboard);
-			return new ResponseEntity<Dashboard>(dashboard,HttpStatus.OK);
+		Optional<Dashboard> currentImplementsReference = dashboardService.findById(id);
+		if (currentImplementsReference.isPresent()) {
+			dashboardService.save(implementsReference);
+			return new ResponseEntity<Dashboard>(implementsReference,HttpStatus.OK);
 		} else {
 			log.error("Unable to update. User with id {} not found.", id);
 			return new ResponseEntity<DievasServerMesseage>(
@@ -110,8 +103,8 @@ public class DashboardController {
 	@DeleteMapping(value = "/dashboard/{id}")
 	public ResponseEntity<?> deleteById(@PathVariable("id") Integer id) {
 		log.info("Fetching & Deleting User with id {}", id);
-		Optional<Dashboard> currentdashboard = dashboardService.findById(id);
-		if (currentdashboard.isPresent()) {
+		Optional<Dashboard> currentImplementsReference = dashboardService.findById(id);
+		if (currentImplementsReference.isPresent()) {
 			dashboardService.deleteById(id);
 			return new ResponseEntity<Dashboard>(HttpStatus.NO_CONTENT);
 		} else {

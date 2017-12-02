@@ -7,7 +7,7 @@ app.controller('MemberInformationSearchController', ['MemberInformationSearchSer
   $scope.init = function () {
     console.log('MemberInformationSearchController.js: init()');
     MemberInformationSearchService.init();
-    $scope.serviceName = MemberInformationSearchService.getInitResult()[0].message;
+    $scope.serviceName = MemberInformationSearchService.getLocalData()[0].message;
   }
   
 }]);

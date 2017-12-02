@@ -4,9 +4,10 @@
  ******************************************************************************/
 app.factory('MemberInformationSearchService', ['MemberInformationSearch', 'DievasConfig', 'Restangular', '$localStorage', '$http', '$q',
   function (MemberInformationSearch, DievasConfig, Restangular, $localStorage, $http, $q) {
-    var factory = {
+
+	var factory = {
       init: init,
-      getInitResult: getInitResult
+      getLocalData: getLocalData
     };
     return factory;
 
@@ -14,12 +15,12 @@ app.factory('MemberInformationSearchService', ['MemberInformationSearch', 'Dieva
       console.log('MemberInformationSearchService.js: init()');
       MemberInformationSearch.getList().then(function (result) {
         console.log('Service name >> ' + result[0].message);
-        $localStorage.result = result;
+        $localStorage.MemberInformation = result;
       });
     }
 
-    function getInitResult() {
-      return $localStorage.result;
+    function getLocalData() {
+      return $localStorage.MemberInformation;
     }
   }
 ]);

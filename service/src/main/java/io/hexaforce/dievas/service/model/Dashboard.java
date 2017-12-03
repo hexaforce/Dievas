@@ -1,7 +1,8 @@
 package io.hexaforce.dievas.service.model;
 
-import java.util.List;
+import java.util.Collection;
 
+import io.hexaforce.dievas.database.freude.entity.AdminUser;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,6 +11,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Dashboard {
-	private String aaa;
-	private List<TestValue> xxx;
+	private String message;
+	private Collection<AdminUser> adminUsers;
 }

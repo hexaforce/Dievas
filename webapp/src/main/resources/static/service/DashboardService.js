@@ -1,18 +1,21 @@
 'use strict';
-/*******************************************************************************
- * Dashboard angular service
+/******************************************************************************
+ * Dievas implement REST
  ******************************************************************************/
 app.factory('JavaController', ['Restangular', function (Restangular) {
   return Restangular.withConfig(function (RestangularConfigurer) {
     RestangularConfigurer.setBaseUrl('/api');  
   }).service('dashboard');
 }])
-.factory('DashboardService', ['JavaController', 'Batch', 'DievasConfig', 'Restangular', '$localStorage', '$http', '$q',
-  function (JavaController, Batch, DievasConfig, Restangular, $localStorage, $http, $q) {
+/*******************************************************************************
+ * Dashboard angular service
+ ******************************************************************************/
+.factory('DashboardService', ['$http', '$q', '$localStorage', 'DievasConfig', 'Restangular', 'JavaController', 'Batch',
+  function ($http, $q, $localStorage, DievasConfig, Restangular, JavaController, Batch) {
 	
     var factory = {
       init: init,
-      getLocalData: getLocalData,
+      getStorageData: getStorageData,
       callJavaController: callJavaController,
       callSpringDataREST: callSpringDataREST,
       callBatchJob: callBatchJob
@@ -27,7 +30,7 @@ app.factory('JavaController', ['Restangular', function (Restangular) {
       });
     }
 
-    function getLocalData() {
+    function getStorageData() {
       return $localStorage.Dashboard;
     }
     

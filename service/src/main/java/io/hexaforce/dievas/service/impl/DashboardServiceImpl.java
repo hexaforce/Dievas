@@ -128,14 +128,16 @@ public class DashboardServiceImpl extends LocalLogicCsv implements DashboardServ
 	@Override
 	public String init() {
 		example();
-		log.info("DashboardServiceImpl.java init()");
+		log.info("Service(java) init()");
 		return "dashboardService";
 	}
 
 	@Override
-	public List<Dashboard> findAll() {
+	public Dashboard findAll() {
 		// TODO Auto-generated method stub
-		return null;
+		
+		List<AdminUser> adminUserList1 = adminUserRepository.findAll();
+		return new Dashboard("Xxx",adminUserList1);
 	}
 
 	@Override

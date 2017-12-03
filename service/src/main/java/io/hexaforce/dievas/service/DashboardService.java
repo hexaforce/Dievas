@@ -15,7 +15,7 @@ import io.hexaforce.dievas.service.model.Dashboard;
 public interface DashboardService {
 	
 	String init();
-	List<Dashboard> findAll();
+	Dashboard findAll();
 	Optional<Dashboard> findById(Integer id);
 	Dashboard save(Dashboard dashboard);
 	boolean exists(Dashboard dashboard);

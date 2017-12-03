@@ -5,7 +5,7 @@
  ******************************************************************************/
 app.config(function (RestangularProvider) {
   // BaseUrl
-  RestangularProvider.setBaseUrl('/');
+  RestangularProvider.setBaseUrl('/datarest');
   //RestangularProvider.setRequestSuffix('.json');
   //RestangularProvider.setDefaultRequestParams({key: 'abcdef'});
   // Request interceptor.
@@ -21,27 +21,27 @@ app.config(function (RestangularProvider) {
   // Response interceptor.
   RestangularProvider.addResponseInterceptor(function (data, operation, what, url, response, deferred) {
 	  console.log('[Response] Restangular:' + operation + ' URL:' + url + '(' + response.config.method + ')' + ' response:' + response.status + '(' + response.statusText + ') xhr:' + response.xhrStatus);
-	  if (url.indexOf("/rest") == 0)
+	  
+	  if (operation == 'getList' && response.status == 204){
+		  if (url.indexOf("/api") == 0)
+			  response.data = new Array();
+	  }
+	  
+	  if (url.indexOf("/datarest") == 0)
 		  return response.data.content;
 	  if (url.indexOf("/api") == 0)
 		  return response.data;
 	  return response;
   });
 });
-/******************************************************************************
- * Dievas implement REST
- ******************************************************************************/
-app.factory('API', ['Restangular', function (Restangular) {
-  return Restangular.withConfig(function (RestangularConfigurer) {
-	  
-  }).service('api')
+
 /******************************************************************************
  * Spring Data REST
  ******************************************************************************/
-}]).factory('DataREST', ['Restangular', function (Restangular) {
+app.factory('Dashboard', ['Restangular', function (Restangular) {
   return Restangular.withConfig(function (RestangularConfigurer) {
-	  
-  }).service('datarest')
+	
+  }).service('dashboard')
 /******************************************************************************
  * Batch LunchUP REST
  ******************************************************************************/

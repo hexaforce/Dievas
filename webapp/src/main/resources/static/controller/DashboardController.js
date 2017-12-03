@@ -7,7 +7,7 @@ app.controller('DashboardController', ['DashboardService', '$scope', function (D
   $scope.init = function () {
     console.log('Controller(js): init()');
     DashboardService.init();
-    $scope.serviceName = DashboardService.getLocalData()[0].message;
+    $scope.serviceName = DashboardService.getStorageData();
   }
   
   $scope.DefaultAction = function () {

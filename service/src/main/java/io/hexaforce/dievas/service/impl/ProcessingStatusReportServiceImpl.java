@@ -20,7 +20,7 @@ public class ProcessingStatusReportServiceImpl implements ProcessingStatusReport
 	
 	@Override
 	public String init() {
-		log.info("ProcessingStatusReportServiceImpl.java init()");
+		log.info("Service(java): init()");
 		return "processingStatusReportService";
 	}
 

@@ -31,9 +31,9 @@ public class AcceptanceReportController {
 	private AcceptanceReportService acceptanceReportService;
 	
 	@ResponseBody
-	@GetMapping(value = "/acceptance_report")
+	@GetMapping(value = "/acceptance-report")
 	public ResponseEntity<List<DievasServerMesseage>> init() {
-		log.info("AcceptanceReportController.java init()");
+		log.info("Controller(java): init()");
 		String x = acceptanceReportService.init();
 		return new ResponseEntity<List<DievasServerMesseage>>(Arrays.asList(new DievasServerMesseage(x)),HttpStatus.OK);
 	}

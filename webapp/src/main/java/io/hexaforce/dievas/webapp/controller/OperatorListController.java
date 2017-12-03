@@ -31,9 +31,9 @@ public class OperatorListController {
 	private OperatorListService operatorListService;
 	
 	@ResponseBody
-	@GetMapping(value = "/operator_list")
+	@GetMapping(value = "/operator-list")
 	public ResponseEntity<List<DievasServerMesseage>> init() {
-		log.info("OperatorListController.java init()");
+		log.info("Controller(java): init()");
 		String x = operatorListService.init();
 		return new ResponseEntity<List<DievasServerMesseage>>(Arrays.asList(new DievasServerMesseage(x)),HttpStatus.OK);
 	}

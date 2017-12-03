@@ -20,7 +20,7 @@ public class AcceptanceImportPassRejectionServiceImpl implements AcceptanceImpor
 	
 	@Override
 	public String init() {
-		log.info("AcceptanceImportPassRejectionServiceImpl.java init()");
+		log.info("Service(java): init()");
 		return "acceptanceImportPassRejectionService";
 	}
 

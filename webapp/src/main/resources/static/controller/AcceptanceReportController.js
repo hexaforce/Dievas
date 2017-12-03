@@ -5,9 +5,9 @@
 app.controller('AcceptanceReportController', ['AcceptanceReportService', '$scope', function (AcceptanceReportService, $scope) {
   
   $scope.init = function () {
-    console.log('AcceptanceReportController.js: init()');
+    console.log('Controller(js): init()');
     AcceptanceReportService.init();
-    $scope.serviceName = AcceptanceReportService.getInitResult()[0].message;
+    $scope.serviceName = AcceptanceReportService.getStorageData();
   }
   
 }]);

@@ -1,25 +1,30 @@
 'use strict';
+app.factory('AcceptanceImportPassRejection', ['Restangular', function (Restangular) {
+  return Restangular.withConfig(function (RestangularConfigurer) {
+    RestangularConfigurer.setBaseUrl('/api');  
+  }).service('acceptance-import-pass-rejection');
+}])
 /*******************************************************************************
  * AcceptanceImportPassRejectionService
  ******************************************************************************/
-app.factory('AcceptanceImportPassRejectionService', ['AcceptanceImportPassRejection', 'DievasConfig', 'Restangular', '$localStorage', '$http', '$q',
-  function (AcceptanceImportPassRejection, DievasConfig, Restangular, $localStorage, $http, $q) {
+.factory('AcceptanceImportPassRejectionService', ['$http', '$q', '$localStorage', 'DievasConfig', 'Restangular', 'AcceptanceImportPassRejection', 'Batch',
+  function ($http, $q, $localStorage, DievasConfig, Restangular, AcceptanceImportPassRejection, Batch) {
     var factory = {
       init: init,
-      getInitResult: getInitResult
+      getStorageData: getStorageData
     };
     return factory;
 
     function init() {
-      console.log('AcceptanceImportPassRejectionService.js: init()');
+      console.log('Service(js): init()');
       AcceptanceImportPassRejection.getList().then(function (result) {
-        console.log('Service name >> ' + result[0].message);
-        $localStorage.result = result;
+        console.log('Controller(Java) response >> {}', result);
+        $localStorage.AcceptanceImportPassRejection = result;
       });
     }
 
-    function getInitResult() {
-      return $localStorage.result;
+    function getStorageData() {
+      return $localStorage.AcceptanceImportPassRejection;
     }
   }
 ]);

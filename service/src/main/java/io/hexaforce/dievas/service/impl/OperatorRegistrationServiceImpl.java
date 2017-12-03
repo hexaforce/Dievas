@@ -20,7 +20,7 @@ public class OperatorRegistrationServiceImpl implements OperatorRegistrationServ
 	
 	@Override
 	public String init() {
-		log.info("OperatorRegistrationServiceImpl.java init()");
+		log.info("Service(java): init()");
 		return "operatorRegistrationService";
 	}
 

@@ -1,25 +1,30 @@
 'use strict';
+app.factory('DailySchedule', ['Restangular', function (Restangular) {
+  return Restangular.withConfig(function (RestangularConfigurer) {
+    RestangularConfigurer.setBaseUrl('/api');  
+  }).service('daily-schedule');
+}])
 /*******************************************************************************
  * DailyScheduleService
  ******************************************************************************/
-app.factory('DailyScheduleService', ['DailySchedule', 'DievasConfig', 'Restangular', '$localStorage', '$http', '$q',
-  function (DailySchedule, DievasConfig, Restangular, $localStorage, $http, $q) {
+.factory('DailyScheduleService', ['$http', '$q', '$localStorage', 'DievasConfig', 'Restangular', 'DailySchedule', 'Batch',
+  function ($http, $q, $localStorage, DievasConfig, Restangular, DailySchedule, Batch) {
     var factory = {
       init: init,
-      getInitResult: getInitResult
+      getStorageData: getStorageData
     };
     return factory;
 
     function init() {
-      console.log('DailyScheduleService.js: init()');
+      console.log('Service(js): init()');
       DailySchedule.getList().then(function (result) {
-        console.log('Service name >> ' + result[0].message);
-        $localStorage.result = result;
+        console.log('Controller(Java) response >> {}', result);
+        $localStorage.DailySchedule = result;
       });
     }
 
-    function getInitResult() {
-      return $localStorage.result;
+    function getStorageData() {
+      return $localStorage.DailySchedule;
     }
   }
 ]);

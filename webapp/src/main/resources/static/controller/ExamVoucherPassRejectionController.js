@@ -5,9 +5,9 @@
 app.controller('ExamVoucherPassRejectionController', ['ExamVoucherPassRejectionService', '$scope', function (ExamVoucherPassRejectionService, $scope) {
   
   $scope.init = function () {
-    console.log('ExamVoucherPassRejectionController.js: init()');
+    console.log('Controller(js): init()');
     ExamVoucherPassRejectionService.init();
-    $scope.serviceName = ExamVoucherPassRejectionService.getInitResult()[0].message;
+    $scope.serviceName = ExamVoucherPassRejectionService.getStorageData();
   }
   
 }]);

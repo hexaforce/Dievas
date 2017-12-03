@@ -5,9 +5,9 @@
 app.controller('MailDistributionListController', ['MailDistributionListService', '$scope', function (MailDistributionListService, $scope) {
   
   $scope.init = function () {
-    console.log('MailDistributionListController.js: init()');
+    console.log('Controller(js): init()');
     MailDistributionListService.init();
-    $scope.serviceName = MailDistributionListService.getInitResult()[0].message;
+    $scope.serviceName = MailDistributionListService.getStorageData();
   }
   
 }]);

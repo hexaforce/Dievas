@@ -5,9 +5,9 @@
 app.controller('ProcessingStatusReportController', ['ProcessingStatusReportService', '$scope', function (ProcessingStatusReportService, $scope) {
   
   $scope.init = function () {
-    console.log('ProcessingStatusReportController.js: init()');
+    console.log('Controller(js): init()');
     ProcessingStatusReportService.init();
-    $scope.serviceName = ProcessingStatusReportService.getInitResult()[0].message;
+    $scope.serviceName = ProcessingStatusReportService.getStorageData();
   }
   
 }]);

@@ -20,7 +20,7 @@ public class DocumentConfirmationServiceImpl implements DocumentConfirmationServ
 	
 	@Override
 	public String init() {
-		log.info("DocumentConfirmationServiceImpl.java init()");
+		log.info("Service(java): init()");
 		return "documentConfirmationService";
 	}
 

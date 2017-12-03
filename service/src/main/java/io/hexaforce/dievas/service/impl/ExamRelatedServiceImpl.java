@@ -20,7 +20,7 @@ public class ExamRelatedServiceImpl implements ExamRelatedService {
 	
 	@Override
 	public String init() {
-		log.info("ExamRelatedServiceImpl.java init()");
+		log.info("Service(java): init()");
 		return "examRelatedService";
 	}
 

@@ -5,9 +5,9 @@
 app.controller('NoticeRegistrationController', ['NoticeRegistrationService', '$scope', function (NoticeRegistrationService, $scope) {
   
   $scope.init = function () {
-    console.log('NoticeRegistrationController.js: init()');
+    console.log('Controller(js): init()');
     NoticeRegistrationService.init();
-    $scope.serviceName = NoticeRegistrationService.getInitResult()[0].message;
+    $scope.serviceName = NoticeRegistrationService.getStorageData();
   }
   
 }]);

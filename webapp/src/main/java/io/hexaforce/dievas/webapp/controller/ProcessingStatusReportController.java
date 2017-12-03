@@ -31,9 +31,9 @@ public class ProcessingStatusReportController {
 	private ProcessingStatusReportService processingStatusReportService;
 	
 	@ResponseBody
-	@GetMapping(value = "/processing_status_report")
+	@GetMapping(value = "/processing-status-report")
 	public ResponseEntity<List<DievasServerMesseage>> init() {
-		log.info("ProcessingStatusReportController.java init()");
+		log.info("Controller(java): init()");
 		String x = processingStatusReportService.init();
 		return new ResponseEntity<List<DievasServerMesseage>>(Arrays.asList(new DievasServerMesseage(x)),HttpStatus.OK);
 	}

@@ -31,9 +31,9 @@ public class NoticeRegistrationController {
 	private NoticeRegistrationService noticeRegistrationService;
 	
 	@ResponseBody
-	@GetMapping(value = "/notice_registration")
+	@GetMapping(value = "/notice-registration")
 	public ResponseEntity<List<DievasServerMesseage>> init() {
-		log.info("NoticeRegistrationController.java init()");
+		log.info("Controller(java): init()");
 		String x = noticeRegistrationService.init();
 		return new ResponseEntity<List<DievasServerMesseage>>(Arrays.asList(new DievasServerMesseage(x)),HttpStatus.OK);
 	}

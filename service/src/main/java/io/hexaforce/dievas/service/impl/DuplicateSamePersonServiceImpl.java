@@ -20,7 +20,7 @@ public class DuplicateSamePersonServiceImpl implements DuplicateSamePersonServic
 	
 	@Override
 	public String init() {
-		log.info("DuplicateSamePersonServiceImpl.java init()");
+		log.info("Service(java): init()");
 		return "duplicateSamePersonService";
 	}
 

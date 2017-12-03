@@ -1,25 +1,30 @@
 'use strict';
+app.factory('FacePhotographs', ['Restangular', function (Restangular) {
+  return Restangular.withConfig(function (RestangularConfigurer) {
+    RestangularConfigurer.setBaseUrl('/api');  
+  }).service('face-photographs');
+}])
 /*******************************************************************************
  * FacePhotographsService
  ******************************************************************************/
-app.factory('FacePhotographsService', ['FacePhotographs', 'DievasConfig', 'Restangular', '$localStorage', '$http', '$q',
-  function (FacePhotographs, DievasConfig, Restangular, $localStorage, $http, $q) {
+.factory('FacePhotographsService', ['$http', '$q', '$localStorage', 'DievasConfig', 'Restangular', 'FacePhotographs', 'Batch',
+  function ($http, $q, $localStorage, DievasConfig, Restangular, FacePhotographs, Batch) {
     var factory = {
       init: init,
-      getInitResult: getInitResult
+      getStorageData: getStorageData
     };
     return factory;
 
     function init() {
-      console.log('FacePhotographsService.js: init()');
+      console.log('Service(js): init()');
       FacePhotographs.getList().then(function (result) {
-        console.log('Service name >> ' + result[0].message);
-        $localStorage.result = result;
+        console.log('Controller(Java) response >> {}', result);
+        $localStorage.FacePhotographs = result;
       });
     }
 
-    function getInitResult() {
-      return $localStorage.result;
+    function getStorageData() {
+      return $localStorage.FacePhotographs;
     }
   }
 ]);

@@ -20,7 +20,7 @@ public class ExamScheduleGanttChartServiceImpl implements ExamScheduleGanttChart
 	
 	@Override
 	public String init() {
-		log.info("ExamScheduleGanttChartServiceImpl.java init()");
+		log.info("Service(java): init()");
 		return "examScheduleGanttChartService";
 	}
 

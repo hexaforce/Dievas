@@ -1,25 +1,30 @@
 'use strict';
+app.factory('DuplicateSamePerson', ['Restangular', function (Restangular) {
+  return Restangular.withConfig(function (RestangularConfigurer) {
+    RestangularConfigurer.setBaseUrl('/api');  
+  }).service('duplicate-same-person');
+}])
 /*******************************************************************************
  * DuplicateSamePersonService
  ******************************************************************************/
-app.factory('DuplicateSamePersonService', ['DuplicateSamePerson', 'DievasConfig', 'Restangular', '$localStorage', '$http', '$q',
-  function (DuplicateSamePerson, DievasConfig, Restangular, $localStorage, $http, $q) {
+.factory('DuplicateSamePersonService', ['$http', '$q', '$localStorage', 'DievasConfig', 'Restangular', 'DuplicateSamePerson', 'Batch',
+  function ($http, $q, $localStorage, DievasConfig, Restangular, DuplicateSamePerson, Batch) {
     var factory = {
       init: init,
-      getInitResult: getInitResult
+      getStorageData: getStorageData
     };
     return factory;
 
     function init() {
-      console.log('DuplicateSamePersonService.js: init()');
+      console.log('Service(js): init()');
       DuplicateSamePerson.getList().then(function (result) {
-        console.log('Service name >> ' + result[0].message);
-        $localStorage.result = result;
+        console.log('Controller(Java) response >> {}', result);
+        $localStorage.DuplicateSamePerson = result;
       });
     }
 
-    function getInitResult() {
-      return $localStorage.result;
+    function getStorageData() {
+      return $localStorage.DuplicateSamePerson;
     }
   }
 ]);

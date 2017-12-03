@@ -31,9 +31,9 @@ public class ExamVoucherPassRejectionController {
 	private ExamVoucherPassRejectionService examVoucherPassRejectionService;
 	
 	@ResponseBody
-	@GetMapping(value = "/exam_voucher_pass_rejection")
+	@GetMapping(value = "/exam-voucher-pass-rejection")
 	public ResponseEntity<List<DievasServerMesseage>> init() {
-		log.info("ExamVoucherPassRejectionController.java init()");
+		log.info("Controller(java): init()");
 		String x = examVoucherPassRejectionService.init();
 		return new ResponseEntity<List<DievasServerMesseage>>(Arrays.asList(new DievasServerMesseage(x)),HttpStatus.OK);
 	}

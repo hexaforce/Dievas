@@ -7,6 +7,7 @@
 app.config(['$stateProvider', '$urlRouterProvider',
   function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
+    var ImplementsReference = { name : 'ImplementsReference', url : '/implements-reference', templateUrl : 'content/implements-reference', controller : 'ImplementsReferenceController', controllerAs : 'ctrl' };
     var MemberInformationSearch = { name : 'MemberInformationSearch', url : '/member-information-search', templateUrl : 'content/member-information-search', controller : 'MemberInformationSearchController', controllerAs : 'ctrl' };
     var PersonalInformationChangeRequest = { name : 'PersonalInformationChangeRequest', url : '/personal-information-change-request', templateUrl : 'content/personal-information-change-request', controller : 'PersonalInformationChangeRequestController', controllerAs : 'ctrl' };
     var DuplicateSamePerson = { name : 'DuplicateSamePerson', url : '/duplicate-same-person', templateUrl : 'content/duplicate-same-person', controller : 'DuplicateSamePersonController', controllerAs : 'ctrl' };
@@ -47,6 +48,7 @@ app.config(['$stateProvider', '$urlRouterProvider',
       controller: 'DashboardController',
       controllerAs: 'ctrl'
     })
+    .state(ImplementsReference)
     .state(MemberInformationSearch)
     .state(PersonalInformationChangeRequest)
     .state(DuplicateSamePerson)

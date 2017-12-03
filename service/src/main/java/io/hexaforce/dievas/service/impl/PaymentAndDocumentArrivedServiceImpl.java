@@ -20,7 +20,7 @@ public class PaymentAndDocumentArrivedServiceImpl implements PaymentAndDocumentA
 	
 	@Override
 	public String init() {
-		log.info("PaymentAndDocumentArrivedServiceImpl.java init()");
+		log.info("Service(java): init()");
 		return "paymentAndDocumentArrivedService";
 	}
 

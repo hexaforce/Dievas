@@ -5,9 +5,9 @@
 app.controller('ExaminationNumberReservationCancellationController', ['ExaminationNumberReservationCancellationService', '$scope', function (ExaminationNumberReservationCancellationService, $scope) {
   
   $scope.init = function () {
-    console.log('ExaminationNumberReservationCancellationController.js: init()');
+    console.log('Controller(js): init()');
     ExaminationNumberReservationCancellationService.init();
-    $scope.serviceName = ExaminationNumberReservationCancellationService.getInitResult()[0].message;
+    $scope.serviceName = ExaminationNumberReservationCancellationService.getStorageData();
   }
   
 }]);

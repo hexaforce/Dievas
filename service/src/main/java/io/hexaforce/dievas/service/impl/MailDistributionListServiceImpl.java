@@ -20,7 +20,7 @@ public class MailDistributionListServiceImpl implements MailDistributionListServ
 	
 	@Override
 	public String init() {
-		log.info("MailDistributionListServiceImpl.java init()");
+		log.info("Service(java): init()");
 		return "mailDistributionListService";
 	}
 

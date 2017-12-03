@@ -31,9 +31,9 @@ public class ExamineeReportController {
 	private ExamineeReportService examineeReportService;
 	
 	@ResponseBody
-	@GetMapping(value = "/examinee_report")
+	@GetMapping(value = "/examinee-report")
 	public ResponseEntity<List<DievasServerMesseage>> init() {
-		log.info("ExamineeReportController.java init()");
+		log.info("Controller(java): init()");
 		String x = examineeReportService.init();
 		return new ResponseEntity<List<DievasServerMesseage>>(Arrays.asList(new DievasServerMesseage(x)),HttpStatus.OK);
 	}

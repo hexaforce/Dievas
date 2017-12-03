@@ -1,25 +1,30 @@
 'use strict';
+app.factory('ExaminationNumberNumberingParameter', ['Restangular', function (Restangular) {
+  return Restangular.withConfig(function (RestangularConfigurer) {
+    RestangularConfigurer.setBaseUrl('/api');  
+  }).service('examination-number-numbering-parameter');
+}])
 /*******************************************************************************
  * ExaminationNumberNumberingParameterService
  ******************************************************************************/
-app.factory('ExaminationNumberNumberingParameterService', ['ExaminationNumberNumberingParameter', 'DievasConfig', 'Restangular', '$localStorage', '$http', '$q',
-  function (ExaminationNumberNumberingParameter, DievasConfig, Restangular, $localStorage, $http, $q) {
+.factory('ExaminationNumberNumberingParameterService', ['$http', '$q', '$localStorage', 'DievasConfig', 'Restangular', 'ExaminationNumberNumberingParameter', 'Batch',
+  function ($http, $q, $localStorage, DievasConfig, Restangular, ExaminationNumberNumberingParameter, Batch) {
     var factory = {
       init: init,
-      getInitResult: getInitResult
+      getStorageData: getStorageData
     };
     return factory;
 
     function init() {
-      console.log('ExaminationNumberNumberingParameterService.js: init()');
+      console.log('Service(js): init()');
       ExaminationNumberNumberingParameter.getList().then(function (result) {
-        console.log('Service name >> ' + result[0].message);
-        $localStorage.result = result;
+        console.log('Controller(Java) response >> {}', result);
+        $localStorage.ExaminationNumberNumberingParameter = result;
       });
     }
 
-    function getInitResult() {
-      return $localStorage.result;
+    function getStorageData() {
+      return $localStorage.ExaminationNumberNumberingParameter;
     }
   }
 ]);

@@ -1,25 +1,30 @@
 'use strict';
+app.factory('PersonalInformationChangeRequest', ['Restangular', function (Restangular) {
+  return Restangular.withConfig(function (RestangularConfigurer) {
+    RestangularConfigurer.setBaseUrl('/api');  
+  }).service('personal-information-change-request');
+}])
 /*******************************************************************************
  * PersonalInformationChangeRequestService
  ******************************************************************************/
-app.factory('PersonalInformationChangeRequestService', ['PersonalInformationChangeRequest', 'DievasConfig', 'Restangular', '$localStorage', '$http', '$q',
-  function (PersonalInformationChangeRequest, DievasConfig, Restangular, $localStorage, $http, $q) {
+.factory('PersonalInformationChangeRequestService', ['$http', '$q', '$localStorage', 'DievasConfig', 'Restangular', 'PersonalInformationChangeRequest', 'Batch',
+  function ($http, $q, $localStorage, DievasConfig, Restangular, PersonalInformationChangeRequest, Batch) {
     var factory = {
       init: init,
-      getInitResult: getInitResult
+      getStorageData: getStorageData
     };
     return factory;
 
     function init() {
-      console.log('PersonalInformationChangeRequestService.js: init()');
+      console.log('Service(js): init()');
       PersonalInformationChangeRequest.getList().then(function (result) {
-        console.log('Service name >> ' + result[0].message);
-        $localStorage.result = result;
+        console.log('Controller(Java) response >> {}', result);
+        $localStorage.PersonalInformationChangeRequest = result;
       });
     }
 
-    function getInitResult() {
-      return $localStorage.result;
+    function getStorageData() {
+      return $localStorage.PersonalInformationChangeRequest;
     }
   }
 ]);

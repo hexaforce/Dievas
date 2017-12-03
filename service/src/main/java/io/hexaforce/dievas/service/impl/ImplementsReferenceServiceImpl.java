@@ -3,11 +3,11 @@ package io.hexaforce.dievas.service.impl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import io.hexaforce.dievas.service.ApplicantPreliminaryReportService;
+import io.hexaforce.dievas.service.ImplementsReferenceService;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * ApplicantPreliminaryReport service implement.
+ * ImplementsReference service implement.
  * 
  * @version 1.0.0.BUILD-SNAPSHOT
  * @author T.Tantaka <relics9@gmail.com>
@@ -15,13 +15,13 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Transactional
-@Service("applicantPreliminaryReportService")
-public class ApplicantPreliminaryReportServiceImpl implements ApplicantPreliminaryReportService {
+@Service("implementsReferenceService")
+public class ImplementsReferenceServiceImpl implements ImplementsReferenceService {
 	
 	@Override
 	public String init() {
 		log.info("Service(java): init()");
-		return "applicantPreliminaryReportService";
+		return "implementsReferenceService";
 	}
 
 }

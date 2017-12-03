@@ -31,9 +31,9 @@ public class ExaminationNumberBookingController {
 	private ExaminationNumberBookingService examinationNumberBookingService;
 	
 	@ResponseBody
-	@GetMapping(value = "/examination_number_booking")
+	@GetMapping(value = "/examination-number-booking")
 	public ResponseEntity<List<DievasServerMesseage>> init() {
-		log.info("ExaminationNumberBookingController.java init()");
+		log.info("Controller(java): init()");
 		String x = examinationNumberBookingService.init();
 		return new ResponseEntity<List<DievasServerMesseage>>(Arrays.asList(new DievasServerMesseage(x)),HttpStatus.OK);
 	}

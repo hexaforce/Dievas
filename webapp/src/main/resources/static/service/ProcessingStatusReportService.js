@@ -1,25 +1,30 @@
 'use strict';
+app.factory('ProcessingStatusReport', ['Restangular', function (Restangular) {
+  return Restangular.withConfig(function (RestangularConfigurer) {
+    RestangularConfigurer.setBaseUrl('/api');  
+  }).service('processing-status-report');
+}])
 /*******************************************************************************
  * ProcessingStatusReportService
  ******************************************************************************/
-app.factory('ProcessingStatusReportService', ['ProcessingStatusReport', 'DievasConfig', 'Restangular', '$localStorage', '$http', '$q',
-  function (ProcessingStatusReport, DievasConfig, Restangular, $localStorage, $http, $q) {
+.factory('ProcessingStatusReportService', ['$http', '$q', '$localStorage', 'DievasConfig', 'Restangular', 'ProcessingStatusReport', 'Batch',
+  function ($http, $q, $localStorage, DievasConfig, Restangular, ProcessingStatusReport, Batch) {
     var factory = {
       init: init,
-      getInitResult: getInitResult
+      getStorageData: getStorageData
     };
     return factory;
 
     function init() {
-      console.log('ProcessingStatusReportService.js: init()');
+      console.log('Service(js): init()');
       ProcessingStatusReport.getList().then(function (result) {
-        console.log('Service name >> ' + result[0].message);
-        $localStorage.result = result;
+        console.log('Controller(Java) response >> {}', result);
+        $localStorage.ProcessingStatusReport = result;
       });
     }
 
-    function getInitResult() {
-      return $localStorage.result;
+    function getStorageData() {
+      return $localStorage.ProcessingStatusReport;
     }
   }
 ]);

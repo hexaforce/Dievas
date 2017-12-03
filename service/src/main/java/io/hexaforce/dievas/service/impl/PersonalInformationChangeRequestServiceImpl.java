@@ -20,7 +20,7 @@ public class PersonalInformationChangeRequestServiceImpl implements PersonalInfo
 	
 	@Override
 	public String init() {
-		log.info("PersonalInformationChangeRequestServiceImpl.java init()");
+		log.info("Service(java): init()");
 		return "personalInformationChangeRequestService";
 	}
 

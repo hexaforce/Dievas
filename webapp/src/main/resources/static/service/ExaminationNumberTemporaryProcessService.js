@@ -1,25 +1,30 @@
 'use strict';
+app.factory('ExaminationNumberTemporaryProcess', ['Restangular', function (Restangular) {
+  return Restangular.withConfig(function (RestangularConfigurer) {
+    RestangularConfigurer.setBaseUrl('/api');  
+  }).service('examination-number-temporary-process');
+}])
 /*******************************************************************************
  * ExaminationNumberTemporaryProcessService
  ******************************************************************************/
-app.factory('ExaminationNumberTemporaryProcessService', ['ExaminationNumberTemporaryProcess', 'DievasConfig', 'Restangular', '$localStorage', '$http', '$q',
-  function (ExaminationNumberTemporaryProcess, DievasConfig, Restangular, $localStorage, $http, $q) {
+.factory('ExaminationNumberTemporaryProcessService', ['$http', '$q', '$localStorage', 'DievasConfig', 'Restangular', 'ExaminationNumberTemporaryProcess', 'Batch',
+  function ($http, $q, $localStorage, DievasConfig, Restangular, ExaminationNumberTemporaryProcess, Batch) {
     var factory = {
       init: init,
-      getInitResult: getInitResult
+      getStorageData: getStorageData
     };
     return factory;
 
     function init() {
-      console.log('ExaminationNumberTemporaryProcessService.js: init()');
+      console.log('Service(js): init()');
       ExaminationNumberTemporaryProcess.getList().then(function (result) {
-        console.log('Service name >> ' + result[0].message);
-        $localStorage.result = result;
+        console.log('Controller(Java) response >> {}', result);
+        $localStorage.ExaminationNumberTemporaryProcess = result;
       });
     }
 
-    function getInitResult() {
-      return $localStorage.result;
+    function getStorageData() {
+      return $localStorage.ExaminationNumberTemporaryProcess;
     }
   }
 ]);

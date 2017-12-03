@@ -31,9 +31,9 @@ public class PersonalInformationChangeRequestController {
 	private PersonalInformationChangeRequestService personalInformationChangeRequestService;
 	
 	@ResponseBody
-	@GetMapping(value = "/personal_information_change_request")
+	@GetMapping(value = "/personal-information-change-request")
 	public ResponseEntity<List<DievasServerMesseage>> init() {
-		log.info("PersonalInformationChangeRequestController.java init()");
+		log.info("Controller(java): init()");
 		String x = personalInformationChangeRequestService.init();
 		return new ResponseEntity<List<DievasServerMesseage>>(Arrays.asList(new DievasServerMesseage(x)),HttpStatus.OK);
 	}

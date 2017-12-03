@@ -5,9 +5,9 @@
 app.controller('PracticalExaminationNumberManagementController', ['PracticalExaminationNumberManagementService', '$scope', function (PracticalExaminationNumberManagementService, $scope) {
   
   $scope.init = function () {
-    console.log('PracticalExaminationNumberManagementController.js: init()');
+    console.log('Controller(js): init()');
     PracticalExaminationNumberManagementService.init();
-    $scope.serviceName = PracticalExaminationNumberManagementService.getInitResult()[0].message;
+    $scope.serviceName = PracticalExaminationNumberManagementService.getStorageData();
   }
   
 }]);

@@ -31,9 +31,9 @@ public class ExamLocationManagementController {
 	private ExamLocationManagementService examLocationManagementService;
 	
 	@ResponseBody
-	@GetMapping(value = "/exam_location_management")
+	@GetMapping(value = "/exam-location-management")
 	public ResponseEntity<List<DievasServerMesseage>> init() {
-		log.info("ExamLocationManagementController.java init()");
+		log.info("Controller(java): init()");
 		String x = examLocationManagementService.init();
 		return new ResponseEntity<List<DievasServerMesseage>>(Arrays.asList(new DievasServerMesseage(x)),HttpStatus.OK);
 	}

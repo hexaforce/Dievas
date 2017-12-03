@@ -20,7 +20,7 @@ public class ExamineeReportServiceImpl implements ExamineeReportService {
 	
 	@Override
 	public String init() {
-		log.info("ExamineeReportServiceImpl.java init()");
+		log.info("Service(java): init()");
 		return "examineeReportService";
 	}
 

@@ -20,7 +20,7 @@ public class ChangeLogServiceImpl implements ChangeLogService {
 	
 	@Override
 	public String init() {
-		log.info("ChangeLogServiceImpl.java init()");
+		log.info("Service(java): init()");
 		return "changeLogService";
 	}
 

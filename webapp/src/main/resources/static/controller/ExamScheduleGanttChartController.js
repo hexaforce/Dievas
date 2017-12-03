@@ -5,9 +5,9 @@
 app.controller('ExamScheduleGanttChartController', ['ExamScheduleGanttChartService', '$scope', function (ExamScheduleGanttChartService, $scope) {
   
   $scope.init = function () {
-    console.log('ExamScheduleGanttChartController.js: init()');
+    console.log('Controller(js): init()');
     ExamScheduleGanttChartService.init();
-    $scope.serviceName = ExamScheduleGanttChartService.getInitResult()[0].message;
+    $scope.serviceName = ExamScheduleGanttChartService.getStorageData();
   }
   
 }]);

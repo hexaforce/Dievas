@@ -1,25 +1,30 @@
 'use strict';
+app.factory('FacePhotographsConfirmation', ['Restangular', function (Restangular) {
+  return Restangular.withConfig(function (RestangularConfigurer) {
+    RestangularConfigurer.setBaseUrl('/api');  
+  }).service('face-photographs-confirmation');
+}])
 /*******************************************************************************
  * FacePhotographsConfirmationService
  ******************************************************************************/
-app.factory('FacePhotographsConfirmationService', ['FacePhotographsConfirmation', 'DievasConfig', 'Restangular', '$localStorage', '$http', '$q',
-  function (FacePhotographsConfirmation, DievasConfig, Restangular, $localStorage, $http, $q) {
+.factory('FacePhotographsConfirmationService', ['$http', '$q', '$localStorage', 'DievasConfig', 'Restangular', 'FacePhotographsConfirmation', 'Batch',
+  function ($http, $q, $localStorage, DievasConfig, Restangular, FacePhotographsConfirmation, Batch) {
     var factory = {
       init: init,
-      getInitResult: getInitResult
+      getStorageData: getStorageData
     };
     return factory;
 
     function init() {
-      console.log('FacePhotographsConfirmationService.js: init()');
+      console.log('Service(js): init()');
       FacePhotographsConfirmation.getList().then(function (result) {
-        console.log('Service name >> ' + result[0].message);
-        $localStorage.result = result;
+        console.log('Controller(Java) response >> {}', result);
+        $localStorage.FacePhotographsConfirmation = result;
       });
     }
 
-    function getInitResult() {
-      return $localStorage.result;
+    function getStorageData() {
+      return $localStorage.FacePhotographsConfirmation;
     }
   }
 ]);

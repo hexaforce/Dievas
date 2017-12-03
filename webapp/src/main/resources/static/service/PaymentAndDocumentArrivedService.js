@@ -1,25 +1,30 @@
 'use strict';
+app.factory('PaymentAndDocumentArrived', ['Restangular', function (Restangular) {
+  return Restangular.withConfig(function (RestangularConfigurer) {
+    RestangularConfigurer.setBaseUrl('/api');  
+  }).service('payment-and-document-arrived');
+}])
 /*******************************************************************************
  * PaymentAndDocumentArrivedService
  ******************************************************************************/
-app.factory('PaymentAndDocumentArrivedService', ['PaymentAndDocumentArrived', 'DievasConfig', 'Restangular', '$localStorage', '$http', '$q',
-  function (PaymentAndDocumentArrived, DievasConfig, Restangular, $localStorage, $http, $q) {
+.factory('PaymentAndDocumentArrivedService', ['$http', '$q', '$localStorage', 'DievasConfig', 'Restangular', 'PaymentAndDocumentArrived', 'Batch',
+  function ($http, $q, $localStorage, DievasConfig, Restangular, PaymentAndDocumentArrived, Batch) {
     var factory = {
       init: init,
-      getInitResult: getInitResult
+      getStorageData: getStorageData
     };
     return factory;
 
     function init() {
-      console.log('PaymentAndDocumentArrivedService.js: init()');
+      console.log('Service(js): init()');
       PaymentAndDocumentArrived.getList().then(function (result) {
-        console.log('Service name >> ' + result[0].message);
-        $localStorage.result = result;
+        console.log('Controller(Java) response >> {}', result);
+        $localStorage.PaymentAndDocumentArrived = result;
       });
     }
 
-    function getInitResult() {
-      return $localStorage.result;
+    function getStorageData() {
+      return $localStorage.PaymentAndDocumentArrived;
     }
   }
 ]);

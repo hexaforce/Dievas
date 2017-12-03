@@ -31,9 +31,9 @@ public class ExaminationNumberNumberingParameterController {
 	private ExaminationNumberNumberingParameterService examinationNumberNumberingParameterService;
 	
 	@ResponseBody
-	@GetMapping(value = "/examination_number_numbering_parameter")
+	@GetMapping(value = "/examination-number-numbering-parameter")
 	public ResponseEntity<List<DievasServerMesseage>> init() {
-		log.info("ExaminationNumberNumberingParameterController.java init()");
+		log.info("Controller(java): init()");
 		String x = examinationNumberNumberingParameterService.init();
 		return new ResponseEntity<List<DievasServerMesseage>>(Arrays.asList(new DievasServerMesseage(x)),HttpStatus.OK);
 	}

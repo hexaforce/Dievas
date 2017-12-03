@@ -31,9 +31,9 @@ public class ExamScheduleGanttChartController {
 	private ExamScheduleGanttChartService examScheduleGanttChartService;
 	
 	@ResponseBody
-	@GetMapping(value = "/exam_schedule_gantt_chart")
+	@GetMapping(value = "/exam-schedule-gantt-chart")
 	public ResponseEntity<List<DievasServerMesseage>> init() {
-		log.info("ExamScheduleGanttChartController.java init()");
+		log.info("Controller(java): init()");
 		String x = examScheduleGanttChartService.init();
 		return new ResponseEntity<List<DievasServerMesseage>>(Arrays.asList(new DievasServerMesseage(x)),HttpStatus.OK);
 	}

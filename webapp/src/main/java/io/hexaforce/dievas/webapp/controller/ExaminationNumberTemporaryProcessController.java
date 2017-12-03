@@ -31,9 +31,9 @@ public class ExaminationNumberTemporaryProcessController {
 	private ExaminationNumberTemporaryProcessService examinationNumberTemporaryProcessService;
 	
 	@ResponseBody
-	@GetMapping(value = "/examination_number_temporary_process")
+	@GetMapping(value = "/examination-number-temporary-process")
 	public ResponseEntity<List<DievasServerMesseage>> init() {
-		log.info("ExaminationNumberTemporaryProcessController.java init()");
+		log.info("Controller(java): init()");
 		String x = examinationNumberTemporaryProcessService.init();
 		return new ResponseEntity<List<DievasServerMesseage>>(Arrays.asList(new DievasServerMesseage(x)),HttpStatus.OK);
 	}

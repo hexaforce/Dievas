@@ -31,9 +31,9 @@ public class FacePhotographsController {
 	private FacePhotographsService facePhotographsService;
 	
 	@ResponseBody
-	@GetMapping(value = "/face_photographs")
+	@GetMapping(value = "/face-photographs")
 	public ResponseEntity<List<DievasServerMesseage>> init() {
-		log.info("FacePhotographsController.java init()");
+		log.info("Controller(java): init()");
 		String x = facePhotographsService.init();
 		return new ResponseEntity<List<DievasServerMesseage>>(Arrays.asList(new DievasServerMesseage(x)),HttpStatus.OK);
 	}

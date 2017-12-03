@@ -1,25 +1,30 @@
 'use strict';
+app.factory('ExaminationMailTransmissionExamVoucher', ['Restangular', function (Restangular) {
+  return Restangular.withConfig(function (RestangularConfigurer) {
+    RestangularConfigurer.setBaseUrl('/api');  
+  }).service('examination-mail-transmission-exam-voucher');
+}])
 /*******************************************************************************
  * ExaminationMailTransmissionExamVoucherService
  ******************************************************************************/
-app.factory('ExaminationMailTransmissionExamVoucherService', ['ExaminationMailTransmissionExamVoucher', 'DievasConfig', 'Restangular', '$localStorage', '$http', '$q',
-  function (ExaminationMailTransmissionExamVoucher, DievasConfig, Restangular, $localStorage, $http, $q) {
+.factory('ExaminationMailTransmissionExamVoucherService', ['$http', '$q', '$localStorage', 'DievasConfig', 'Restangular', 'ExaminationMailTransmissionExamVoucher', 'Batch',
+  function ($http, $q, $localStorage, DievasConfig, Restangular, ExaminationMailTransmissionExamVoucher, Batch) {
     var factory = {
       init: init,
-      getInitResult: getInitResult
+      getStorageData: getStorageData
     };
     return factory;
 
     function init() {
-      console.log('ExaminationMailTransmissionExamVoucherService.js: init()');
+      console.log('Service(js): init()');
       ExaminationMailTransmissionExamVoucher.getList().then(function (result) {
-        console.log('Service name >> ' + result[0].message);
-        $localStorage.result = result;
+        console.log('Controller(Java) response >> {}', result);
+        $localStorage.ExaminationMailTransmissionExamVoucher = result;
       });
     }
 
-    function getInitResult() {
-      return $localStorage.result;
+    function getStorageData() {
+      return $localStorage.ExaminationMailTransmissionExamVoucher;
     }
   }
 ]);

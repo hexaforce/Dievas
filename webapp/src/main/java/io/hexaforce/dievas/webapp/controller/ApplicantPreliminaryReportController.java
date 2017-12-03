@@ -31,9 +31,9 @@ public class ApplicantPreliminaryReportController {
 	private ApplicantPreliminaryReportService applicantPreliminaryReportService;
 	
 	@ResponseBody
-	@GetMapping(value = "/applicant_preliminary_report")
+	@GetMapping(value = "/applicant-preliminary-report")
 	public ResponseEntity<List<DievasServerMesseage>> init() {
-		log.info("ApplicantPreliminaryReportController.java init()");
+		log.info("Controller(java): init()");
 		String x = applicantPreliminaryReportService.init();
 		return new ResponseEntity<List<DievasServerMesseage>>(Arrays.asList(new DievasServerMesseage(x)),HttpStatus.OK);
 	}

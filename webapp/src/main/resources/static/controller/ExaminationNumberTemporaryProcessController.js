@@ -5,9 +5,9 @@
 app.controller('ExaminationNumberTemporaryProcessController', ['ExaminationNumberTemporaryProcessService', '$scope', function (ExaminationNumberTemporaryProcessService, $scope) {
   
   $scope.init = function () {
-    console.log('ExaminationNumberTemporaryProcessController.js: init()');
+    console.log('Controller(js): init()');
     ExaminationNumberTemporaryProcessService.init();
-    $scope.serviceName = ExaminationNumberTemporaryProcessService.getInitResult()[0].message;
+    $scope.serviceName = ExaminationNumberTemporaryProcessService.getStorageData();
   }
   
 }]);

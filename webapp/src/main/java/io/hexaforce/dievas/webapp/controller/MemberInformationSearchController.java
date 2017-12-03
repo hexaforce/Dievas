@@ -31,9 +31,9 @@ public class MemberInformationSearchController {
 	private MemberInformationSearchService memberInformationSearchService;
 	
 	@ResponseBody
-	@GetMapping(value = "/member_information_search")
+	@GetMapping(value = "/member-information-search")
 	public ResponseEntity<List<DievasServerMesseage>> init() {
-		log.info("MemberInformationSearchController.java init()");
+		log.info("Controller(java): init()");
 		String x = memberInformationSearchService.init();
 		return new ResponseEntity<List<DievasServerMesseage>>(Arrays.asList(new DievasServerMesseage(x)),HttpStatus.OK);
 	}

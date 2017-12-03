@@ -31,9 +31,9 @@ public class ImportRatingAverageController {
 	private ImportRatingAverageService importRatingAverageService;
 	
 	@ResponseBody
-	@GetMapping(value = "/import_rating_average_")
+	@GetMapping(value = "/import-rating-average")
 	public ResponseEntity<List<DievasServerMesseage>> init() {
-		log.info("ImportRatingAverageController.java init()");
+		log.info("Controller(java): init()");
 		String x = importRatingAverageService.init();
 		return new ResponseEntity<List<DievasServerMesseage>>(Arrays.asList(new DievasServerMesseage(x)),HttpStatus.OK);
 	}

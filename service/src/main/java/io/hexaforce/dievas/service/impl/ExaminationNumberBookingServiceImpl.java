@@ -20,7 +20,7 @@ public class ExaminationNumberBookingServiceImpl implements ExaminationNumberBoo
 	
 	@Override
 	public String init() {
-		log.info("ExaminationNumberBookingServiceImpl.java init()");
+		log.info("Service(java): init()");
 		return "examinationNumberBookingService";
 	}
 

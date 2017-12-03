@@ -31,9 +31,9 @@ public class ChangeLogController {
 	private ChangeLogService changeLogService;
 	
 	@ResponseBody
-	@GetMapping(value = "/change_log")
+	@GetMapping(value = "/change-log")
 	public ResponseEntity<List<DievasServerMesseage>> init() {
-		log.info("ChangeLogController.java init()");
+		log.info("Controller(java): init()");
 		String x = changeLogService.init();
 		return new ResponseEntity<List<DievasServerMesseage>>(Arrays.asList(new DievasServerMesseage(x)),HttpStatus.OK);
 	}

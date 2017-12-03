@@ -20,7 +20,7 @@ public class AcceptanceReportServiceImpl implements AcceptanceReportService {
 	
 	@Override
 	public String init() {
-		log.info("AcceptanceReportServiceImpl.java init()");
+		log.info("Service(java): init()");
 		return "acceptanceReportService";
 	}
 

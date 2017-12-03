@@ -20,7 +20,7 @@ public class MemberInformationSearchServiceImpl implements MemberInformationSear
 	
 	@Override
 	public String init() {
-		log.info("MemberInformationSearchServiceImpl.java init()");
+		log.info("Service(java): init()");
 		return "memberInformationSearchService";
 	}
 

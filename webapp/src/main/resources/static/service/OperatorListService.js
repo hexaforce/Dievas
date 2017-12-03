@@ -1,25 +1,30 @@
 'use strict';
+app.factory('OperatorList', ['Restangular', function (Restangular) {
+  return Restangular.withConfig(function (RestangularConfigurer) {
+    RestangularConfigurer.setBaseUrl('/api');  
+  }).service('operator-list');
+}])
 /*******************************************************************************
  * OperatorListService
  ******************************************************************************/
-app.factory('OperatorListService', ['OperatorList', 'DievasConfig', 'Restangular', '$localStorage', '$http', '$q',
-  function (OperatorList, DievasConfig, Restangular, $localStorage, $http, $q) {
+.factory('OperatorListService', ['$http', '$q', '$localStorage', 'DievasConfig', 'Restangular', 'OperatorList', 'Batch',
+  function ($http, $q, $localStorage, DievasConfig, Restangular, OperatorList, Batch) {
     var factory = {
       init: init,
-      getInitResult: getInitResult
+      getStorageData: getStorageData
     };
     return factory;
 
     function init() {
-      console.log('OperatorListService.js: init()');
+      console.log('Service(js): init()');
       OperatorList.getList().then(function (result) {
-        console.log('Service name >> ' + result[0].message);
-        $localStorage.result = result;
+        console.log('Controller(Java) response >> {}', result);
+        $localStorage.OperatorList = result;
       });
     }
 
-    function getInitResult() {
-      return $localStorage.result;
+    function getStorageData() {
+      return $localStorage.OperatorList;
     }
   }
 ]);

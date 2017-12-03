@@ -31,9 +31,9 @@ public class PracticalExaminationNumberManagementController {
 	private PracticalExaminationNumberManagementService practicalExaminationNumberManagementService;
 	
 	@ResponseBody
-	@GetMapping(value = "/practical_examination_number_management")
+	@GetMapping(value = "/practical-examination-number-management")
 	public ResponseEntity<List<DievasServerMesseage>> init() {
-		log.info("PracticalExaminationNumberManagementController.java init()");
+		log.info("Controller(java): init()");
 		String x = practicalExaminationNumberManagementService.init();
 		return new ResponseEntity<List<DievasServerMesseage>>(Arrays.asList(new DievasServerMesseage(x)),HttpStatus.OK);
 	}

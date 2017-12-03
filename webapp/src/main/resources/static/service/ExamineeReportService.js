@@ -1,25 +1,30 @@
 'use strict';
+app.factory('ExamineeReport', ['Restangular', function (Restangular) {
+  return Restangular.withConfig(function (RestangularConfigurer) {
+    RestangularConfigurer.setBaseUrl('/api');  
+  }).service('examinee-report');
+}])
 /*******************************************************************************
  * ExamineeReportService
  ******************************************************************************/
-app.factory('ExamineeReportService', ['ExamineeReport', 'DievasConfig', 'Restangular', '$localStorage', '$http', '$q',
-  function (ExamineeReport, DievasConfig, Restangular, $localStorage, $http, $q) {
+.factory('ExamineeReportService', ['$http', '$q', '$localStorage', 'DievasConfig', 'Restangular', 'ExamineeReport', 'Batch',
+  function ($http, $q, $localStorage, DievasConfig, Restangular, ExamineeReport, Batch) {
     var factory = {
       init: init,
-      getInitResult: getInitResult
+      getStorageData: getStorageData
     };
     return factory;
 
     function init() {
-      console.log('ExamineeReportService.js: init()');
+      console.log('Service(js): init()');
       ExamineeReport.getList().then(function (result) {
-        console.log('Service name >> ' + result[0].message);
-        $localStorage.result = result;
+        console.log('Controller(Java) response >> {}', result);
+        $localStorage.ExamineeReport = result;
       });
     }
 
-    function getInitResult() {
-      return $localStorage.result;
+    function getStorageData() {
+      return $localStorage.ExamineeReport;
     }
   }
 ]);

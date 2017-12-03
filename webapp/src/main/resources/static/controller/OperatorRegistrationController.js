@@ -5,9 +5,9 @@
 app.controller('OperatorRegistrationController', ['OperatorRegistrationService', '$scope', function (OperatorRegistrationService, $scope) {
   
   $scope.init = function () {
-    console.log('OperatorRegistrationController.js: init()');
+    console.log('Controller(js): init()');
     OperatorRegistrationService.init();
-    $scope.serviceName = OperatorRegistrationService.getInitResult()[0].message;
+    $scope.serviceName = OperatorRegistrationService.getStorageData();
   }
   
 }]);

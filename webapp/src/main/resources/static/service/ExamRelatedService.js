@@ -1,25 +1,30 @@
 'use strict';
+app.factory('ExamRelated', ['Restangular', function (Restangular) {
+  return Restangular.withConfig(function (RestangularConfigurer) {
+    RestangularConfigurer.setBaseUrl('/api');  
+  }).service('exam-related');
+}])
 /*******************************************************************************
  * ExamRelatedService
  ******************************************************************************/
-app.factory('ExamRelatedService', ['ExamRelated', 'DievasConfig', 'Restangular', '$localStorage', '$http', '$q',
-  function (ExamRelated, DievasConfig, Restangular, $localStorage, $http, $q) {
+.factory('ExamRelatedService', ['$http', '$q', '$localStorage', 'DievasConfig', 'Restangular', 'ExamRelated', 'Batch',
+  function ($http, $q, $localStorage, DievasConfig, Restangular, ExamRelated, Batch) {
     var factory = {
       init: init,
-      getInitResult: getInitResult
+      getStorageData: getStorageData
     };
     return factory;
 
     function init() {
-      console.log('ExamRelatedService.js: init()');
+      console.log('Service(js): init()');
       ExamRelated.getList().then(function (result) {
-        console.log('Service name >> ' + result[0].message);
-        $localStorage.result = result;
+        console.log('Controller(Java) response >> {}', result);
+        $localStorage.ExamRelated = result;
       });
     }
 
-    function getInitResult() {
-      return $localStorage.result;
+    function getStorageData() {
+      return $localStorage.ExamRelated;
     }
   }
 ]);

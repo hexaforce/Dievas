@@ -1,26 +1,30 @@
 'use strict';
+app.factory('MemberInformationSearch', ['Restangular', function (Restangular) {
+  return Restangular.withConfig(function (RestangularConfigurer) {
+    RestangularConfigurer.setBaseUrl('/api');  
+  }).service('member-information-search');
+}])
 /*******************************************************************************
  * MemberInformationSearchService
  ******************************************************************************/
-app.factory('MemberInformationSearchService', ['MemberInformationSearch', 'DievasConfig', 'Restangular', '$localStorage', '$http', '$q',
-  function (MemberInformationSearch, DievasConfig, Restangular, $localStorage, $http, $q) {
-
-	var factory = {
+.factory('MemberInformationSearchService', ['$http', '$q', '$localStorage', 'DievasConfig', 'Restangular', 'MemberInformationSearch', 'Batch',
+  function ($http, $q, $localStorage, DievasConfig, Restangular, MemberInformationSearch, Batch) {
+    var factory = {
       init: init,
-      getLocalData: getLocalData
+      getStorageData: getStorageData
     };
     return factory;
 
     function init() {
-      console.log('MemberInformationSearchService.js: init()');
+      console.log('Service(js): init()');
       MemberInformationSearch.getList().then(function (result) {
-        console.log('Service name >> ' + result[0].message);
-        $localStorage.MemberInformation = result;
+        console.log('Controller(Java) response >> {}', result);
+        $localStorage.MemberInformationSearch = result;
       });
     }
 
-    function getLocalData() {
-      return $localStorage.MemberInformation;
+    function getStorageData() {
+      return $localStorage.MemberInformationSearch;
     }
   }
 ]);

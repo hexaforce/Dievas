@@ -1,25 +1,30 @@
 'use strict';
+app.factory('DocumentConfirmation', ['Restangular', function (Restangular) {
+  return Restangular.withConfig(function (RestangularConfigurer) {
+    RestangularConfigurer.setBaseUrl('/api');  
+  }).service('document-confirmation');
+}])
 /*******************************************************************************
  * DocumentConfirmationService
  ******************************************************************************/
-app.factory('DocumentConfirmationService', ['DocumentConfirmation', 'DievasConfig', 'Restangular', '$localStorage', '$http', '$q',
-  function (DocumentConfirmation, DievasConfig, Restangular, $localStorage, $http, $q) {
+.factory('DocumentConfirmationService', ['$http', '$q', '$localStorage', 'DievasConfig', 'Restangular', 'DocumentConfirmation', 'Batch',
+  function ($http, $q, $localStorage, DievasConfig, Restangular, DocumentConfirmation, Batch) {
     var factory = {
       init: init,
-      getInitResult: getInitResult
+      getStorageData: getStorageData
     };
     return factory;
 
     function init() {
-      console.log('DocumentConfirmationService.js: init()');
+      console.log('Service(js): init()');
       DocumentConfirmation.getList().then(function (result) {
-        console.log('Service name >> ' + result[0].message);
-        $localStorage.result = result;
+        console.log('Controller(Java) response >> {}', result);
+        $localStorage.DocumentConfirmation = result;
       });
     }
 
-    function getInitResult() {
-      return $localStorage.result;
+    function getStorageData() {
+      return $localStorage.DocumentConfirmation;
     }
   }
 ]);

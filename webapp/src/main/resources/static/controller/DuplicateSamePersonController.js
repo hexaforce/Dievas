@@ -5,9 +5,9 @@
 app.controller('DuplicateSamePersonController', ['DuplicateSamePersonService', '$scope', function (DuplicateSamePersonService, $scope) {
   
   $scope.init = function () {
-    console.log('DuplicateSamePersonController.js: init()');
+    console.log('Controller(js): init()');
     DuplicateSamePersonService.init();
-    $scope.serviceName = DuplicateSamePersonService.getInitResult()[0].message;
+    $scope.serviceName = DuplicateSamePersonService.getStorageData();
   }
   
 }]);

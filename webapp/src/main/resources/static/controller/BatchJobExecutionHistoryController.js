@@ -5,9 +5,9 @@
 app.controller('BatchJobExecutionHistoryController', ['BatchJobExecutionHistoryService', '$scope', function (BatchJobExecutionHistoryService, $scope) {
   
   $scope.init = function () {
-    console.log('BatchJobExecutionHistoryController.js: init()');
+    console.log('Controller(js): init()');
     BatchJobExecutionHistoryService.init();
-    $scope.serviceName = BatchJobExecutionHistoryService.getInitResult()[0].message;
+    $scope.serviceName = BatchJobExecutionHistoryService.getStorageData();
   }
   
 }]);

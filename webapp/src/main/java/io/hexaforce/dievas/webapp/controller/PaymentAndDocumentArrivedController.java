@@ -31,9 +31,9 @@ public class PaymentAndDocumentArrivedController {
 	private PaymentAndDocumentArrivedService paymentAndDocumentArrivedService;
 	
 	@ResponseBody
-	@GetMapping(value = "/payment_and_document_arrived_")
+	@GetMapping(value = "/payment-and-document-arrived")
 	public ResponseEntity<List<DievasServerMesseage>> init() {
-		log.info("PaymentAndDocumentArrivedController.java init()");
+		log.info("Controller(java): init()");
 		String x = paymentAndDocumentArrivedService.init();
 		return new ResponseEntity<List<DievasServerMesseage>>(Arrays.asList(new DievasServerMesseage(x)),HttpStatus.OK);
 	}

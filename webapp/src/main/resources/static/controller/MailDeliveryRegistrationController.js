@@ -5,9 +5,9 @@
 app.controller('MailDeliveryRegistrationController', ['MailDeliveryRegistrationService', '$scope', function (MailDeliveryRegistrationService, $scope) {
   
   $scope.init = function () {
-    console.log('MailDeliveryRegistrationController.js: init()');
+    console.log('Controller(js): init()');
     MailDeliveryRegistrationService.init();
-    $scope.serviceName = MailDeliveryRegistrationService.getInitResult()[0].message;
+    $scope.serviceName = MailDeliveryRegistrationService.getStorageData();
   }
   
 }]);

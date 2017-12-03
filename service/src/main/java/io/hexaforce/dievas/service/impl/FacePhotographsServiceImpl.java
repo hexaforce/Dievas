@@ -20,7 +20,7 @@ public class FacePhotographsServiceImpl implements FacePhotographsService {
 	
 	@Override
 	public String init() {
-		log.info("FacePhotographsServiceImpl.java init()");
+		log.info("Service(java): init()");
 		return "facePhotographsService";
 	}
 

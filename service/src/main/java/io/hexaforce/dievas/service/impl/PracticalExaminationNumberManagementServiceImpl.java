@@ -20,7 +20,7 @@ public class PracticalExaminationNumberManagementServiceImpl implements Practica
 	
 	@Override
 	public String init() {
-		log.info("PracticalExaminationNumberManagementServiceImpl.java init()");
+		log.info("Service(java): init()");
 		return "practicalExaminationNumberManagementService";
 	}
 

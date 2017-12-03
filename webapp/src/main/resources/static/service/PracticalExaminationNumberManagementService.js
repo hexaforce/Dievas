@@ -1,25 +1,30 @@
 'use strict';
+app.factory('PracticalExaminationNumberManagement', ['Restangular', function (Restangular) {
+  return Restangular.withConfig(function (RestangularConfigurer) {
+    RestangularConfigurer.setBaseUrl('/api');  
+  }).service('practical-examination-number-management');
+}])
 /*******************************************************************************
  * PracticalExaminationNumberManagementService
  ******************************************************************************/
-app.factory('PracticalExaminationNumberManagementService', ['PracticalExaminationNumberManagement', 'DievasConfig', 'Restangular', '$localStorage', '$http', '$q',
-  function (PracticalExaminationNumberManagement, DievasConfig, Restangular, $localStorage, $http, $q) {
+.factory('PracticalExaminationNumberManagementService', ['$http', '$q', '$localStorage', 'DievasConfig', 'Restangular', 'PracticalExaminationNumberManagement', 'Batch',
+  function ($http, $q, $localStorage, DievasConfig, Restangular, PracticalExaminationNumberManagement, Batch) {
     var factory = {
       init: init,
-      getInitResult: getInitResult
+      getStorageData: getStorageData
     };
     return factory;
 
     function init() {
-      console.log('PracticalExaminationNumberManagementService.js: init()');
+      console.log('Service(js): init()');
       PracticalExaminationNumberManagement.getList().then(function (result) {
-        console.log('Service name >> ' + result[0].message);
-        $localStorage.result = result;
+        console.log('Controller(Java) response >> {}', result);
+        $localStorage.PracticalExaminationNumberManagement = result;
       });
     }
 
-    function getInitResult() {
-      return $localStorage.result;
+    function getStorageData() {
+      return $localStorage.PracticalExaminationNumberManagement;
     }
   }
 ]);

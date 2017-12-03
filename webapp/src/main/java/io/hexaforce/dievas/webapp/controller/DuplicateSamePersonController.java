@@ -31,9 +31,9 @@ public class DuplicateSamePersonController {
 	private DuplicateSamePersonService duplicateSamePersonService;
 	
 	@ResponseBody
-	@GetMapping(value = "/duplicate_same_person")
+	@GetMapping(value = "/duplicate-same-person")
 	public ResponseEntity<List<DievasServerMesseage>> init() {
-		log.info("DuplicateSamePersonController.java init()");
+		log.info("Controller(java): init()");
 		String x = duplicateSamePersonService.init();
 		return new ResponseEntity<List<DievasServerMesseage>>(Arrays.asList(new DievasServerMesseage(x)),HttpStatus.OK);
 	}

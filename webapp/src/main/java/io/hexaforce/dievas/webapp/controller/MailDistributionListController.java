@@ -31,9 +31,9 @@ public class MailDistributionListController {
 	private MailDistributionListService mailDistributionListService;
 	
 	@ResponseBody
-	@GetMapping(value = "/mail_distribution_list")
+	@GetMapping(value = "/mail-distribution-list")
 	public ResponseEntity<List<DievasServerMesseage>> init() {
-		log.info("MailDistributionListController.java init()");
+		log.info("Controller(java): init()");
 		String x = mailDistributionListService.init();
 		return new ResponseEntity<List<DievasServerMesseage>>(Arrays.asList(new DievasServerMesseage(x)),HttpStatus.OK);
 	}

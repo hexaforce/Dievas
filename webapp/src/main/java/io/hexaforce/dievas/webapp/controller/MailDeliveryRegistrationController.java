@@ -31,9 +31,9 @@ public class MailDeliveryRegistrationController {
 	private MailDeliveryRegistrationService mailDeliveryRegistrationService;
 	
 	@ResponseBody
-	@GetMapping(value = "/mail_delivery_registration")
+	@GetMapping(value = "/mail-delivery-registration")
 	public ResponseEntity<List<DievasServerMesseage>> init() {
-		log.info("MailDeliveryRegistrationController.java init()");
+		log.info("Controller(java): init()");
 		String x = mailDeliveryRegistrationService.init();
 		return new ResponseEntity<List<DievasServerMesseage>>(Arrays.asList(new DievasServerMesseage(x)),HttpStatus.OK);
 	}

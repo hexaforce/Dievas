@@ -20,7 +20,7 @@ public class ExamVoucherPassRejectionServiceImpl implements ExamVoucherPassRejec
 	
 	@Override
 	public String init() {
-		log.info("ExamVoucherPassRejectionServiceImpl.java init()");
+		log.info("Service(java): init()");
 		return "examVoucherPassRejectionService";
 	}
 

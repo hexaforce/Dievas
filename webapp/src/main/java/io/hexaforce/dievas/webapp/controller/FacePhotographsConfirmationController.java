@@ -31,9 +31,9 @@ public class FacePhotographsConfirmationController {
 	private FacePhotographsConfirmationService facePhotographsConfirmationService;
 	
 	@ResponseBody
-	@GetMapping(value = "/face_photographs_confirmation")
+	@GetMapping(value = "/face-photographs-confirmation")
 	public ResponseEntity<List<DievasServerMesseage>> init() {
-		log.info("FacePhotographsConfirmationController.java init()");
+		log.info("Controller(java): init()");
 		String x = facePhotographsConfirmationService.init();
 		return new ResponseEntity<List<DievasServerMesseage>>(Arrays.asList(new DievasServerMesseage(x)),HttpStatus.OK);
 	}

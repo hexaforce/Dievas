@@ -9,8 +9,10 @@ app.config(function (RestangularProvider) {
   //RestangularProvider.setRequestSuffix('.json');
   //RestangularProvider.setDefaultRequestParams({key: 'abcdef'});
   // Request interceptor.
-  RestangularProvider.setFullRequestInterceptor(function (element, operation, route, url, headers, params, httpConfig) {
+  RestangularProvider.setFullRequestInterceptor(
+		  function (element, operation, route, url, headers, params, httpConfig) {
 	  console.log('[Request] Restangular:' + operation + ' URL:' + url);
+	  
     return {
       element: element,
       params: params,
@@ -19,7 +21,8 @@ app.config(function (RestangularProvider) {
     };
   });
   // Response interceptor.
-  RestangularProvider.addResponseInterceptor(function (data, operation, what, url, response, deferred) {
+  RestangularProvider.addResponseInterceptor(
+		  function (data, operation, what, url, response, deferred) {
 	  console.log('[Response] Restangular:' + operation + ' URL:' + url + '(' + response.config.method + ')' + ' response:' + response.status + '(' + response.statusText + ') xhr:' + response.xhrStatus);
 	  
 	  if (operation == 'getList' && response.status == 204){
@@ -47,6 +50,6 @@ app.factory('Dashboard', ['Restangular', function (Restangular) {
  ******************************************************************************/
 }]).factory('Batch', ['Restangular', function (Restangular) {
   return Restangular.withConfig(function (RestangularConfigurer) {
-	  
+	  RestangularConfigurer.setBaseUrl('/');
   }).service('batch');
 }]);

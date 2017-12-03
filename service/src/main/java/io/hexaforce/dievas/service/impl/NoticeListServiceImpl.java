@@ -20,7 +20,7 @@ public class NoticeListServiceImpl implements NoticeListService {
 	
 	@Override
 	public String init() {
-		log.info("NoticeListServiceImpl.java init()");
+		log.info("Service(java): init()");
 		return "noticeListService";
 	}
 

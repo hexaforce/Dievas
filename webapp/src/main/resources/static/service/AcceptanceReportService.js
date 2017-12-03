@@ -1,25 +1,30 @@
 'use strict';
+app.factory('AcceptanceReport', ['Restangular', function (Restangular) {
+  return Restangular.withConfig(function (RestangularConfigurer) {
+    RestangularConfigurer.setBaseUrl('/api');  
+  }).service('acceptance-report');
+}])
 /*******************************************************************************
  * AcceptanceReportService
  ******************************************************************************/
-app.factory('AcceptanceReportService', ['AcceptanceReport', 'DievasConfig', 'Restangular', '$localStorage', '$http', '$q',
-  function (AcceptanceReport, DievasConfig, Restangular, $localStorage, $http, $q) {
+.factory('AcceptanceReportService', ['$http', '$q', '$localStorage', 'DievasConfig', 'Restangular', 'AcceptanceReport', 'Batch',
+  function ($http, $q, $localStorage, DievasConfig, Restangular, AcceptanceReport, Batch) {
     var factory = {
       init: init,
-      getInitResult: getInitResult
+      getStorageData: getStorageData
     };
     return factory;
 
     function init() {
-      console.log('AcceptanceReportService.js: init()');
+      console.log('Service(js): init()');
       AcceptanceReport.getList().then(function (result) {
-        console.log('Service name >> ' + result[0].message);
-        $localStorage.result = result;
+        console.log('Controller(Java) response >> {}', result);
+        $localStorage.AcceptanceReport = result;
       });
     }
 
-    function getInitResult() {
-      return $localStorage.result;
+    function getStorageData() {
+      return $localStorage.AcceptanceReport;
     }
   }
 ]);

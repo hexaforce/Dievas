@@ -31,9 +31,9 @@ public class NoticeListController {
 	private NoticeListService noticeListService;
 	
 	@ResponseBody
-	@GetMapping(value = "/notice_list")
+	@GetMapping(value = "/notice-list")
 	public ResponseEntity<List<DievasServerMesseage>> init() {
-		log.info("NoticeListController.java init()");
+		log.info("Controller(java): init()");
 		String x = noticeListService.init();
 		return new ResponseEntity<List<DievasServerMesseage>>(Arrays.asList(new DievasServerMesseage(x)),HttpStatus.OK);
 	}

@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.hexaforce.dievas.commons.DievasServerMesseage;
-import io.hexaforce.dievas.service.AcceptanceImportPassRejectionService;
+import io.hexaforce.dievas.service.ImplementsReferenceService;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * AcceptanceImportPassRejection router function.
+ * ImplementsReference router function.
  * 
  * @version 1.0.0.BUILD-SNAPSHOT
  * @author T.Tantaka <relics9@gmail.com>
@@ -25,16 +25,16 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RestController
 @RequestMapping("/api")
-public class AcceptanceImportPassRejectionController {
+public class ImplementsReferenceController {
 	
 	@Autowired
-	private AcceptanceImportPassRejectionService acceptanceImportPassRejectionService;
+	private ImplementsReferenceService implementsReferenceService;
 	
 	@ResponseBody
-	@GetMapping(value = "/acceptance-import-pass-rejection")
+	@GetMapping(value = "/implements-reference")
 	public ResponseEntity<List<DievasServerMesseage>> init() {
 		log.info("Controller(java): init()");
-		String x = acceptanceImportPassRejectionService.init();
+		String x = implementsReferenceService.init();
 		return new ResponseEntity<List<DievasServerMesseage>>(Arrays.asList(new DievasServerMesseage(x)),HttpStatus.OK);
 	}
 	

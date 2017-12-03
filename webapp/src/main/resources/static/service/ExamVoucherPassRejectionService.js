@@ -1,25 +1,30 @@
 'use strict';
+app.factory('ExamVoucherPassRejection', ['Restangular', function (Restangular) {
+  return Restangular.withConfig(function (RestangularConfigurer) {
+    RestangularConfigurer.setBaseUrl('/api');  
+  }).service('exam-voucher-pass-rejection');
+}])
 /*******************************************************************************
  * ExamVoucherPassRejectionService
  ******************************************************************************/
-app.factory('ExamVoucherPassRejectionService', ['ExamVoucherPassRejection', 'DievasConfig', 'Restangular', '$localStorage', '$http', '$q',
-  function (ExamVoucherPassRejection, DievasConfig, Restangular, $localStorage, $http, $q) {
+.factory('ExamVoucherPassRejectionService', ['$http', '$q', '$localStorage', 'DievasConfig', 'Restangular', 'ExamVoucherPassRejection', 'Batch',
+  function ($http, $q, $localStorage, DievasConfig, Restangular, ExamVoucherPassRejection, Batch) {
     var factory = {
       init: init,
-      getInitResult: getInitResult
+      getStorageData: getStorageData
     };
     return factory;
 
     function init() {
-      console.log('ExamVoucherPassRejectionService.js: init()');
+      console.log('Service(js): init()');
       ExamVoucherPassRejection.getList().then(function (result) {
-        console.log('Service name >> ' + result[0].message);
-        $localStorage.result = result;
+        console.log('Controller(Java) response >> {}', result);
+        $localStorage.ExamVoucherPassRejection = result;
       });
     }
 
-    function getInitResult() {
-      return $localStorage.result;
+    function getStorageData() {
+      return $localStorage.ExamVoucherPassRejection;
     }
   }
 ]);

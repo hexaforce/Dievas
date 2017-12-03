@@ -20,7 +20,7 @@ public class ImportRatingAverageServiceImpl implements ImportRatingAverageServic
 	
 	@Override
 	public String init() {
-		log.info("ImportRatingAverageServiceImpl.java init()");
+		log.info("Service(java): init()");
 		return "importRatingAverageService";
 	}
 

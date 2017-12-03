@@ -31,9 +31,9 @@ public class ExaminationMailTransmissionExamVoucherController {
 	private ExaminationMailTransmissionExamVoucherService examinationMailTransmissionExamVoucherService;
 	
 	@ResponseBody
-	@GetMapping(value = "/examination_mail_transmission_exam_voucher")
+	@GetMapping(value = "/examination-mail-transmission-exam-voucher")
 	public ResponseEntity<List<DievasServerMesseage>> init() {
-		log.info("ExaminationMailTransmissionExamVoucherController.java init()");
+		log.info("Controller(java): init()");
 		String x = examinationMailTransmissionExamVoucherService.init();
 		return new ResponseEntity<List<DievasServerMesseage>>(Arrays.asList(new DievasServerMesseage(x)),HttpStatus.OK);
 	}

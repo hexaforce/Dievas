@@ -5,9 +5,9 @@
 app.controller('NoticeListController', ['NoticeListService', '$scope', function (NoticeListService, $scope) {
   
   $scope.init = function () {
-    console.log('NoticeListController.js: init()');
+    console.log('Controller(js): init()');
     NoticeListService.init();
-    $scope.serviceName = NoticeListService.getInitResult()[0].message;
+    $scope.serviceName = NoticeListService.getStorageData();
   }
   
 }]);

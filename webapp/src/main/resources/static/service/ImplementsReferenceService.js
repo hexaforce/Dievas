@@ -1,14 +1,14 @@
 'use strict';
-app.factory('ImportRatingAverage', ['Restangular', function (Restangular) {
+app.factory('ImplementsReference', ['Restangular', function (Restangular) {
   return Restangular.withConfig(function (RestangularConfigurer) {
     RestangularConfigurer.setBaseUrl('/api');  
-  }).service('import-rating-average');
+  }).service('implements-reference');
 }])
 /*******************************************************************************
- * ImportRatingAverageService
+ * ImplementsReferenceService
  ******************************************************************************/
-.factory('ImportRatingAverageService', ['$http', '$q', '$localStorage', 'DievasConfig', 'Restangular', 'ImportRatingAverage', 'Batch',
-  function ($http, $q, $localStorage, DievasConfig, Restangular, ImportRatingAverage, Batch) {
+.factory('ImplementsReferenceService', ['$http', '$q', '$localStorage', 'DievasConfig', 'Restangular', 'ImplementsReference', 'Batch',
+  function ($http, $q, $localStorage, DievasConfig, Restangular, ImplementsReference, Batch) {
     var factory = {
       init: init,
       getStorageData: getStorageData
@@ -17,14 +17,14 @@ app.factory('ImportRatingAverage', ['Restangular', function (Restangular) {
 
     function init() {
       console.log('Service(js): init()');
-      ImportRatingAverage.getList().then(function (result) {
+      ImplementsReference.getList().then(function (result) {
         console.log('Controller(Java) response >> {}', result);
-        $localStorage.ImportRatingAverage = result;
+        $localStorage.ImplementsReference = result;
       });
     }
 
     function getStorageData() {
-      return $localStorage.ImportRatingAverage;
+      return $localStorage.ImplementsReference;
     }
   }
 ]);

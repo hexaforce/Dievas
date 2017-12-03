@@ -20,7 +20,7 @@ public class NoticeRegistrationServiceImpl implements NoticeRegistrationService 
 	
 	@Override
 	public String init() {
-		log.info("NoticeRegistrationServiceImpl.java init()");
+		log.info("Service(java): init()");
 		return "noticeRegistrationService";
 	}
 

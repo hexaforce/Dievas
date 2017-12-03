@@ -1,31 +1,24 @@
 'use strict';
-/******************************************************************************
- * Dievas implement REST
- ******************************************************************************/
-app.factory('JavaController', ['Restangular', function (Restangular) {
+app.factory('Dashboard', ['Restangular', function (Restangular) {
   return Restangular.withConfig(function (RestangularConfigurer) {
     RestangularConfigurer.setBaseUrl('/api');  
   }).service('dashboard');
 }])
 /*******************************************************************************
- * Dashboard angular service
+ * DashboardService
  ******************************************************************************/
-.factory('DashboardService', ['$http', '$q', '$localStorage', 'DievasConfig', 'Restangular', 'JavaController', 'Batch',
-  function ($http, $q, $localStorage, DievasConfig, Restangular, JavaController, Batch) {
-	
+.factory('DashboardService', ['$http', '$q', '$localStorage', 'DievasConfig', 'Restangular', 'Dashboard', 'Batch',
+  function ($http, $q, $localStorage, DievasConfig, Restangular, Dashboard, Batch) {
     var factory = {
       init: init,
-      getStorageData: getStorageData,
-      callJavaController: callJavaController,
-      callSpringDataREST: callSpringDataREST,
-      callBatchJob: callBatchJob
+      getStorageData: getStorageData
     };
     return factory;
 
     function init() {
       console.log('Service(js): init()');
-      JavaController.getList().then(function (result) {
-        console.log('Callback data >> ' + result[0].message);
+      Dashboard.getList().then(function (result) {
+        console.log('Controller(Java) response >> {}', result);
         $localStorage.Dashboard = result;
       });
     }
@@ -33,29 +26,5 @@ app.factory('JavaController', ['Restangular', function (Restangular) {
     function getStorageData() {
       return $localStorage.Dashboard;
     }
-    
-    function callJavaController() {
-    	JavaController.getList().then(function (Dashboard) {
-           // $scope.accounts = accounts;
-        });
-    }
-
-    function callSpringDataREST() {
-        
-    }
-    
-    function callBatchJob() {
-    	Batch.one('job').get().then(function (batch) {
-            //$scope.batch = batch;
-        });
-    }
-    
-    
-    
-    
-    
-    
-    
-    
   }
 ]);

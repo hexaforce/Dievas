@@ -20,7 +20,7 @@ public class ExamLocationManagementServiceImpl implements ExamLocationManagement
 	
 	@Override
 	public String init() {
-		log.info("ExamLocationManagementServiceImpl.java init()");
+		log.info("Service(java): init()");
 		return "examLocationManagementService";
 	}
 

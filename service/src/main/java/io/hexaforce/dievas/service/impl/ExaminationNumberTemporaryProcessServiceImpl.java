@@ -20,7 +20,7 @@ public class ExaminationNumberTemporaryProcessServiceImpl implements Examination
 	
 	@Override
 	public String init() {
-		log.info("ExaminationNumberTemporaryProcessServiceImpl.java init()");
+		log.info("Service(java): init()");
 		return "examinationNumberTemporaryProcessService";
 	}
 

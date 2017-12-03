@@ -31,9 +31,9 @@ public class ExaminationNumberReservationCancellationController {
 	private ExaminationNumberReservationCancellationService examinationNumberReservationCancellationService;
 	
 	@ResponseBody
-	@GetMapping(value = "/examination_number_reservation_cancellation")
+	@GetMapping(value = "/examination-number-reservation-cancellation")
 	public ResponseEntity<List<DievasServerMesseage>> init() {
-		log.info("ExaminationNumberReservationCancellationController.java init()");
+		log.info("Controller(java): init()");
 		String x = examinationNumberReservationCancellationService.init();
 		return new ResponseEntity<List<DievasServerMesseage>>(Arrays.asList(new DievasServerMesseage(x)),HttpStatus.OK);
 	}

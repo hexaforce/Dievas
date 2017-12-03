@@ -31,9 +31,9 @@ public class DailyScheduleController {
 	private DailyScheduleService dailyScheduleService;
 	
 	@ResponseBody
-	@GetMapping(value = "/daily_schedule")
+	@GetMapping(value = "/daily-schedule")
 	public ResponseEntity<List<DievasServerMesseage>> init() {
-		log.info("DailyScheduleController.java init()");
+		log.info("Controller(java): init()");
 		String x = dailyScheduleService.init();
 		return new ResponseEntity<List<DievasServerMesseage>>(Arrays.asList(new DievasServerMesseage(x)),HttpStatus.OK);
 	}

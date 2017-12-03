@@ -20,7 +20,7 @@ public class ExaminationNumberCancellationServiceImpl implements ExaminationNumb
 	
 	@Override
 	public String init() {
-		log.info("ExaminationNumberCancellationServiceImpl.java init()");
+		log.info("Service(java): init()");
 		return "examinationNumberCancellationService";
 	}
 

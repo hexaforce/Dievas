@@ -20,7 +20,7 @@ public class BatchJobExecutionHistoryServiceImpl implements BatchJobExecutionHis
 	
 	@Override
 	public String init() {
-		log.info("BatchJobExecutionHistoryServiceImpl.java init()");
+		log.info("Service(java): init()");
 		return "batchJobExecutionHistoryService";
 	}
 

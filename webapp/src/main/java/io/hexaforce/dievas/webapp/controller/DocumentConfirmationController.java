@@ -31,9 +31,9 @@ public class DocumentConfirmationController {
 	private DocumentConfirmationService documentConfirmationService;
 	
 	@ResponseBody
-	@GetMapping(value = "/document_confirmation")
+	@GetMapping(value = "/document-confirmation")
 	public ResponseEntity<List<DievasServerMesseage>> init() {
-		log.info("DocumentConfirmationController.java init()");
+		log.info("Controller(java): init()");
 		String x = documentConfirmationService.init();
 		return new ResponseEntity<List<DievasServerMesseage>>(Arrays.asList(new DievasServerMesseage(x)),HttpStatus.OK);
 	}

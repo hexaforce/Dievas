@@ -20,7 +20,7 @@ public class MailDeliveryRegistrationServiceImpl implements MailDeliveryRegistra
 	
 	@Override
 	public String init() {
-		log.info("MailDeliveryRegistrationServiceImpl.java init()");
+		log.info("Service(java): init()");
 		return "mailDeliveryRegistrationService";
 	}
 

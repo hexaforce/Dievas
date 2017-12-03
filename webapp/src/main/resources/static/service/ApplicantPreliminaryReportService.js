@@ -1,25 +1,30 @@
 'use strict';
+app.factory('ApplicantPreliminaryReport', ['Restangular', function (Restangular) {
+  return Restangular.withConfig(function (RestangularConfigurer) {
+    RestangularConfigurer.setBaseUrl('/api');  
+  }).service('applicant-preliminary-report');
+}])
 /*******************************************************************************
  * ApplicantPreliminaryReportService
  ******************************************************************************/
-app.factory('ApplicantPreliminaryReportService', ['ApplicantPreliminaryReport', 'DievasConfig', 'Restangular', '$localStorage', '$http', '$q',
-  function (ApplicantPreliminaryReport, DievasConfig, Restangular, $localStorage, $http, $q) {
+.factory('ApplicantPreliminaryReportService', ['$http', '$q', '$localStorage', 'DievasConfig', 'Restangular', 'ApplicantPreliminaryReport', 'Batch',
+  function ($http, $q, $localStorage, DievasConfig, Restangular, ApplicantPreliminaryReport, Batch) {
     var factory = {
       init: init,
-      getInitResult: getInitResult
+      getStorageData: getStorageData
     };
     return factory;
 
     function init() {
-      console.log('ApplicantPreliminaryReportService.js: init()');
+      console.log('Service(js): init()');
       ApplicantPreliminaryReport.getList().then(function (result) {
-        console.log('Service name >> ' + result[0].message);
-        $localStorage.result = result;
+        console.log('Controller(Java) response >> {}', result);
+        $localStorage.ApplicantPreliminaryReport = result;
       });
     }
 
-    function getInitResult() {
-      return $localStorage.result;
+    function getStorageData() {
+      return $localStorage.ApplicantPreliminaryReport;
     }
   }
 ]);

@@ -20,7 +20,7 @@ public class SystemRelatedListServiceImpl implements SystemRelatedListService {
 	
 	@Override
 	public String init() {
-		log.info("SystemRelatedListServiceImpl.java init()");
+		log.info("Service(java): init()");
 		return "systemRelatedListService";
 	}
 

@@ -31,9 +31,9 @@ public class BatchJobExecutionHistoryController {
 	private BatchJobExecutionHistoryService batchJobExecutionHistoryService;
 	
 	@ResponseBody
-	@GetMapping(value = "/batch_job_execution_history")
+	@GetMapping(value = "/batch-job-execution-history")
 	public ResponseEntity<List<DievasServerMesseage>> init() {
-		log.info("BatchJobExecutionHistoryController.java init()");
+		log.info("Controller(java): init()");
 		String x = batchJobExecutionHistoryService.init();
 		return new ResponseEntity<List<DievasServerMesseage>>(Arrays.asList(new DievasServerMesseage(x)),HttpStatus.OK);
 	}

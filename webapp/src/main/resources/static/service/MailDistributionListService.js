@@ -1,25 +1,30 @@
 'use strict';
+app.factory('MailDistributionList', ['Restangular', function (Restangular) {
+  return Restangular.withConfig(function (RestangularConfigurer) {
+    RestangularConfigurer.setBaseUrl('/api');  
+  }).service('mail-distribution-list');
+}])
 /*******************************************************************************
  * MailDistributionListService
  ******************************************************************************/
-app.factory('MailDistributionListService', ['MailDistributionList', 'DievasConfig', 'Restangular', '$localStorage', '$http', '$q',
-  function (MailDistributionList, DievasConfig, Restangular, $localStorage, $http, $q) {
+.factory('MailDistributionListService', ['$http', '$q', '$localStorage', 'DievasConfig', 'Restangular', 'MailDistributionList', 'Batch',
+  function ($http, $q, $localStorage, DievasConfig, Restangular, MailDistributionList, Batch) {
     var factory = {
       init: init,
-      getInitResult: getInitResult
+      getStorageData: getStorageData
     };
     return factory;
 
     function init() {
-      console.log('MailDistributionListService.js: init()');
+      console.log('Service(js): init()');
       MailDistributionList.getList().then(function (result) {
-        console.log('Service name >> ' + result[0].message);
-        $localStorage.result = result;
+        console.log('Controller(Java) response >> {}', result);
+        $localStorage.MailDistributionList = result;
       });
     }
 
-    function getInitResult() {
-      return $localStorage.result;
+    function getStorageData() {
+      return $localStorage.MailDistributionList;
     }
   }
 ]);

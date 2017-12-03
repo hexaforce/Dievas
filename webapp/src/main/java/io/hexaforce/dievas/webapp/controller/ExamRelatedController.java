@@ -31,9 +31,9 @@ public class ExamRelatedController {
 	private ExamRelatedService examRelatedService;
 	
 	@ResponseBody
-	@GetMapping(value = "/exam_related")
+	@GetMapping(value = "/exam-related")
 	public ResponseEntity<List<DievasServerMesseage>> init() {
-		log.info("ExamRelatedController.java init()");
+		log.info("Controller(java): init()");
 		String x = examRelatedService.init();
 		return new ResponseEntity<List<DievasServerMesseage>>(Arrays.asList(new DievasServerMesseage(x)),HttpStatus.OK);
 	}

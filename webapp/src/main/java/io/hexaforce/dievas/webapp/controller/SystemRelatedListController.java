@@ -31,9 +31,9 @@ public class SystemRelatedListController {
 	private SystemRelatedListService systemRelatedListService;
 	
 	@ResponseBody
-	@GetMapping(value = "/system_related_list")
+	@GetMapping(value = "/system-related-list")
 	public ResponseEntity<List<DievasServerMesseage>> init() {
-		log.info("SystemRelatedListController.java init()");
+		log.info("Controller(java): init()");
 		String x = systemRelatedListService.init();
 		return new ResponseEntity<List<DievasServerMesseage>>(Arrays.asList(new DievasServerMesseage(x)),HttpStatus.OK);
 	}

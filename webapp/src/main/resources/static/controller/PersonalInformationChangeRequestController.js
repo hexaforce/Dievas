@@ -5,9 +5,9 @@
 app.controller('PersonalInformationChangeRequestController', ['PersonalInformationChangeRequestService', '$scope', function (PersonalInformationChangeRequestService, $scope) {
   
   $scope.init = function () {
-    console.log('PersonalInformationChangeRequestController.js: init()');
+    console.log('Controller(js): init()');
     PersonalInformationChangeRequestService.init();
-    $scope.serviceName = PersonalInformationChangeRequestService.getInitResult()[0].message;
+    $scope.serviceName = PersonalInformationChangeRequestService.getStorageData();
   }
   
 }]);

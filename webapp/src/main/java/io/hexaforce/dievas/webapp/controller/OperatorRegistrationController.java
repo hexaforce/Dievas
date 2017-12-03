@@ -31,9 +31,9 @@ public class OperatorRegistrationController {
 	private OperatorRegistrationService operatorRegistrationService;
 	
 	@ResponseBody
-	@GetMapping(value = "/operator_registration")
+	@GetMapping(value = "/operator-registration")
 	public ResponseEntity<List<DievasServerMesseage>> init() {
-		log.info("OperatorRegistrationController.java init()");
+		log.info("Controller(java): init()");
 		String x = operatorRegistrationService.init();
 		return new ResponseEntity<List<DievasServerMesseage>>(Arrays.asList(new DievasServerMesseage(x)),HttpStatus.OK);
 	}

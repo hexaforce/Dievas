@@ -1,25 +1,30 @@
 'use strict';
+app.factory('ExaminationNumberCancellation', ['Restangular', function (Restangular) {
+  return Restangular.withConfig(function (RestangularConfigurer) {
+    RestangularConfigurer.setBaseUrl('/api');  
+  }).service('examination-number-cancellation');
+}])
 /*******************************************************************************
  * ExaminationNumberCancellationService
  ******************************************************************************/
-app.factory('ExaminationNumberCancellationService', ['ExaminationNumberCancellation', 'DievasConfig', 'Restangular', '$localStorage', '$http', '$q',
-  function (ExaminationNumberCancellation, DievasConfig, Restangular, $localStorage, $http, $q) {
+.factory('ExaminationNumberCancellationService', ['$http', '$q', '$localStorage', 'DievasConfig', 'Restangular', 'ExaminationNumberCancellation', 'Batch',
+  function ($http, $q, $localStorage, DievasConfig, Restangular, ExaminationNumberCancellation, Batch) {
     var factory = {
       init: init,
-      getInitResult: getInitResult
+      getStorageData: getStorageData
     };
     return factory;
 
     function init() {
-      console.log('ExaminationNumberCancellationService.js: init()');
+      console.log('Service(js): init()');
       ExaminationNumberCancellation.getList().then(function (result) {
-        console.log('Service name >> ' + result[0].message);
-        $localStorage.result = result;
+        console.log('Controller(Java) response >> {}', result);
+        $localStorage.ExaminationNumberCancellation = result;
       });
     }
 
-    function getInitResult() {
-      return $localStorage.result;
+    function getStorageData() {
+      return $localStorage.ExaminationNumberCancellation;
     }
   }
 ]);

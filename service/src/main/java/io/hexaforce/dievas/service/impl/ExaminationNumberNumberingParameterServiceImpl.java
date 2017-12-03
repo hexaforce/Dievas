@@ -20,7 +20,7 @@ public class ExaminationNumberNumberingParameterServiceImpl implements Examinati
 	
 	@Override
 	public String init() {
-		log.info("ExaminationNumberNumberingParameterServiceImpl.java init()");
+		log.info("Service(java): init()");
 		return "examinationNumberNumberingParameterService";
 	}
 

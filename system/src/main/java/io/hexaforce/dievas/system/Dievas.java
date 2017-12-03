@@ -1,22 +1,9 @@
 package io.hexaforce.dievas.system;
 
-import javax.sql.DataSource;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.security.StaticResourceRequest;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
-import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
-import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapter;
-import org.springframework.http.MediaType;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -45,31 +32,7 @@ public class Dievas implements WebMvcConfigurer {
 	
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
-		// ログインページを登録
 		registry.addViewController("/login").setViewName("login");
-	}
-	
-	@Configuration
-	protected static class ApplicationSecurity extends WebSecurityConfigurerAdapter {
-		
-		@Autowired
-		private DataSource dataSource;
-
-		@Override
-		protected void configure(HttpSecurity http) throws Exception {
-			http.authorizeRequests()
-			.requestMatchers(StaticResourceRequest.toCommonLocations()).permitAll().anyRequest().fullyAuthenticated()
-			.and()
-			.formLogin().loginPage("/login").successForwardUrl("/").failureUrl("/login?error").permitAll()
-			.and()
-			.logout().logoutUrl("/login?logout").permitAll();
-		}
-		
-		@Override
-		public void configure(AuthenticationManagerBuilder auth) throws Exception {
-			auth.jdbcAuthentication().dataSource(this.dataSource);
-		}
-		
 	}
 	
 //    @Bean
@@ -143,45 +106,6 @@ public class Dievas implements WebMvcConfigurer {
 //	}
 	
 	
-	@Configuration
-	class CustomRestMvcConfiguration {
-		@Bean
-		public RepositoryRestConfigurer repositoryRestConfigurer() {
-			return new RepositoryRestConfigurerAdapter() {
-				@Override
-				public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
-					// exposeIdsFor(config, "io.hexaforce.dievas.database.rds.entity");
-					// IDアノテーションでも出力されるようにします。厳格なRESTfulでは推奨されていないものです。
-//					config.exposeIdsFor(Actor.class);
-//					config.exposeIdsFor(ActorInfo.class);
-//					config.exposeIdsFor(Address.class);
-//					config.exposeIdsFor(Category.class);
-//					config.exposeIdsFor(City.class);
-//					config.exposeIdsFor(Country.class);
-//					config.exposeIdsFor(Customer.class);
-//					config.exposeIdsFor(CustomerList.class);
-//					config.exposeIdsFor(Film.class);
-//					config.exposeIdsFor(FilmActor.class);
-//					config.exposeIdsFor(FilmActorPK.class);
-//					config.exposeIdsFor(FilmCategory.class);
-//					config.exposeIdsFor(FilmCategoryPK.class);
-//					config.exposeIdsFor(FilmList.class);
-//					config.exposeIdsFor(FilmText.class);
-//					config.exposeIdsFor(Inventory.class);
-//					config.exposeIdsFor(Language.class);
-//					config.exposeIdsFor(NicerButSlowerFilmList.class);
-//					config.exposeIdsFor(Payment.class);
-//					config.exposeIdsFor(Rental.class);
-//					config.exposeIdsFor(SalesByFilmCategory.class);
-//					config.exposeIdsFor(SalesByStore.class);
-//					config.exposeIdsFor(Staff.class);
-//					config.exposeIdsFor(StaffList.class);
-//					config.exposeIdsFor(Store.class);
-					config.setDefaultMediaType(MediaType.APPLICATION_JSON);
-				}
-			};
-		}
-	}
 	
 //	private void exposeIdsFor(RepositoryRestConfiguration config, String packages) {
 //		try {

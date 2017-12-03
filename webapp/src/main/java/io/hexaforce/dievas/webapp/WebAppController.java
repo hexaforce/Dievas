@@ -39,4 +39,5 @@ public class WebAppController {
 		log.info("redirect to >> /Dievas");
 		return "redirect:/Dievas";
 	}
+	
 }

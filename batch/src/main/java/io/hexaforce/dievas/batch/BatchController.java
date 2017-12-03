@@ -48,7 +48,7 @@ public class BatchController implements ApplicationContextAware{
 	@ResponseBody
 	@RequestMapping("/batch/{jobName}")
 	public JobExecutionSummary batch(@PathVariable("jobName") String jobName, ModelMap modal) {
-		log.info("/batch");
+		log.info("/batch/"+jobName);
 		
 		// ジョブパラメータを作成
 		JobParameters jobParameters = buildJobParameter(modal);

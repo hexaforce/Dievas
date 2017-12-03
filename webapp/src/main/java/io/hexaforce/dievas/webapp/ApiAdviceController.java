@@ -5,5 +5,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 @ControllerAdvice
 public class ApiAdviceController extends ResponseEntityExceptionHandler {
-
+//    public ResponseEntity handleHttpStatusException(HttpStatusException exception, WebRequest request) throws JsonProcessingException {
+//        return handleExceptionInternal(exception, exception.toResponseJson(), new HttpHeaders(), exception.getHttpStatus(), request);
+//    }
 }

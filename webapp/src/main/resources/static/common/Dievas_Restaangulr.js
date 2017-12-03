@@ -7,12 +7,25 @@ app.config(function (RestangularProvider) {
   // BaseUrl
   RestangularProvider.setBaseUrl('/datarest');
   //RestangularProvider.setRequestSuffix('.json');
-  //RestangularProvider.setDefaultRequestParams({key: 'abcdef'});
+  //RestangularProvider.setDefaultRequestParams({'X-CSRF-TOKEN' : $.cookie('XSRF-TOKEN')});
+  
+
   // Request interceptor.
   RestangularProvider.setFullRequestInterceptor(
 		  function (element, operation, route, url, headers, params, httpConfig) {
 	  console.log('[Request] Restangular:' + operation + ' URL:' + url);
-	  
+	  var keyCheck = function (val){
+		  return val != null && Object.keys(val).length;
+	  }
+		if (keyCheck(element))
+			console.log('element:',element);
+		if (keyCheck(params))
+			console.log('params:',params);
+		if (keyCheck(headers))
+			console.log('headers:',headers);
+		if (keyCheck(httpConfig))
+			console.log('httpConfig:',httpConfig);
+
     return {
       element: element,
       params: params,
@@ -42,6 +55,27 @@ app.config(function (RestangularProvider) {
  * Spring Data REST
  ******************************************************************************/
 app.factory('Dashboard', ['Restangular', function (Restangular) {
+//	  var refreshAccesstoken = function() {
+//		    var deferred = $q.defer();
+//
+//		    // Refresh access-token logic
+//
+//		    return deferred.promise;
+//		};
+//
+//		Restangular.setErrorInterceptor(function(response, deferred, responseHandler) {
+//		    if(response.status === 403) {
+//		        refreshAccesstoken().then(function() {
+//		            // Repeat the request and then call the handlers the usual way.
+//		            $http(response.config).then(responseHandler, deferred.reject);
+//		            // Be aware that no request interceptors are called this way.
+//		        });
+//
+//		        return false; // error handled
+//		    }
+//
+//		    return true; // error not handled
+//		});
   return Restangular.withConfig(function (RestangularConfigurer) {
 	
   }).service('dashboard')

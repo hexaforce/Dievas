@@ -18,7 +18,7 @@ app.factory('Dashboard', ['Restangular', function (Restangular) {
     function init() {
       console.log('Service(js): init()');
       Dashboard.getList().then(function (result) {
-        console.log('Controller(Java) response >> {}', result);
+        console.log('Controller(Java) response ↓↓', result);
         $localStorage.Dashboard = result;
       });
     }

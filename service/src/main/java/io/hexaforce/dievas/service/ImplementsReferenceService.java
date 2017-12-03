@@ -11,4 +11,18 @@ public interface ImplementsReferenceService {
 	
 	String init();
 	
+    /***************************************
+     *  Spring data JAP 標準実装機能
+     *  https://docs.spring.io/spring-data/jpa/docs/current/reference/html/
+     ***************************************/
+	void MyBatisToJPAwithHibernate1();
+	
+
+    /***************************************
+     *  Spring data JAP 拡張機能
+     ***************************************/
+	void MyBatisToJPAwithHibernate2();
+	
+	
+	
 }

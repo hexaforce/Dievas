@@ -9,7 +9,7 @@ import io.hexaforce.dievas.database.freude.entity.UserSurveyAnswer;
  * UserSurveyAnswer router function.
  * 
  * @version 1.0.0.BUILD-SNAPSHOT
- * @author T.Tantaka <relics9@gmail.com>
+ * @author T.Tantaka 
  */
 
 @RepositoryRestResource(collectionResourceRel = "user_survey_answer", path = "user_survey_answer")

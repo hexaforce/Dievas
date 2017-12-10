@@ -9,7 +9,7 @@ import io.hexaforce.dievas.database.freude.entity.PaymentMethod;
  * PaymentMethod router function.
  * 
  * @version 1.0.0.BUILD-SNAPSHOT
- * @author T.Tantaka <relics9@gmail.com>
+ * @author T.Tantaka 
  */
 
 @RepositoryRestResource(collectionResourceRel = "payment_method", path = "payment_method")

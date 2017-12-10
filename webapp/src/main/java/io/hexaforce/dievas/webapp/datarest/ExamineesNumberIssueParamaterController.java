@@ -9,7 +9,7 @@ import io.hexaforce.dievas.database.freude.entity.ExamineesNumberIssueParamater;
  * ExamineesNumberIssueParamater router function.
  * 
  * @version 1.0.0.BUILD-SNAPSHOT
- * @author T.Tantaka <relics9@gmail.com>
+ * @author T.Tantaka 
  */
 
 @RepositoryRestResource(collectionResourceRel = "examinees_number_issue_paramater", path = "examinees_number_issue_paramater")

@@ -9,7 +9,7 @@ import io.hexaforce.dievas.database.freude.entity.LogOutputHistory;
  * LogOutputHistory router function.
  * 
  * @version 1.0.0.BUILD-SNAPSHOT
- * @author T.Tantaka <relics9@gmail.com>
+ * @author T.Tantaka 
  */
 
 @RepositoryRestResource(collectionResourceRel = "log_output_history", path = "log_output_history")

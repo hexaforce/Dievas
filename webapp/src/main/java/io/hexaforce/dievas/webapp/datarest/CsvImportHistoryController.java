@@ -9,7 +9,7 @@ import io.hexaforce.dievas.database.freude.entity.CsvImportHistory;
  * CsvImportHistory router function.
  * 
  * @version 1.0.0.BUILD-SNAPSHOT
- * @author T.Tantaka <relics9@gmail.com>
+ * @author T.Tantaka 
  */
 
 @RepositoryRestResource(collectionResourceRel = "csv_import_history", path = "csv_import_history")

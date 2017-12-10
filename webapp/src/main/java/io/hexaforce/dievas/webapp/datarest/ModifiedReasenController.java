@@ -9,7 +9,7 @@ import io.hexaforce.dievas.database.freude.entity.ModifiedReasen;
  * ModifiedReasen router function.
  * 
  * @version 1.0.0.BUILD-SNAPSHOT
- * @author T.Tantaka <relics9@gmail.com>
+ * @author T.Tantaka 
  */
 
 @RepositoryRestResource(collectionResourceRel = "modified_reasen", path = "modified_reasen")

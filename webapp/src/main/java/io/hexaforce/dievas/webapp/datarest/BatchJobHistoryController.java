@@ -9,7 +9,7 @@ import io.hexaforce.dievas.database.freude.entity.BatchJobHistory;
  * BatchJobHistory router function.
  * 
  * @version 1.0.0.BUILD-SNAPSHOT
- * @author T.Tantaka <relics9@gmail.com>
+ * @author T.Tantaka 
  */
 
 @RepositoryRestResource(collectionResourceRel = "batch_job_history", path = "batch_job_history")

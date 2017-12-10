@@ -5,8 +5,7 @@
 app.controller('ImplementsReferenceController', ['ImplementsReferenceService', '$scope', function (ImplementsReferenceService, $scope) {
   $scope.init = function () {
     console.log('Controller(js): init()');
-    ImplementsReferenceService.init();
-    $scope.serviceName = ImplementsReferenceService.getStorageData()[0].message;
+    ImplementsReferenceService.init($scope);
   }
   $scope.DefaultAction = function () {
     console.log('DefaultAction');

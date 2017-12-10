@@ -14,11 +14,18 @@
 		<finalName>dievas-commons</finalName>
 	</build>
 	<dependencies>
+	
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
 			<version>23.3-jre</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-json</artifactId>
+		</dependency>
+
 	</dependencies>
 
 

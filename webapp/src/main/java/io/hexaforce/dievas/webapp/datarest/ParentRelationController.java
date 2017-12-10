@@ -9,7 +9,7 @@ import io.hexaforce.dievas.database.freude.entity.ParentRelation;
  * ParentRelation router function.
  * 
  * @version 1.0.0.BUILD-SNAPSHOT
- * @author T.Tantaka <relics9@gmail.com>
+ * @author T.Tantaka 
  */
 
 @RepositoryRestResource(collectionResourceRel = "parent_relation", path = "parent_relation")

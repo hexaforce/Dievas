@@ -112,4 +112,63 @@
 		</pluginRepository>
 	</pluginRepositories>
 
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<configuration>
+					<downloadSources>true</downloadSources>
+					<downloadJavadocs>true</downloadJavadocs>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<configuration>
+<!-- 
+					<additionalJOption>-J-Xss2048m</additionalJOption>
+					<bootclasspath>${sun.boot.class.path}</bootclasspath>
+ 					<useStandardDocletOptions>false</useStandardDocletOptions>
+					<doclet>com.google.doclava.Doclava</doclet>
+					<docletArtifact>
+						<groupId>com.google.doclava</groupId>
+						<artifactId>doclava</artifactId>
+						<version>1.0.6</version>
+					</docletArtifact>
+ -->
+					<docencoding>UTF-8</docencoding>
+					<charset>UTF-8</charset>
+					<encoding>UTF-8</encoding>
+					<groups>
+						<group>
+							<title>commons packages</title>
+							<packages>io.hexaforce.dievas.commons*</packages>
+						</group>
+						<group>
+							<title>database packages</title>
+							<packages>io.hexaforce.dievas.database*</packages>
+						</group>
+						<group>
+							<title>batch packages</title>
+							<packages>io.hexaforce.dievas.batch*</packages>
+						</group>
+						<group>
+							<title>service packages</title>
+							<packages>io.hexaforce.dievas.service*</packages>
+						</group>
+						<group>
+							<title>webapp packages</title>
+							<packages>io.hexaforce.dievas.webapp*</packages>
+						</group>
+						<group>
+							<title>system packages</title>
+							<packages>io.hexaforce.dievas.system*</packages>
+						</group>
+					</groups>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>

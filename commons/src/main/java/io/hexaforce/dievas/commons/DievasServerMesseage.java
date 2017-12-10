@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
- * @author T.Tantaka <tantaka.tomokazu@gmail.com>
+ * @author T.Tantaka 
  *
  */
 @Data

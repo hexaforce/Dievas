@@ -9,7 +9,7 @@ import io.hexaforce.dievas.database.freude.entity.FreeItem;
  * FreeItem router function.
  * 
  * @version 1.0.0.BUILD-SNAPSHOT
- * @author T.Tantaka <relics9@gmail.com>
+ * @author T.Tantaka 
  */
 
 @RepositoryRestResource(collectionResourceRel = "free_item", path = "free_item")

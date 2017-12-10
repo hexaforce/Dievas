@@ -19,7 +19,7 @@ import lombok.extern.slf4j.Slf4j;
  * ExaminationNumberNumberingParameter router function.
  * 
  * @version 1.0.0.BUILD-SNAPSHOT
- * @author T.Tantaka <relics9@gmail.com>
+ * @author T.Tantaka 
  */
 
 @Slf4j

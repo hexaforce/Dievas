@@ -8,7 +8,7 @@ import io.hexaforce.dievas.database.freude.entity.ApplicationUserProfile;
  * ApplicationUserProfile data accessor.
  * 
  * @version 1.0.0.BUILD-SNAPSHOT
- * @author T.Tantaka <relics9@gmail.com>
+ * @author T.Tantaka 
  */
 
 @Repository

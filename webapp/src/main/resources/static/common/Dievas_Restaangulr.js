@@ -9,10 +9,10 @@ app.config(function (RestangularProvider) {
   //RestangularProvider.setRequestSuffix('.json');
   //RestangularProvider.setDefaultRequestParams({'X-CSRF-TOKEN' : $.cookie('XSRF-TOKEN')});
   
-
   // Request interceptor.
   RestangularProvider.setFullRequestInterceptor(
 		  function (element, operation, route, url, headers, params, httpConfig) {
+			  
 	  console.log('[Request] Restangular:' + operation + ' URL:' + url);
 	  var keyCheck = function (val){
 		  return val != null && Object.keys(val).length;
@@ -32,7 +32,9 @@ app.config(function (RestangularProvider) {
       headers: headers,
       httpConfig: httpConfig
     };
+    
   });
+  
   // Response interceptor.
   RestangularProvider.addResponseInterceptor(
 		  function (data, operation, what, url, response, deferred) {
@@ -49,33 +51,33 @@ app.config(function (RestangularProvider) {
 		  return response.data;
 	  return response;
   });
+  
+  
+  RestangularProvider.setErrorInterceptor(function(response, deferred, responseHandler) {
+	    if(response.status === 403) {
+	        refreshAccesstoken().then(function() {
+	            // Repeat the request and then call the handlers the usual way.
+	            $http(response.config).then(responseHandler, deferred.reject);
+	            // Be aware that no request interceptors are called this way.
+	        });
+	        return false; // error handled
+	    }
+	    
+	    if(response.status === 500) {
+	    	if (response.data.message == "DievasException"){
+	    		console.log(response.data);
+	    		return false;
+	    	}
+	    }
+	    
+	    return true; // error not handled
+	});
 });
 
 /******************************************************************************
  * Spring Data REST
  ******************************************************************************/
 app.factory('Dashboard', ['Restangular', function (Restangular) {
-//	  var refreshAccesstoken = function() {
-//		    var deferred = $q.defer();
-//
-//		    // Refresh access-token logic
-//
-//		    return deferred.promise;
-//		};
-//
-//		Restangular.setErrorInterceptor(function(response, deferred, responseHandler) {
-//		    if(response.status === 403) {
-//		        refreshAccesstoken().then(function() {
-//		            // Repeat the request and then call the handlers the usual way.
-//		            $http(response.config).then(responseHandler, deferred.reject);
-//		            // Be aware that no request interceptors are called this way.
-//		        });
-//
-//		        return false; // error handled
-//		    }
-//
-//		    return true; // error not handled
-//		});
   return Restangular.withConfig(function (RestangularConfigurer) {
 	
   }).service('dashboard')

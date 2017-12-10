@@ -9,7 +9,7 @@ import io.hexaforce.dievas.database.freude.entity.ExamPropForm;
  * ExamPropForm router function.
  * 
  * @version 1.0.0.BUILD-SNAPSHOT
- * @author T.Tantaka <relics9@gmail.com>
+ * @author T.Tantaka 
  */
 
 @RepositoryRestResource(collectionResourceRel = "exam_prop_form", path = "exam_prop_form")

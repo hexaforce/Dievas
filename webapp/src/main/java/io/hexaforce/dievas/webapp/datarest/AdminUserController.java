@@ -9,7 +9,7 @@ import io.hexaforce.dievas.database.freude.entity.AdminUser;
  * AdminUser data rest implement.
  * 
  * @version 1.0.0.BUILD-SNAPSHOT
- * @author T.Tantaka <relics9@gmail.com>
+ * @author T.Tantaka 
  */
 
 @RepositoryRestResource(collectionResourceRel = "admin_user", path = "admin_user")

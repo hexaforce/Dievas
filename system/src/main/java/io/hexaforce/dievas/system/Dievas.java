@@ -4,6 +4,7 @@ import org.springframework.boot.Banner;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -15,7 +16,7 @@ import io.hexaforce.dievas.webapp.DievasWebApplication;
 
 @SpringBootApplication
 @EnableAutoConfiguration
-//@EnableGlobalMethodSecurity(securedEnabled = true)
+@EnableGlobalMethodSecurity(securedEnabled = true)
 public class Dievas implements WebMvcConfigurer {
 
 	public static void main(String[] args) {
@@ -34,6 +35,11 @@ public class Dievas implements WebMvcConfigurer {
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addViewController("/login").setViewName("login");
 	}
+//	@Override
+//	public void addViewControllers(ViewControllerRegistry registry) {
+//		registry.addViewController("/login").setViewName("login");
+//		registry.addViewController("/access").setViewName("access");
+//	}
 	
 //    @Bean
 //    public DataSource hikariDataSource() {
@@ -46,7 +52,7 @@ public class Dievas implements WebMvcConfigurer {
 //                .build();
 //    }
 	
-	
+//	
 //	@Controller
 //	protected static class HomeController {
 //
@@ -61,11 +67,7 @@ public class Dievas implements WebMvcConfigurer {
 //
 //	}
 //
-//	@Override
-//	public void addViewControllers(ViewControllerRegistry registry) {
-//		registry.addViewController("/login").setViewName("login");
-//		registry.addViewController("/access").setViewName("access");
-//	}
+
 //
 //	@Order(Ordered.HIGHEST_PRECEDENCE)
 //	@Configuration
@@ -104,8 +106,6 @@ public class Dievas implements WebMvcConfigurer {
 //					.httpBasic();
 //		}
 //	}
-	
-	
 	
 //	private void exposeIdsFor(RepositoryRestConfiguration config, String packages) {
 //		try {

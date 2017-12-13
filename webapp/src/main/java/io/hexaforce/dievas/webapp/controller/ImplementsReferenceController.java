@@ -1,10 +1,12 @@
 package io.hexaforce.dievas.webapp.controller;
 
+import java.lang.annotation.ElementType;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import io.hexaforce.dievas.commons.Permission;
 import io.hexaforce.dievas.commons.exception.DievasError;
 import io.hexaforce.dievas.commons.exception.DievasException;
 import io.hexaforce.dievas.service.ImplementsReferenceService;
@@ -40,6 +43,7 @@ public class ImplementsReferenceController {
 	private ImplementsReferenceService implementsReferenceService;
 
 	@ResponseBody
+	@Secured("ROLE_ADMIN")
 	@GetMapping(value = "/implements-reference/init")
 	public ResponseEntity<ImplementsReference> init() {
 		// log.trace(msg);
@@ -53,6 +57,8 @@ public class ImplementsReferenceController {
 
 	@ResponseBody
 	@GetMapping(value = "/implements-reference")
+	@Secured({ "ROLE_ADMIN","ROLE_OPERATOR" })
+	//@Secured("ROLE_USER, ROLE_OPERATOR, ROLE_ADMIN, ROLE_MASTER")
 	public ResponseEntity<List<ImplementsReference>> getList() {
 		if(true)
 			throw new DievasException(DievasError.WEBAPP_ERROR);
@@ -61,6 +67,7 @@ public class ImplementsReferenceController {
 
 	@ResponseBody
 	@GetMapping(value = "/implements-reference/test/{id}")
+	@Secured({ "ROLE_ADMIN","ROLE_OPERATOR" })
 	public ResponseEntity<ImplementsReference> findById(@PathVariable("id") Integer id) {
 		if(id != null)
 			throw new DievasException(DievasError.WEBAPP_ERROR);
@@ -71,7 +78,7 @@ public class ImplementsReferenceController {
 	@PatchMapping(value = "/implements-reference/{id}")
 	public ResponseEntity<?> updatea(@PathVariable("id") Integer id,
 			@RequestBody ImplementsReference implementsReference) {
-
+		
 		return null;
 	}
 

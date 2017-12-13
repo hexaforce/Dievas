@@ -1,4 +1,4 @@
-package io.hexaforce.dievas.system;
+package io.hexaforce.dievas.system.errorhandling;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

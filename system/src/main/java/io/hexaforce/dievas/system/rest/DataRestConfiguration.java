@@ -8,7 +8,7 @@ import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapt
 import org.springframework.http.MediaType;
 
 @Configuration
-public class CustomRestMvcConfiguration {
+public class DataRestConfiguration {
 	@Bean
 	public RepositoryRestConfigurer repositoryRestConfigurer() {
 		return new RepositoryRestConfigurerAdapter() {

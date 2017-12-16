@@ -1,10 +1,16 @@
 package io.hexaforce.dievas.system;
 
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+
+//import org.h2.server.web.WebServlet;
 import org.springframework.boot.Banner;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.web.WebApplicationInitializer;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -16,8 +22,7 @@ import io.hexaforce.dievas.webapp.DievasWebApplication;
 
 @SpringBootApplication
 @EnableAutoConfiguration
-@EnableGlobalMethodSecurity(securedEnabled = true)
-public class Dievas implements WebMvcConfigurer {
+public class Dievas implements WebApplicationInitializer {
 
 	public static void main(String[] args) {
 		new SpringApplicationBuilder()
@@ -30,11 +35,20 @@ public class Dievas implements WebMvcConfigurer {
 			.bannerMode(Banner.Mode.CONSOLE)
 			.run(args);
 	}
-	
+
 	@Override
-	public void addViewControllers(ViewControllerRegistry registry) {
-		registry.addViewController("/login").setViewName("login");
+	public void onStartup(ServletContext servletContext) throws ServletException {
+		//servletContext.addServlet("h2Console", new WebServlet()).addMapping("/h2-console/*");
 	}
+	
+//	@Override
+//	public void addInterceptors(InterceptorRegistry registry) {
+//	}
+//	
+//	@Override
+//	public void addViewControllers(ViewControllerRegistry registry) {
+//		registry.addViewController("/login").setViewName("login");
+//	}
 
 //	@Override
 //	public void addViewControllers(ViewControllerRegistry registry) {
@@ -42,16 +56,7 @@ public class Dievas implements WebMvcConfigurer {
 //		registry.addViewController("/access").setViewName("access");
 //	}
 
-//    @Bean
-//    public DataSource hikariDataSource() {
-//        return new EmbeddedDatabaseBuilder()
-//                .generateUniqueName(true)
-//                .setType(EmbeddedDatabaseType.H2)
-//                .setScriptEncoding("UTF-8")
-//                .addScript("message.sql")
-//                .addScript("validation.sql")
-//                .build();
-//    }
+
 
 //	
 //	@Controller

@@ -1,6 +1,10 @@
 package io.hexaforce.dievas.database.freude.entity.support;
 
-public interface NamesOnly {
+/**
+ * @author T.Tantaka
+ *
+ */
+public interface NamesSupport {
 
 	String getFirstname();
 

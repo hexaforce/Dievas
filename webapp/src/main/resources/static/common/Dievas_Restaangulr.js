@@ -46,7 +46,7 @@ app.config(function (RestangularProvider) {
 	  }
 	  
 	  if (url.indexOf("/datarest") == 0)
-		  return response.data.content;
+		  return response.data._embedded[what];
 	  if (url.indexOf("/api") == 0)
 		  return response.data;
 	  return response;

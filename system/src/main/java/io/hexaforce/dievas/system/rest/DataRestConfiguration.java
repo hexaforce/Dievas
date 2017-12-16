@@ -44,7 +44,9 @@ public class DataRestConfiguration {
 				// config.exposeIdsFor(Staff.class);
 				// config.exposeIdsFor(StaffList.class);
 				// config.exposeIdsFor(Store.class);
-				config.setDefaultMediaType(MediaType.APPLICATION_JSON);
+				
+				
+				//config.setDefaultMediaType(MediaType.APPLICATION_JSON);
 			}
 			
 		};

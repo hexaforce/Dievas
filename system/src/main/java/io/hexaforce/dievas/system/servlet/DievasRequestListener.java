@@ -7,7 +7,6 @@ import javax.servlet.ServletRequestListener;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
-import org.springframework.stereotype.Component;
 import org.springframework.web.context.ServletContextAware;
 
 public class DievasRequestListener implements ServletRequestListener, ServletContextAware, ApplicationContextAware {

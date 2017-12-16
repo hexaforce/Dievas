@@ -13,7 +13,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import io.hexaforce.dievas.database.freude.entity.support.NamesOnly;
+import io.hexaforce.dievas.database.freude.entity.support.NamesSupport;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "user_profile")
 @NamedQuery(name = "UserProfile.findAll", query = "SELECT u FROM UserProfile u")
-public class UserProfile implements Serializable,NamesOnly {
+public class UserProfile implements Serializable,NamesSupport {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "accident_code")

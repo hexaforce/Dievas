@@ -12,6 +12,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -43,7 +45,8 @@ public class User implements Serializable {
 
 	@Column(name = "operational_registered")
 	private byte operationalRegistered;
-
+	
+	@JsonIgnore 
 	private String password;
 
 	@Temporal(TemporalType.TIMESTAMP)

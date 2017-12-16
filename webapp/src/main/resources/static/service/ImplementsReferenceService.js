@@ -356,7 +356,7 @@ app.factory('ImplementsReference', ['Restangular', 'DievasConfig' , function (Re
      *  Spring Data RESTを利用するパターン
      ***************************************/
     function LinkAction($scope) {
-    	Restangular.all('user_profile').getList().then(function (user_profile) {
+    	Restangular.all('UserProfile').getList().then(function (user_profile) {
     		$scope.user_profile = user_profile;
     	}, function errorCallback() {
       	  alert("Oops error from server :(");

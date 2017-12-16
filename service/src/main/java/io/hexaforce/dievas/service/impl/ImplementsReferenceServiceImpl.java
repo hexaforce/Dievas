@@ -16,8 +16,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import io.hexaforce.dievas.database.freude.entity.AdminUser;
 import io.hexaforce.dievas.database.freude.entity.UserProfile;
-import io.hexaforce.dievas.database.freude.repository.AdminUserRepository;
-import io.hexaforce.dievas.database.freude.repository.UserProfileRepository;
+import io.hexaforce.dievas.database.repository.AdminUserRepository;
+import io.hexaforce.dievas.database.rest.UserProfileRepository;
 import io.hexaforce.dievas.service.ImplementsReferenceService;
 import lombok.extern.slf4j.Slf4j;
 

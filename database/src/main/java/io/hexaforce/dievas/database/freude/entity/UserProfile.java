@@ -53,13 +53,13 @@ public class UserProfile implements Serializable {
 	private String cramSchoolCode;
 
 	@Column(name = "cram_school_notification_consented")
-	private byte cramSchoolNotificationConsented;
+	private Byte cramSchoolNotificationConsented;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "created_at")
 	private Date createdAt;
 
-	private byte deleted;
+	private Byte deleted;
 
 	@Column(name = "first_name")
 	private String firstName;
@@ -70,28 +70,28 @@ public class UserProfile implements Serializable {
 	@Column(name = "first_name_roman")
 	private String firstNameRoman;
 
-	private byte gender;
+	private Byte gender;
 
 	@Column(name = "handicapped_person_code")
 	private String handicappedPersonCode;
 
 	@Column(name = "handicapped_person_special_measures")
-	private byte handicappedPersonSpecialMeasures;
+	private Byte handicappedPersonSpecialMeasures;
 
 	@Column(name = "high_school_branch_code")
-	private byte highSchoolBranchCode;
+	private Byte highSchoolBranchCode;
 
 	@Column(name = "high_school_code")
 	private String highSchoolCode;
 
 	@Column(name = "high_school_course_code")
-	private byte highSchoolCourseCode;
+	private Byte highSchoolCourseCode;
 
 	@Column(name = "high_school_graduated_year_month")
 	private String highSchoolGraduatedYearMonth;
 
 	@Column(name = "high_school_notification_consented")
-	private byte highSchoolNotificationConsented;
+	private Byte highSchoolNotificationConsented;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -4,7 +4,7 @@
   <include resource="org/springframework/boot/logging/logback/base.xml" />
   <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
 
-  <logger name="org.springframework.web" level="DEBUG"/>
+<!-- <logger name="org.springframework.web" level="DEBUG"/> -->
   <logger name="java.sql" level="DEBUG" />
   <logger name="io.hexaforce.dievas" level="TRACE" />
   

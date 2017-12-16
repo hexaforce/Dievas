@@ -42,6 +42,7 @@ app.config(['$stateProvider', '$urlRouterProvider',
     var MailDeliveryRegistration = { name : 'MailDeliveryRegistration', url : '/mail-delivery-registration', templateUrl : 'content/mail-delivery-registration', controller : 'MailDeliveryRegistrationController', controllerAs : 'ctrl' };
     var NoticeList = { name : 'NoticeList', url : '/notice-list', templateUrl : 'content/notice-list', controller : 'NoticeListController', controllerAs : 'ctrl' };
     var NoticeRegistration = { name : 'NoticeRegistration', url : '/notice-registration', templateUrl : 'content/notice-registration', controller : 'NoticeRegistrationController', controllerAs : 'ctrl' };
+
     $stateProvider.state('index', {
       url: '/',
       templateUrl: 'content/dashboard',

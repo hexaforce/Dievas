@@ -36,7 +36,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/implements-reference")
 public class ImplementsReferenceController {
 
 	@Autowired
@@ -44,7 +44,7 @@ public class ImplementsReferenceController {
 
 	@ResponseBody
 	@Secured("ROLE_ADMIN")
-	@GetMapping(value = "/implements-reference/init")
+	@GetMapping(value = "/init")
 	public ResponseEntity<ImplementsReference> init() {
 		// log.trace(msg);
 		// log.error(msg);
@@ -56,7 +56,7 @@ public class ImplementsReferenceController {
 	}
 
 	@ResponseBody
-	@GetMapping(value = "/implements-reference")
+	@GetMapping(value = "/")
 	@Secured({ "ROLE_ADMIN","ROLE_OPERATOR" })
 	//@Secured("ROLE_USER, ROLE_OPERATOR, ROLE_ADMIN, ROLE_MASTER")
 	public ResponseEntity<List<ImplementsReference>> getList() {
@@ -66,7 +66,7 @@ public class ImplementsReferenceController {
 	}
 
 	@ResponseBody
-	@GetMapping(value = "/implements-reference/test/{id}")
+	@GetMapping(value = "/test/{id}")
 	@Secured({ "ROLE_ADMIN","ROLE_OPERATOR" })
 	public ResponseEntity<ImplementsReference> findById(@PathVariable("id") Integer id) {
 		if(id != null)
@@ -75,7 +75,7 @@ public class ImplementsReferenceController {
 	}
 
 	@ResponseBody
-	@PatchMapping(value = "/implements-reference/{id}")
+	@PatchMapping(value = "/{id}")
 	public ResponseEntity<?> updatea(@PathVariable("id") Integer id,
 			@RequestBody ImplementsReference implementsReference) {
 		
@@ -83,7 +83,7 @@ public class ImplementsReferenceController {
 	}
 
 	@ResponseBody
-	@PutMapping(value = "/implements-reference/{id}")
+	@PutMapping(value = "/{id}")
 	public ResponseEntity<?> update(@PathVariable("id") Integer id,
 			@RequestBody ImplementsReference implementsReference) {
 
@@ -91,7 +91,7 @@ public class ImplementsReferenceController {
 	}
 
 	@ResponseBody
-	@PostMapping(value = "/implements-reference")
+	@PostMapping(value = "/")
 	public ResponseEntity<?> save(@RequestBody ImplementsReference implementsReference,
 			UriComponentsBuilder uriComponentsBuilder) {
 
@@ -100,7 +100,7 @@ public class ImplementsReferenceController {
 
 	@ResponseBody
 	@ResponseStatus
-	@DeleteMapping(value = "/implements-reference/{id}")
+	@DeleteMapping(value = "/{id}")
 	public ResponseEntity<?> deleteById(@PathVariable("id") Integer id) {
 
 		return null;

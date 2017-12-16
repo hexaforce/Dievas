@@ -1,7 +1,7 @@
 'use strict';
 app.factory('ImplementsReference', ['Restangular', 'DievasConfig' , function (Restangular, DievasConfig) {
   return Restangular.withConfig(function (RestangularConfigurer) {
-    RestangularConfigurer.setBaseUrl('/api/'+DievasConfig.API);  
+    RestangularConfigurer.setBaseUrl(DievasConfig.ORIGINAL_JAVA_IMPLEMENTS_CONTROLLER);  
   }).service('implements-reference');
 }])
 /*******************************************************************************
@@ -356,7 +356,11 @@ app.factory('ImplementsReference', ['Restangular', 'DievasConfig' , function (Re
      *  Spring Data RESTを利用するパターン
      ***************************************/
     function LinkAction($scope) {
-    	
+    	Restangular.all('user_profile').getList().then(function (user_profile) {
+    		$scope.user_profile = user_profile;
+    	}, function errorCallback() {
+      	  alert("Oops error from server :(");
+      	});
     }
     
   }

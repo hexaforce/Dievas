@@ -1,16 +1,14 @@
 CREATE TABLE `authorities` (
   `username` varchar(256) DEFAULT NULL,
   `authority` varchar(256) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
-INSERT 
-INTO sakila.authorities(username, authority) 
-VALUES ('user', 'ROLE_ADMIN')
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO authorities(username, authority) VALUES ('user', 'ROLE_ADMIN');
 
 CREATE TABLE `users` (
   `username` varchar(256) DEFAULT NULL,
   `password` varchar(256) DEFAULT NULL,
   `enabled` tinyint(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
-INSERT 
-INTO freude.users(username, password, enabled) 
-VALUES ('user', 'user', true);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO users(username, password, enabled) VALUES ('user', 'user', true);

@@ -3,51 +3,47 @@ package io.hexaforce.dievas.system.servlet;
 import java.io.IOException;
 import java.security.Principal;
 
-import javax.servlet.Filter;
 import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.MDC;
 import org.springframework.stereotype.Component;
+import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.util.WebUtils;
 
-
 @Component
-public class DievasFilter implements Filter {
+public class DievasFilter extends OncePerRequestFilter {
 
 	@Override
-	public void init(FilterConfig filterConfig) throws ServletException {
+	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+			throws ServletException, IOException {
 		
-	}
-
-	@Override
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
-			throws IOException, ServletException {
+		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		
-		HttpServletRequest x = (HttpServletRequest) request;
+		String sessionId = WebUtils.getSessionId(httpRequest);
+		
 		String user = "unknown user";
-		Principal principal = x.getUserPrincipal();
+		Principal principal = httpRequest.getUserPrincipal();
 		if (principal != null && !"".equals(principal.getName())) {
 			user = principal.getName();
 		}
-		
+
         try {
-    		String s = WebUtils.getSessionId(x);
-    		MDC.put("user", user + " : " + s.substring(0, s.indexOf(("-"))));
-            chain.doFilter(request, response);
+        	
+        	if ("/Dievas".equals(httpRequest.getRequestURI())) {
+        		MDC.put("user", user + " : " + sessionId + " : " + httpRequest.getHeader("User-Agent"));
+        	} else {
+        		MDC.put("user", user + " : " + sessionId.substring(0, sessionId.indexOf(("-"))));
+        	}
+        	
+    		filterChain.doFilter(request, response);
+    		
         } finally {
             MDC.remove("user");
         }
         
-	}
-
-	@Override
-	public void destroy() {
-		
 	}
 
 }

@@ -8,6 +8,13 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 
+/**
+ * インターセプタ
+ * ※Dispatchされた後にコールされます。現在のところ機能的実装要件はありません。
+ * 
+ * @author T.Tantaka
+ *
+ */
 public class DievasInterceptor implements HandlerInterceptor {
 
 	@Override

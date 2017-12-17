@@ -13,8 +13,16 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.util.WebUtils;
 
+/**
+ * ロギングフィルタ
+ * ※@RestControllerのためAsync判定となり毎回コールされます。
+ * ※@Controllerで実装する場合はjavax.servlet.Filterでの追加実装が必要です。
+ * 
+ * @version 1.0.0.BUILD-SNAPSHOT
+ * @author T.Tantaka
+ */
 @Component
-public class DievasFilter extends OncePerRequestFilter {
+public class DievasLoggingFilter extends OncePerRequestFilter {
 
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
@@ -26,7 +34,7 @@ public class DievasFilter extends OncePerRequestFilter {
 		
 		String user = "unknown user";
 		Principal principal = httpRequest.getUserPrincipal();
-		if (principal != null && !"".equals(principal.getName())) {
+		if (principal != null) {
 			user = principal.getName();
 		}
 

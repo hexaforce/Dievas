@@ -33,5 +33,43 @@ public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
 	public void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.jdbcAuthentication().dataSource(this.dataSource);
 	}
-
+	
+//	@Order(Ordered.HIGHEST_PRECEDENCE)
+//	@Configuration
+//	protected static class AuthenticationSecurity {
+//
+//		@Bean
+//		public InMemoryUserDetailsManager inMemoryUserDetailsManager() throws Exception {
+//			String password = UUID.randomUUID().toString();
+//			return new InMemoryUserDetailsManager(
+//					User.withUsername("admin").password("admin").roles("ADMIN", "USER", "ACTUATOR").build(),
+//					User.withUsername("user").password("user").roles("USER").build());
+//		}
+//
+//	}
+//
+//	@Configuration
+//	protected static class ApplicationSecurity extends WebSecurityConfigurerAdapter {
+//		@Override
+//		protected void configure(HttpSecurity http) throws Exception {
+//			http.authorizeRequests().antMatchers("/login").permitAll().anyRequest().fullyAuthenticated()
+//			.and()
+//				.formLogin().loginPage("/login").failureUrl("/login?error")
+//			.and()
+//				.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+//			.and()
+//				.exceptionHandling().accessDeniedPage("/access?error");
+//		}
+//	}
+//
+//	@Configuration
+//	@Order(1)
+//	protected static class ActuatorSecurity extends WebSecurityConfigurerAdapter {
+//		@Override
+//		protected void configure(HttpSecurity http) throws Exception {
+//			http.requestMatcher(EndpointRequest.toAnyEndpoint()).authorizeRequests().anyRequest().authenticated().and()
+//					.httpBasic();
+//		}
+//	}
+	
 }

@@ -1,5 +1,9 @@
 package io.hexaforce.dievas.system;
 
+import java.io.IOException;
+import java.util.stream.Collectors;
+
+import org.apache.commons.lang3.ClassUtils;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.embedded.undertow.UndertowBuilderCustomizer;
 import org.springframework.boot.web.embedded.undertow.UndertowServletWebServerFactory;
@@ -14,8 +18,16 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import com.google.common.collect.ImmutableSet;
+import com.google.common.reflect.ClassPath;
+import com.google.common.reflect.ClassPath.ClassInfo;
+
+import io.hexaforce.dievas.system.errorhandling.ExceptionHandlers;
 import io.hexaforce.dievas.system.servlet.DievasInterceptor;
+import io.undertow.Handlers;
 import io.undertow.Undertow.Builder;
+import io.undertow.server.HttpHandler;
+import io.undertow.server.RoutingHandler;
 
 /**
  * @author T.Tantaka
@@ -52,52 +64,36 @@ public class DievasAutoConfiguration implements WebMvcConfigurer {
 			
 			@Override
 			public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
-				// exposeIdsFor(config, "io.hexaforce.dievas.database.rds.entity");
-
-				// config.exposeIdsFor(Actor.class);
-				// config.exposeIdsFor(ActorInfo.class);
-				// config.exposeIdsFor(Address.class);
-				// config.exposeIdsFor(Category.class);
-				// config.exposeIdsFor(City.class);
-				// config.exposeIdsFor(Country.class);
-				// config.exposeIdsFor(Customer.class);
-				// config.exposeIdsFor(CustomerList.class);
-				// config.exposeIdsFor(Film.class);
-				// config.exposeIdsFor(FilmActor.class);
-				// config.exposeIdsFor(FilmActorPK.class);
-				// config.exposeIdsFor(FilmCategory.class);
-				// config.exposeIdsFor(FilmCategoryPK.class);
-				// config.exposeIdsFor(FilmList.class);
-				// config.exposeIdsFor(FilmText.class);
-				// config.exposeIdsFor(Inventory.class);
-				// config.exposeIdsFor(Language.class);
-				// config.exposeIdsFor(NicerButSlowerFilmList.class);
-				// config.exposeIdsFor(Payment.class);
-				// config.exposeIdsFor(Rental.class);
-				// config.exposeIdsFor(SalesByFilmCategory.class);
-				// config.exposeIdsFor(SalesByStore.class);
-				// config.exposeIdsFor(Staff.class);
-				// config.exposeIdsFor(StaffList.class);
-				// config.exposeIdsFor(Store.class);
-				
-				
+				//exposeIdsFor(config, "io.hexaforce.dievas.database.freude.entity");
 				//config.setDefaultMediaType(MediaType.APPLICATION_JSON);
 			}
 			
 		};
 	}
 
-//	private void exposeIdsFor(RepositoryRestConfiguration config, String packages) {
-//		try {
-//			ImmutableSet<ClassInfo> classInfoList = ClassPath.from(Thread.currentThread().getContextClassLoader())
-//					.getTopLevelClasses(packages);
-//			classInfoList.stream().map(classInfo -> config.exposeIdsFor(classInfo.load().getClass()));
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//	}
+	private void exposeIdsFor(RepositoryRestConfiguration config, String packages) {
+		try {
+			ImmutableSet<ClassInfo> classInfoList = ClassPath.from(Thread.currentThread().getContextClassLoader())
+					.getTopLevelClasses(packages);
+			ClassUtils
+					.convertClassNamesToClasses(
+							classInfoList.stream().map(classInfo -> classInfo.getName()).collect(Collectors.toList()))
+					.forEach(domainTypes -> config.exposeIdsFor(domainTypes));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 	
+	private static final HttpHandler ROUTES = new RoutingHandler()
+			.get("/throwWebException", ExceptionHandlers::throwWebException)
+			.get("/throwApiException", ExceptionHandlers::throwApiException)
+			.get("/throwException", ExceptionHandlers::throwException)
+			.get("/ok", ExceptionHandlers::ok);
 	
+	private static final HttpHandler ROOT = Handlers.exceptionHandler(ROUTES)
+			.addExceptionHandler(ApiException.class, ExceptionHandlers::handleApiException)
+			.addExceptionHandler(WebException.class, ExceptionHandlers::handleWebException)
+			.addExceptionHandler(Throwable.class, ExceptionHandlers::handleAllExceptions);
 	
 	@Bean
 	public UndertowServletWebServerFactory embeddedServletContainerFactory() {
@@ -110,15 +106,32 @@ public class DievasAutoConfiguration implements WebMvcConfigurer {
 			public void customize(Builder builder) {
 				//builder.addHttpListener(8443, "0.0.0.0");
 
+				//builder.setHandler(ROOT);
 			}
 
 		});
 		return factory;
 	}
 	
-	
-	
-	
+    public static class WebException extends RuntimeException {
+		private static final long serialVersionUID = 1L;
+		private final int statusCode;
+        public WebException(int statusCode, String message) {
+            super(message);
+            this.statusCode = statusCode;
+        }
+
+        public int getStatusCode() {
+            return statusCode;
+        }
+    }
+
+    public static class ApiException extends WebException {
+		private static final long serialVersionUID = 1L;
+		public ApiException(int statusCode, String message) {
+            super(statusCode, message);
+        }
+    }
 	
 	
 	

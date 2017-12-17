@@ -3,13 +3,27 @@ package io.hexaforce.dievas.system.servlet;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRequestEvent;
 import javax.servlet.ServletRequestListener;
+import javax.servlet.annotation.WebListener;
 
-import org.springframework.beans.BeansException;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
+import org.springframework.stereotype.Component;
 import org.springframework.web.context.ServletContextAware;
 
-public class DievasRequestListener implements ServletRequestListener, ServletContextAware, ApplicationContextAware {
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * @author T.Tantaka
+ *
+ */
+
+@Slf4j
+@Component
+@WebListener
+public class DievasRequestListener implements ServletRequestListener, ServletContextAware {
+
+	@Override
+	public void requestInitialized(ServletRequestEvent sre) {
+		//HttpServletRequest req = (HttpServletRequest) sre.getServletRequest();
+	}
 
 	@Override
 	public void requestDestroyed(ServletRequestEvent sre) {
@@ -17,18 +31,8 @@ public class DievasRequestListener implements ServletRequestListener, ServletCon
 	}
 
 	@Override
-	public void requestInitialized(ServletRequestEvent sre) {
-		
-	}
-
-	@Override
 	public void setServletContext(ServletContext servletContext) {
-		
-	}
-
-	@Override
-	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-		
+		servletContext.addListener(this);
 	}
 
 }

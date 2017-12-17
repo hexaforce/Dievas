@@ -214,7 +214,7 @@ app.factory('ImplementsReference', ['Restangular', 'DievasConfig' , function (Re
   	  // DELETE /exam/123 We don't have first exam anymore :(
   	  firstAccount.remove();
 
-    //////////////////////////////
+    //////////////////////////////　
   	// Spring　Data REST の注意事項
   	//////////////////////////////
     }
@@ -223,7 +223,12 @@ app.factory('ImplementsReference', ['Restangular', 'DievasConfig' , function (Re
      *  バッチジョブ起動
      ***************************************/
     function InfoAction($scope) {
-    	
+      var p = {lastname:"金田", firstname:"夕菜"};
+  	  Restangular.one('UserProfile', 'search').customGET("findDistinctCramSchoolCodeByLastNameOrFirstName",p).then(function(UserProfile) {
+        console.log(UserProfile._embedded);
+  	  }, function() {
+  	    console.log("There was an error saving");
+  	  });
     }
 
     /***************************************

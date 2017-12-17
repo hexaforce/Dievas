@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import io.hexaforce.dievas.commons.Permission;
-import io.hexaforce.dievas.commons.exception.DievasError;
+import io.hexaforce.dievas.commons.exception.DievasErrorCode;
 import io.hexaforce.dievas.commons.exception.DievasException;
 import io.hexaforce.dievas.service.ImplementsReferenceService;
 import io.hexaforce.dievas.service.model.ImplementsReference;
@@ -62,7 +62,7 @@ public class ImplementsReferenceController {
 	//@Secured("ROLE_USER, ROLE_OPERATOR, ROLE_ADMIN, ROLE_MASTER")
 	public ResponseEntity<List<ImplementsReference>> getList() {
 		if(true)
-			throw new DievasException(DievasError.WEBAPP_ERROR);
+			throw new DievasException(DievasErrorCode.WEBAPP_ERROR);
 		return null;
 	}
 
@@ -71,7 +71,7 @@ public class ImplementsReferenceController {
 	@Secured({ "ROLE_ADMIN","ROLE_OPERATOR" })
 	public ResponseEntity<ImplementsReference> findById(@PathVariable("id") Integer id) {
 		if(id != null)
-			throw new DievasException(DievasError.WEBAPP_ERROR);
+			throw new DievasException(DievasErrorCode.WEBAPP_ERROR);
 		return null;
 	}
 

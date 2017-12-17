@@ -46,7 +46,7 @@ app.config(function (RestangularProvider) {
 	  }
 	  
 	  if (url.indexOf("/datarest") == 0)
-		  return response.data._embedded[what];
+		  return response.data;
 	  if (url.indexOf("/api") == 0)
 		  return response.data;
 	  return response;
@@ -64,10 +64,17 @@ app.config(function (RestangularProvider) {
 	    }
 	    
 	    if(response.status === 500) {
+	    	
 	    	if (response.data.message == "DievasException"){
 	    		console.log(response.data);
 	    		return false;
 	    	}
+	    	
+	    	if (response.path == "/login"){
+	    		console.log(response);
+	    		return false;
+	    	}
+	    	
 	    }
 	    
 	    return true; // error not handled

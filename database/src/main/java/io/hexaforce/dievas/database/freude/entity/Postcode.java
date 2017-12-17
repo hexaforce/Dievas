@@ -12,6 +12,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import io.hexaforce.dievas.database.freude.BasicBaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,14 +22,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @NamedQuery(name = "Postcode.findAll", query = "SELECT p FROM Postcode p")
-public class Postcode implements Serializable {
+public class Postcode extends BasicBaseEntity {
 	private static final long serialVersionUID = 1L;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "created_at")
-	private Date createdAt;
-
-	private byte deleted;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,9 +44,5 @@ public class Postcode implements Serializable {
 
 	@Column(name = "town_area_kana")
 	private String townAreaKana;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "updated_at")
-	private Date updatedAt;
 
 }

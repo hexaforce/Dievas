@@ -13,6 +13,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import io.hexaforce.dievas.database.freude.BasicBaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,14 +24,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "role_permission")
 @NamedQuery(name = "RolePermission.findAll", query = "SELECT r FROM RolePermission r")
-public class RolePermission implements Serializable {
+public class RolePermission extends BasicBaseEntity {
 	private static final long serialVersionUID = 1L;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "created_at")
-	private Date createdAt;
-
-	private byte deleted;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,9 +36,5 @@ public class RolePermission implements Serializable {
 
 	@Column(name = "role_id")
 	private int roleId;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "updated_at")
-	private Date updatedAt;
 
 }

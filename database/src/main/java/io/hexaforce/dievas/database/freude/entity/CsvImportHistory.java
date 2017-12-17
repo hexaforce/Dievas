@@ -13,6 +13,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import io.hexaforce.dievas.database.freude.BasicBaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,17 +24,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "csv_import_history")
 @NamedQuery(name = "CsvImportHistory.findAll", query = "SELECT c FROM CsvImportHistory c")
-public class CsvImportHistory implements Serializable {
+public class CsvImportHistory extends BasicBaseEntity {
 	private static final long serialVersionUID = 1L;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "created_at")
-	private Date createdAt;
 
 	@Column(name = "csv_import_id")
 	private int csvImportId;
-
-	private byte deleted;
 
 	@Column(name = "file_key")
 	private String fileKey;
@@ -55,9 +50,5 @@ public class CsvImportHistory implements Serializable {
 	private String originalName;
 
 	private byte status;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "updated_at")
-	private Date updatedAt;
 
 }

@@ -14,6 +14,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import io.hexaforce.dievas.database.freude.BasicBaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,14 +25,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "page_message")
 @NamedQuery(name = "PageMessage.findAll", query = "SELECT p FROM PageMessage p")
-public class PageMessage implements Serializable {
+public class PageMessage extends BasicBaseEntity {
 	private static final long serialVersionUID = 1L;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "created_at")
-	private Date createdAt;
-
-	private byte deleted;
 
 	@Lob
 	private String description;
@@ -50,9 +45,5 @@ public class PageMessage implements Serializable {
 
 	@Column(name = "page_code")
 	private String pageCode;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "updated_at")
-	private Date updatedAt;
 
 }

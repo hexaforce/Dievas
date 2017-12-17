@@ -372,7 +372,9 @@
             </table>
           </div>
         </div>
-        
+        <div ng-repeat="p in profile">
+        <a href={{p.href}}>{{p}}</a>
+        </div>
         <div class="row">
           <div class="col-sm-5">
             <div class="dataTables_info" id="datatable-checkbox_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div>

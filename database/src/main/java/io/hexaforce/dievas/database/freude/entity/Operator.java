@@ -12,6 +12,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import io.hexaforce.dievas.database.freude.BasicBaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,18 +22,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @NamedQuery(name = "Operator.findAll", query = "SELECT o FROM Operator o")
-public class Operator implements Serializable {
+public class Operator extends BasicBaseEntity{
 	private static final long serialVersionUID = 1L;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "closed_at")
 	private Date closedAt;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "created_at")
-	private Date createdAt;
-
-	private byte deleted;
 
 	private byte disabled;
 
@@ -52,9 +47,5 @@ public class Operator implements Serializable {
 	private Date openedAt;
 
 	private String password;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "updated_at")
-	private Date updatedAt;
 
 }

@@ -14,6 +14,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import io.hexaforce.dievas.database.freude.BasicBaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,7 +25,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "mail_magazine")
 @NamedQuery(name = "MailMagazine.findAll", query = "SELECT m FROM MailMagazine m")
-public class MailMagazine implements Serializable {
+public class MailMagazine extends BasicBaseEntity {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "adbook_id")
@@ -42,14 +43,8 @@ public class MailMagazine implements Serializable {
 	@Column(name = "count_success")
 	private int countSuccess;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "created_at")
-	private Date createdAt;
-
 	@Column(name = "csv_key")
 	private String csvKey;
-
-	private byte deleted;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "delivery_at")
@@ -78,9 +73,5 @@ public class MailMagazine implements Serializable {
 
 	@Lob
 	private String text;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "updated_at")
-	private Date updatedAt;
 
 }

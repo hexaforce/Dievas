@@ -14,6 +14,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import io.hexaforce.dievas.database.freude.BasicBaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,17 +25,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "batch_job_condition")
 @NamedQuery(name = "BatchJobCondition.findAll", query = "SELECT b FROM BatchJobCondition b")
-public class BatchJobCondition implements Serializable {
+public class BatchJobCondition extends BasicBaseEntity {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "batch_job_history_id")
 	private int batchJobHistoryId;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "created_at")
-	private Date createdAt;
-
-	private byte deleted;
 
 	@Lob
 	@Column(name = "display_text")
@@ -46,10 +41,6 @@ public class BatchJobCondition implements Serializable {
 
 	@Lob
 	private String name;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "updated_at")
-	private Date updatedAt;
 
 	@Lob
 	private String value;

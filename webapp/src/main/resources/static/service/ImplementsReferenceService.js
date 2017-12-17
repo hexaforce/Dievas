@@ -43,6 +43,15 @@ app.factory('ImplementsReference', ['Restangular', 'DievasConfig' , function (Re
      ***************************************/
     function DefaultAction($scope) {
     	
+    	Restangular.all('profile').customGET().then(function (profile) {
+            console.log(profile._links);
+            $scope.profile = profile._links;
+    	}, function errorCallback() {
+    	  alert("Oops error from server :(");
+    	})
+    	
+    	
+    	
     	// GET to /user
         function loadAllUsers() {
           var deferred = $q.defer();
@@ -223,8 +232,12 @@ app.factory('ImplementsReference', ['Restangular', 'DievasConfig' , function (Re
      *  バッチジョブ起動
      ***************************************/
     function InfoAction($scope) {
+      
       var p = {lastname:"金田", firstname:"夕菜"};
-  	  Restangular.one('UserProfile', 'search').customGET("findDistinctCramSchoolCodeByLastNameOrFirstName",p).then(function(UserProfile) {
+      
+  	  Restangular.one('UserProfile', 'search')
+  	    .customGET("findDistinctCramSchoolCodeByLastNameOrFirstName",p)
+  	    .then(function(UserProfile) {
         console.log(UserProfile._embedded);
   	  }, function() {
   	    console.log("There was an error saving");

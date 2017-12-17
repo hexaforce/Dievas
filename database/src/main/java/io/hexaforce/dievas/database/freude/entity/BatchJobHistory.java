@@ -13,6 +13,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import io.hexaforce.dievas.database.freude.BasicBaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,7 +24,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "batch_job_history")
 @NamedQuery(name = "BatchJobHistory.findAll", query = "SELECT b FROM BatchJobHistory b")
-public class BatchJobHistory implements Serializable {
+public class BatchJobHistory extends BasicBaseEntity {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "batch_name")
@@ -31,12 +32,6 @@ public class BatchJobHistory implements Serializable {
 
 	@Column(name = "batch_status_type")
 	private byte batchStatusType;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "created_at")
-	private Date createdAt;
-
-	private byte deleted;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "ended_at")
@@ -74,8 +69,5 @@ public class BatchJobHistory implements Serializable {
 	@Column(name = "success_count")
 	private int successCount;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "updated_at")
-	private Date updatedAt;
 
 }

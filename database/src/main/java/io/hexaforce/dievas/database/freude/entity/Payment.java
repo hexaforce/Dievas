@@ -13,6 +13,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import io.hexaforce.dievas.database.freude.BasicBaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,7 +23,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @NamedQuery(name = "Payment.findAll", query = "SELECT p FROM Payment p")
-public class Payment implements Serializable {
+public class Payment extends BasicBaseEntity {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "bill_no")
@@ -35,12 +36,6 @@ public class Payment implements Serializable {
 	private int cartId;
 
 	private BigInteger charge;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "created_at")
-	private Date createdAt;
-
-	private byte deleted;
 
 	@Column(name = "exemption_reason_code")
 	private byte exemptionReasonCode;
@@ -80,10 +75,6 @@ public class Payment implements Serializable {
 	private BigInteger sejHaraikomiNo;
 
 	private BigInteger tax;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "updated_at")
-	private Date updatedAt;
 
 	@Column(name = "wn_conf_no")
 	private String wnConfNo;

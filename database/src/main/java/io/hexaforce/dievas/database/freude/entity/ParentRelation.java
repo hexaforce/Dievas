@@ -13,6 +13,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import io.hexaforce.dievas.database.freude.BasicBaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,14 +24,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "parent_relation")
 @NamedQuery(name = "ParentRelation.findAll", query = "SELECT p FROM ParentRelation p")
-public class ParentRelation implements Serializable {
+public class ParentRelation extends BasicBaseEntity {
 	private static final long serialVersionUID = 1L;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "created_at")
-	private Date createdAt;
-
-	private byte deleted;
 
 	@Column(name = "display_order")
 	private int displayOrder;
@@ -44,9 +39,5 @@ public class ParentRelation implements Serializable {
 
 	@Column(name = "parent_relation_name")
 	private String parentRelationName;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "updated_at")
-	private Date updatedAt;
 
 }

@@ -14,6 +14,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import io.hexaforce.dievas.database.freude.BasicBaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,14 +25,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "modified_reasen")
 @NamedQuery(name = "ModifiedReasen.findAll", query = "SELECT m FROM ModifiedReasen m")
-public class ModifiedReasen implements Serializable {
+public class ModifiedReasen extends BasicBaseEntity {
 	private static final long serialVersionUID = 1L;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "created_at")
-	private Date createdAt;
-
-	private byte deleted;
 
 	@Column(name = "history_id")
 	private int historyId;
@@ -46,9 +41,5 @@ public class ModifiedReasen implements Serializable {
 
 	@Column(name = "modified_term_name")
 	private String modifiedTermName;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "updated_at")
-	private Date updatedAt;
 
 }

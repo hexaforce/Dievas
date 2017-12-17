@@ -14,6 +14,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import io.hexaforce.dievas.database.freude.BasicBaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,14 +25,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "application_config")
 @NamedQuery(name = "ApplicationConfig.findAll", query = "SELECT a FROM ApplicationConfig a")
-public class ApplicationConfig implements Serializable {
+public class ApplicationConfig extends BasicBaseEntity {
 	private static final long serialVersionUID = 1L;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "created_at")
-	private Date createdAt;
-
-	private byte deleted;
 
 	@Lob
 	private String description;
@@ -41,10 +36,6 @@ public class ApplicationConfig implements Serializable {
 	private Integer id;
 
 	private String name;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "updated_at")
-	private Date updatedAt;
 
 	@Lob
 	private String value;

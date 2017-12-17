@@ -13,6 +13,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import io.hexaforce.dievas.database.freude.BasicBaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,7 +24,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "modified_application_exam")
 @NamedQuery(name = "ModifiedApplicationExam.findAll", query = "SELECT m FROM ModifiedApplicationExam m")
-public class ModifiedApplicationExam implements Serializable {
+public class ModifiedApplicationExam extends BasicBaseEntity {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "application_exum_id")
@@ -37,12 +38,6 @@ public class ModifiedApplicationExam implements Serializable {
 
 	@Column(name = "course_id")
 	private int courseId;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "created_at")
-	private Date createdAt;
-
-	private byte deleted;
 
 	@Column(name = "department_external_code")
 	private String departmentExternalCode;
@@ -104,9 +99,5 @@ public class ModifiedApplicationExam implements Serializable {
 
 	@Column(name = "site_id")
 	private int siteId;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "updated_at")
-	private Date updatedAt;
 
 }

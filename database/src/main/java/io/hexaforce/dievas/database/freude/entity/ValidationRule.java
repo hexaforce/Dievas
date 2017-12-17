@@ -14,6 +14,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import io.hexaforce.dievas.database.freude.BasicBaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,14 +25,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "validation_rule")
 @NamedQuery(name = "ValidationRule.findAll", query = "SELECT v FROM ValidationRule v")
-public class ValidationRule implements Serializable {
+public class ValidationRule extends BasicBaseEntity {
 	private static final long serialVersionUID = 1L;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "created_at")
-	private Date createdAt;
-
-	private byte deleted;
 
 	private byte email;
 
@@ -67,8 +62,5 @@ public class ValidationRule implements Serializable {
 	@Column(name = "size_min")
 	private int sizeMin;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "updated_at")
-	private Date updatedAt;
 
 }

@@ -1,4 +1,4 @@
-package io.hexaforce.dievas.database;
+package io.hexaforce.dievas.database.freude;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -12,7 +12,7 @@ import lombok.Data;
 
 @Data
 @MappedSuperclass
-public class BaseEntity implements Serializable {
+public class BasicBaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	// 作成日時

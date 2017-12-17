@@ -13,6 +13,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import io.hexaforce.dievas.database.freude.BasicBaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,17 +24,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "user_profile_reflection_request")
 @NamedQuery(name = "UserProfileReflectionRequest.findAll", query = "SELECT u FROM UserProfileReflectionRequest u")
-public class UserProfileReflectionRequest implements Serializable {
+public class UserProfileReflectionRequest extends BasicBaseEntity {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "application_user_profile_id")
 	private int applicationUserProfileId;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "created_at")
-	private Date createdAt;
-
-	private byte deleted;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,10 +40,6 @@ public class UserProfileReflectionRequest implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "requesuted_at")
 	private Date requesutedAt;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "updated_at")
-	private Date updatedAt;
 
 	@Column(name = "user_id")
 	private int userId;

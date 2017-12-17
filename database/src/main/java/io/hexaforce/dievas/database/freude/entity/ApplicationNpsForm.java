@@ -13,6 +13,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import io.hexaforce.dievas.database.freude.BasicBaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,7 +24,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "application_nps_form")
 @NamedQuery(name = "ApplicationNpsForm.findAll", query = "SELECT a FROM ApplicationNpsForm a")
-public class ApplicationNpsForm implements Serializable {
+public class ApplicationNpsForm extends BasicBaseEntity {
 	private static final long serialVersionUID = 1L;
 
 	private String accessKey;
@@ -39,12 +40,6 @@ public class ApplicationNpsForm implements Serializable {
 
 	@Column(name = "cart_id")
 	private int cartId;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "created_at")
-	private Date createdAt;
-
-	private byte deleted;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "expires_at")
@@ -70,9 +65,7 @@ public class ApplicationNpsForm implements Serializable {
 
 	private byte store;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "updated_at")
-	private Date updatedAt;
+
 
 	@Column(name = "user_code")
 	private String userCode;

@@ -13,6 +13,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import io.hexaforce.dievas.database.freude.BasicBaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,17 +24,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "log_output_history")
 @NamedQuery(name = "LogOutputHistory.findAll", query = "SELECT l FROM LogOutputHistory l")
-public class LogOutputHistory implements Serializable {
+public class LogOutputHistory extends BasicBaseEntity {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "approve_or_refuse")
 	private int approveOrRefuse;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "created_at")
-	private Date createdAt;
-
-	private byte deleted;
 
 	@Column(name = "file_key")
 	private String fileKey;
@@ -53,9 +48,5 @@ public class LogOutputHistory implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "output_at")
 	private Date outputAt;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "updated_at")
-	private Date updatedAt;
 
 }

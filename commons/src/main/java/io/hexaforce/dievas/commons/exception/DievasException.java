@@ -17,4 +17,11 @@ public class DievasException extends RuntimeException {
 		this.errorCode = error.getCode();
 		this.errorMessage = error.getMessage();
 	}
+
+	public DievasException(DievasErrorCode error, Exception e) {
+		super(e);
+		this.errorCode = error.getCode();
+		this.errorMessage = error.getMessage();
+	}
+	
 }

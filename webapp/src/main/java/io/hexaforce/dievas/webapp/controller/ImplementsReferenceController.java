@@ -51,6 +51,7 @@ public class ImplementsReferenceController {
 		// log.debug(msg);
 		// log.warn(msg);
 		log.info("Controller(java): init()");
+		implementsReferenceService.MyBatisToJPAwithHibernate2();
 		String x = implementsReferenceService.init();
 		return new ResponseEntity<ImplementsReference>(new ImplementsReference(x), HttpStatus.OK);
 	}

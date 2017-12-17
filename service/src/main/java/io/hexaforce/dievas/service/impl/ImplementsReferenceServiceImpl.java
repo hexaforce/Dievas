@@ -145,24 +145,24 @@ public class ImplementsReferenceServiceImpl implements ImplementsReferenceServic
 		
 		// クエリをかかなくてもメソッド名でクエリが自動作成されます。
 		
-		String lastname = "", firstname = "";
+		String lastName = "金田", firstName = "夕菜";
 		
 		// Enables the distinct flag for the query
 		List<UserProfile> userProfileList = userProfileRepository
-				.findDistinctCramSchoolCodeByLastNameOrFirstName(lastname, firstname);
+				.findDistinctCramSchoolCodeByLastNameOrFirstName(lastName, firstName);
 
-		userProfileList = userProfileRepository.findCramSchoolCodeDistinctByLastNameOrFirstName(lastname, firstname);
+		userProfileList = userProfileRepository.findCramSchoolCodeDistinctByLastNameOrFirstName(lastName, firstName);
 
 		// Enabling ignoring case for an individual property
-		userProfileList = userProfileRepository.findByLastNameIgnoreCase(lastname);
+		userProfileList = userProfileRepository.findByLastNameIgnoreCase(lastName);
 
 		// Enabling ignoring case for all suitable properties
-		userProfileList = userProfileRepository.findByLastNameAndFirstNameAllIgnoreCase(lastname, firstname);
+		userProfileList = userProfileRepository.findByLastNameAndFirstNameAllIgnoreCase(lastName, firstName);
 
 		// Enabling static ORDER BY for a query
-		userProfileList = userProfileRepository.findByLastNameOrderByFirstNameAsc(lastname);
+		userProfileList = userProfileRepository.findByLastNameOrderByFirstNameAsc(lastName);
 
-		userProfileList = userProfileRepository.findByLastNameOrderByFirstNameDesc(lastname);
+		userProfileList = userProfileRepository.findByLastNameOrderByFirstNameDesc(lastName);
 		
 
 //Table 4. Supported keywords inside method names

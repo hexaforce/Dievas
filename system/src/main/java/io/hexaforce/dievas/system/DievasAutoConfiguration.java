@@ -1,6 +1,8 @@
 package io.hexaforce.dievas.system;
 
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.boot.web.embedded.undertow.UndertowBuilderCustomizer;
+import org.springframework.boot.web.embedded.undertow.UndertowServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
@@ -13,6 +15,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import io.hexaforce.dievas.system.servlet.DievasInterceptor;
+import io.undertow.Undertow.Builder;
 
 /**
  * @author T.Tantaka
@@ -96,7 +99,22 @@ public class DievasAutoConfiguration implements WebMvcConfigurer {
 	
 	
 	
-	
+	@Bean
+	public UndertowServletWebServerFactory embeddedServletContainerFactory() {
+		
+		UndertowServletWebServerFactory factory = new UndertowServletWebServerFactory();
+		
+		factory.addBuilderCustomizers(new UndertowBuilderCustomizer() {
+
+			@Override
+			public void customize(Builder builder) {
+				//builder.addHttpListener(8443, "0.0.0.0");
+
+			}
+
+		});
+		return factory;
+	}
 	
 	
 	

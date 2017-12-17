@@ -34,6 +34,21 @@ public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
 		auth.jdbcAuthentication().dataSource(this.dataSource);
 	}
 	
+//  CREATE TABLE `authorities` (
+//	  `username` varchar(256) DEFAULT NULL,
+//	  `authority` varchar(256) DEFAULT NULL
+//	) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+//
+//	INSERT INTO authorities(username, authority) VALUES ('user', 'ROLE_ADMIN');
+//
+//	CREATE TABLE `users` (
+//	  `username` varchar(256) DEFAULT NULL,
+//	  `password` varchar(256) DEFAULT NULL,
+//	  `enabled` tinyint(1) DEFAULT NULL
+//	) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+//
+//	INSERT INTO users(username, password, enabled) VALUES ('user', 'user', true);	
+	
 //	@Order(Ordered.HIGHEST_PRECEDENCE)
 //	@Configuration
 //	protected static class AuthenticationSecurity {

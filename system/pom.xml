@@ -58,7 +58,6 @@
                 <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
 
-
 		<dependency>
 			<groupId>io.hexaforce</groupId>
 			<artifactId>commons</artifactId>
@@ -82,6 +81,11 @@
 		<dependency>
 			<groupId>io.hexaforce</groupId>
 			<artifactId>webapp</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.hexaforce</groupId>
+			<artifactId>mypage</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>

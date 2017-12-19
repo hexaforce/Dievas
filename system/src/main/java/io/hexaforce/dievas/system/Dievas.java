@@ -13,6 +13,7 @@ import org.springframework.web.WebApplicationInitializer;
 import io.hexaforce.dievas.batch.DievasBatchApplication;
 import io.hexaforce.dievas.commons.DievasCommonApplication;
 import io.hexaforce.dievas.database.DievasDataApplication;
+import io.hexaforce.dievas.mypage.DievasMypageApplication;
 import io.hexaforce.dievas.service.DievasServiceApplication;
 import io.hexaforce.dievas.webapp.DievasWebApplication;
 
@@ -30,6 +31,16 @@ public class Dievas implements WebApplicationInitializer {
 			.sources(Dievas.class)
 			.bannerMode(Banner.Mode.CONSOLE)
 			.run(args);
+		
+//		new SpringApplicationBuilder()
+//		.sources(DievasCommonApplication.class)
+//		.sources(DievasDataApplication.class)
+//		.sources(DievasBatchApplication.class)
+//		.sources(DievasServiceApplication.class)
+//		.sources(DievasMypageApplication.class)
+//		.sources(Dievas.class)
+//		.bannerMode(Banner.Mode.CONSOLE)
+//		.run(args);
 	}
 
 	@Override

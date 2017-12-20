@@ -1,6 +1,5 @@
 package io.hexaforce.dievas.database.freude.entity;
 
-import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Date;
 
@@ -26,14 +25,24 @@ import lombok.NoArgsConstructor;
 public class Application extends BasicBaseEntity {
 	private static final long serialVersionUID = 1L;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+
+	@Column(name = "user_id")
+	private int userId;
+
+	@Column(name = "cart_id")
+	private int cartId;
+
+	@Column(name = "exam_type_id")
+	private int examTypeId;
+
 	@Column(name = "accident_code")
 	private String accidentCode;
 
 	@Column(name = "application_no")
 	private String applicationNo;
-
-	@Column(name = "cart_id")
-	private int cartId;
 
 	@Column(name = "csv_exported")
 	private byte csvExported;
@@ -44,9 +53,7 @@ public class Application extends BasicBaseEntity {
 	@Column(name = "examinees_number_issued")
 	private byte examineesNumberIssued;
 
-	@Column(name = "exam_type_id")
-	private int examTypeId;
-
+	@Column(name = "gpa")
 	private String gpa;
 
 	@Column(name = "handicapped_person_code")
@@ -58,16 +65,13 @@ public class Application extends BasicBaseEntity {
 	@Column(name = "high_school_notification_consented")
 	private byte highSchoolNotificationConsented;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-
 	@Column(name = "management_status")
 	private String managementStatus;
 
 	@Column(name = "music_practical_code")
 	private byte musicPracticalCode;
 
+	@Column(name = "paid")
 	private byte paid;
 
 	@Column(name = "reference_number")
@@ -82,12 +86,5 @@ public class Application extends BasicBaseEntity {
 
 	@Column(name = "total_fee")
 	private BigInteger totalFee;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "updated_at")
-	private Date updatedAt;
-
-	@Column(name = "user_id")
-	private int userId;
 
 }

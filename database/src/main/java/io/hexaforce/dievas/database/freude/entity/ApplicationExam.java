@@ -1,8 +1,5 @@
 package io.hexaforce.dievas.database.freude.entity;
 
-import java.io.Serializable;
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,8 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import io.hexaforce.dievas.database.freude.BasicBaseEntity;
 import lombok.AllArgsConstructor;
@@ -27,29 +22,39 @@ import lombok.NoArgsConstructor;
 public class ApplicationExam extends BasicBaseEntity {
 	private static final long serialVersionUID = 1L;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+
 	@Column(name = "application_id")
 	private int applicationId;
 
-	@Column(name = "course_external_code")
-	private String courseExternalCode;
-
-	@Column(name = "course_id")
-	private int courseId;
-
-	@Column(name = "department_external_code")
-	private String departmentExternalCode;
-
-	@Column(name = "department_id")
-	private int departmentId;
-
-	@Column(name = "division_external_code")
-	private String divisionExternalCode;
+	@Column(name = "site_id")
+	private int siteId;
 
 	@Column(name = "division_id")
 	private int divisionId;
 
 	@Column(name = "exam_id")
 	private int examId;
+
+	@Column(name = "course_id")
+	private int courseId;
+
+	@Column(name = "department_id")
+	private int departmentId;
+
+	@Column(name = "exam_type_id")
+	private int examTypeId;
+
+	@Column(name = "course_external_code")
+	private String courseExternalCode;
+
+	@Column(name = "department_external_code")
+	private String departmentExternalCode;
+
+	@Column(name = "division_external_code")
+	private String divisionExternalCode;
 
 	@Column(name = "examinees_number")
 	private String examineesNumber;
@@ -63,15 +68,8 @@ public class ApplicationExam extends BasicBaseEntity {
 	@Column(name = "exam_type_external_code")
 	private String examTypeExternalCode;
 
-	@Column(name = "exam_type_id")
-	private int examTypeId;
-
 	@Column(name = "gpa_status")
 	private byte gpaStatus;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
 
 	@Column(name = "musical_grammar_code")
 	private byte musicalGrammarCode;
@@ -90,8 +88,5 @@ public class ApplicationExam extends BasicBaseEntity {
 
 	@Column(name = "selected_course_code")
 	private String selectedCourseCode;
-
-	@Column(name = "site_id")
-	private int siteId;
 
 }

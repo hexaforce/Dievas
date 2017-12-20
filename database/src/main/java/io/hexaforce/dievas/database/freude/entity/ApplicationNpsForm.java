@@ -1,6 +1,5 @@
 package io.hexaforce.dievas.database.freude.entity;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -64,8 +63,6 @@ public class ApplicationNpsForm extends BasicBaseEntity {
 	private byte status;
 
 	private byte store;
-
-
 
 	@Column(name = "user_code")
 	private String userCode;

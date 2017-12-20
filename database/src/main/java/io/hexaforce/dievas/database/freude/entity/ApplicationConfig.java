@@ -1,8 +1,5 @@
 package io.hexaforce.dievas.database.freude.entity;
 
-import java.io.Serializable;
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,8 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import io.hexaforce.dievas.database.freude.BasicBaseEntity;
 import lombok.AllArgsConstructor;
@@ -28,16 +23,19 @@ import lombok.NoArgsConstructor;
 public class ApplicationConfig extends BasicBaseEntity {
 	private static final long serialVersionUID = 1L;
 
-	@Lob
-	private String description;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
+	@Column(name = "name")
 	private String name;
 
 	@Lob
+	@Column(name = "description")
+	private String description;
+
+	@Lob
+	@Column(name = "value")
 	private String value;
 
 }

@@ -32,7 +32,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @Controller
-public class WebBatchController implements ApplicationContextAware{
+public class WebBatchController implements ApplicationContextAware {
 	
     @Autowired
     private JobLauncher jobLauncher;

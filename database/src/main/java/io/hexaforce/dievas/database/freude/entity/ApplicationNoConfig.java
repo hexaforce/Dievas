@@ -23,20 +23,20 @@ import lombok.NoArgsConstructor;
 public class ApplicationNoConfig implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "exam_type_id")
-	private int examTypeId;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+
+	@Column(name = "exam_type_id")
+	private int examTypeId;
+
+	@Column(name = "site_id")
+	private int siteId;
 
 	@Column(name = "max_application_no")
 	private String maxApplicationNo;
 
 	@Column(name = "min_application_no")
 	private String minApplicationNo;
-
-	@Column(name = "site_id")
-	private int siteId;
 
 }

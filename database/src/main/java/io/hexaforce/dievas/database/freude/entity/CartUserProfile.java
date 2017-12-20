@@ -1,6 +1,5 @@
 package io.hexaforce.dievas.database.freude.entity;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;

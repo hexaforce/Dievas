@@ -8,7 +8,7 @@
 	<parent>
 		<groupId>io.hexaforce</groupId>
 		<artifactId>Dievas</artifactId>
-		<version>1.0.0.BUILD-SNAPSHOT</version>
+		<version>1.0.1.BUILD-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 

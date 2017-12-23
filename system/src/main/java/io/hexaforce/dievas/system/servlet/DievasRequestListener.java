@@ -16,8 +16,8 @@ import lombok.extern.slf4j.Slf4j;
  */
 
 @Slf4j
-@Component
-@WebListener
+//@Component
+//@WebListener
 public class DievasRequestListener implements ServletRequestListener, ServletContextAware {
 
 	@Override

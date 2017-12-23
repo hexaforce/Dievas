@@ -17,6 +17,11 @@ import io.hexaforce.dievas.mypage.DievasMypageApplication;
 import io.hexaforce.dievas.service.DievasServiceApplication;
 import io.hexaforce.dievas.webapp.DievasWebApplication;
 
+/**
+ * Main build assembly.
+ * 
+ * @author T.Tantaka
+ */
 @SpringBootApplication
 @EnableAutoConfiguration
 public class Dievas implements WebApplicationInitializer {

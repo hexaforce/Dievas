@@ -2,16 +2,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
+
 	<artifactId>system</artifactId>
-	
+
 	<parent>
 		<groupId>io.hexaforce</groupId>
 		<artifactId>Dievas</artifactId>
 		<version>1.0.1.BUILD-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
-	
+
 	<build>
 		<finalName>Dievas</finalName>
 		<plugins>
@@ -38,27 +38,27 @@
 		</plugins>
 	</build>
 	<dependencies>
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.springframework.data</groupId> -->
-<!-- 			<artifactId>spring-data-redis</artifactId> -->
-<!-- 		</dependency> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>redis.clients</groupId> -->
-<!-- 			<artifactId>jedis</artifactId> -->
-<!-- 		</dependency> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.springframework.session</groupId> -->
-<!-- 			<artifactId>spring-session-data-redis</artifactId> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.springframework.data</groupId> -->
+		<!-- <artifactId>spring-data-redis</artifactId> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>redis.clients</groupId> -->
+		<!-- <artifactId>jedis</artifactId> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.springframework.session</groupId> -->
+		<!-- <artifactId>spring-session-data-redis</artifactId> -->
+		<!-- </dependency> -->
 
-        <dependency>
-                <groupId>org.springframework.session</groupId>
-                <artifactId>spring-session-jdbc</artifactId>
-        </dependency>
-        <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-jdbc</artifactId>
-        </dependency>
+		<dependency>
+			<groupId>org.springframework.session</groupId>
+			<artifactId>spring-session-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>io.hexaforce</groupId>
@@ -98,28 +98,28 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
-<!-- 		<dependency> -->
-<!-- 			<groupId>de.codecentric</groupId> -->
-<!-- 			<artifactId>spring-boot-admin-server</artifactId> -->
-<!-- 			<version>1.5.5</version> -->
-<!-- 		</dependency> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>de.codecentric</groupId> -->
-<!-- 			<artifactId>spring-boot-admin-server-ui</artifactId> -->
-<!-- 			<version>1.5.5</version> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>de.codecentric</groupId> -->
+		<!-- <artifactId>spring-boot-admin-server</artifactId> -->
+		<!-- <version>1.5.5</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>de.codecentric</groupId> -->
+		<!-- <artifactId>spring-boot-admin-server-ui</artifactId> -->
+		<!-- <version>1.5.5</version> -->
+		<!-- </dependency> -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-undertow</artifactId>
 		</dependency>
-<!-- 		<dependency> -->
-<!-- 			<groupId>com.h2database</groupId> -->
-<!-- 			<artifactId>h2</artifactId> -->
-<!-- 		</dependency> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>com.zaxxer</groupId> -->
-<!-- 			<artifactId>HikariCP</artifactId> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.h2database</groupId> -->
+		<!-- <artifactId>h2</artifactId> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.zaxxer</groupId> -->
+		<!-- <artifactId>HikariCP</artifactId> -->
+		<!-- </dependency> -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>

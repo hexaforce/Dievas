@@ -26,7 +26,7 @@ LiveReload
 Remote Debug Tunneling
 
 
-
+gradle init --type pom
 
 
 

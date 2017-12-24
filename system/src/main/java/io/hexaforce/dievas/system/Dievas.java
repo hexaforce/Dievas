@@ -1,5 +1,10 @@
 package io.hexaforce.dievas.system;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 
@@ -71,7 +76,16 @@ public class Dievas implements WebApplicationInitializer {
 
 	@Override
 	public void onStartup(ServletContext servletContext) throws ServletException {
-		
+//		File file = File.createTempFile("aws-java-sdk-", ".txt");
+//		file.deleteOnExit();
+//
+//		Writer writer = new OutputStreamWriter(new FileOutputStream(file));
+//		writer.write("abcdefghijklmnopqrstuvwxyz\n");
+//		writer.write("01234567890112345678901234\n");
+//		writer.write("!@#$%^&*()-=[]{};':',.<>/?\n");
+//		writer.write("01234567890112345678901234\n");
+//		writer.write("abcdefghijklmnopqrstuvwxyz\n");
+//		writer.close();
 		String[] args = environment.getActiveProfiles();
 		log.info(args.toString());
 		//servletContext.addServlet("h2Console", new WebServlet()).addMapping("/h2-console/*");

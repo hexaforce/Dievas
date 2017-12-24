@@ -1,0 +1,22 @@
+
+description = ''
+dependencies {
+    compile group: 'org.webjars', name: 'Semantic-UI', version:'2.2.10'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version:'2.0.0.M7'
+    compile group: 'org.springframework.security', name: 'spring-security-core', version:'5.0.0.RELEASE'
+    compile group: 'org.springframework.session', name: 'spring-session-jdbc', version:'2.0.0.RC2'
+    compile(group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version:'2.0.0.M7') {
+exclude(module: 'thymeleaf-layout-dialect')
+    }
+    compile group: 'org.webjars', name: 'webjars-locator', version:'0.32-1'
+    compile group: 'org.webjars.bower', name: 'gentelella', version:'1.4.0'
+    compile group: 'org.webjars.bower', name: 'angular', version:'1.6.6'
+    compile group: 'org.webjars.bower', name: 'lodash', version:'4.17.4'
+    compile group: 'org.webjars.bower', name: 'restangular', version:'1.6.1'
+    compile group: 'org.webjars.bower', name: 'angular-ui-router', version:'1.0.8'
+    compile group: 'org.webjars.bower', name: 'localforage', version:'1.4.1'
+    compile group: 'org.webjars.bower', name: 'ngstorage', version:'0.3.11'
+  providedCompile project(':commons')
+  providedCompile project(':database')
+  providedCompile project(':service')
+}

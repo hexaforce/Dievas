@@ -1,0 +1,7 @@
+
+description = ''
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-batch', version:'2.0.0.M7'
+  providedCompile project(':commons')
+  providedCompile project(':database')
+}

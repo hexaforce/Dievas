@@ -1,0 +1,16 @@
+rootProject.name = 'Dievas'
+include ':commons'
+include ':database'
+include ':batch'
+include ':service'
+include ':webapp'
+include ':mypage'
+include ':system'
+
+project(':commons').projectDir = "$rootDir/commons" as File
+project(':database').projectDir = "$rootDir/database" as File
+project(':batch').projectDir = "$rootDir/batch" as File
+project(':service').projectDir = "$rootDir/service" as File
+project(':webapp').projectDir = "$rootDir/webapp" as File
+project(':mypage').projectDir = "$rootDir/mypage" as File
+project(':system').projectDir = "$rootDir/system" as File

@@ -1,0 +1,6 @@
+
+description = ''
+dependencies {
+    compile group: 'com.google.guava', name: 'guava', version:'23.3-jre'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-json', version:'2.0.0.M7'
+}

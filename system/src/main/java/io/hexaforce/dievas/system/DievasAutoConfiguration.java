@@ -30,8 +30,10 @@ import io.undertow.server.HttpHandler;
 import io.undertow.server.RoutingHandler;
 
 /**
+ * Dievas AutoConfiguration.
+ * 
  * @author T.Tantaka
- *
+ * 
  */
 @Configuration
 @EnableConfigurationProperties(DievasProperties.class)

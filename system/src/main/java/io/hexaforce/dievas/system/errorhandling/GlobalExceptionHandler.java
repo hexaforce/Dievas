@@ -46,6 +46,7 @@ public class GlobalExceptionHandler implements HandlerExceptionResolver {
 		log.error(ex.getLocalizedMessage());
 		ex.printStackTrace();
         return new ModelAndView();
+        
 	}
 
 }

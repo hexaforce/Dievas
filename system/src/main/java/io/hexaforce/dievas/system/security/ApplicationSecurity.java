@@ -23,7 +23,6 @@ public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
 		
 		// https://docs.spring.io/spring-security/site/docs/current/reference/html/csrf.html#csrf-include-csrf-token-ajax
 		http.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
-		
 		http.authorizeRequests().requestMatchers(StaticResourceRequest.toCommonLocations()).permitAll().anyRequest()
 				.fullyAuthenticated().and().formLogin().loginPage("/login").successForwardUrl("/")
 				.failureUrl("/login?error").permitAll().and().logout().logoutUrl("/login?logout").permitAll();

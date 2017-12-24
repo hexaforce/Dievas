@@ -34,5 +34,6 @@ public class ExceptionHandlers {
 	}
 
 	public static void ok(HttpServerExchange exchange) {
+		
 	}
 }

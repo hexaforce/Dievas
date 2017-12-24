@@ -11,6 +11,8 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import io.hexaforce.dievas.commons.exception.DievasException;
 
 /**
+ * REST error response.
+ * 
  * @author T.Tantaka
  *
  */
@@ -19,7 +21,19 @@ public class ExceptionAdvice extends ResponseEntityExceptionHandler {
 	
 	@ExceptionHandler(value = { DievasException.class })
 	public ResponseEntity<Object> handleHttpStatusException(DievasException exception, WebRequest request){
-		return handleExceptionInternal(exception, exception, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR,
+		
+		
+		
+		
+		
+		
+		
+		
+		return handleExceptionInternal(
+				exception, 
+				exception, 
+				new HttpHeaders(), 
+				HttpStatus.INTERNAL_SERVER_ERROR,
 				request);
 	}
 	

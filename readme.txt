@@ -3,7 +3,7 @@ JobRegistryにJOBが追加されるように
 REmote deploy
 Cache の実装
 
-datarest 他人のユーザー
+datarest 他人のユーザーをはじくはんどら
 
 環境ごとのpackage
 
@@ -16,8 +16,9 @@ org.springframework.util
 semantic-ui　でマイページ
 
 
+aws-maven(s3)
 
-MypageAOth2
+Mypage AOth2
 
 
 Devtool
@@ -36,8 +37,6 @@ production
 staging
 develop
 
-DBマイグレーション
-flaywayに置き換え
 
 sonerqube
 

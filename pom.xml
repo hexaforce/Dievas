@@ -2,21 +2,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
+
+	<prerequisites>
+		<maven>3.5.2</maven>
+	</prerequisites>
+
 	<groupId>io.hexaforce</groupId>
 	<artifactId>Dievas</artifactId>
 	<packaging>pom</packaging>
 	<version>1.0.1.BUILD-SNAPSHOT</version>
 
-	<name>Dievas</name>
-	<description>Angular application on Spring boot</description>
-
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.0.M7</version>
-		<relativePath />
-	</parent>
+	<name>EEMS</name>
+	<description>entrance examination management system</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -34,11 +31,26 @@
 		<module>webapp</module>
 		<module>mypage</module>
 		<module>system</module>
+		<module>entrance</module>
+		<module>management</module>
 	</modules>
 
 	<dependencyManagement>
 		<dependencies>
-
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>2.0.0.M7</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Finchley.M4</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -48,30 +60,30 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-autoconfigure</artifactId>
-		</dependency>
 	</dependencies>
+
+	<!-- <dependencies> -->
+
+	<!-- <dependency> -->
+	<!-- <groupId>org.springframework.boot</groupId> -->
+	<!-- <artifactId>spring-boot-starter</artifactId> -->
+	<!-- </dependency> -->
+
+	<!-- <dependency> -->
+	<!-- <groupId>org.springframework.boot</groupId> -->
+	<!-- <artifactId>spring-boot-devtools</artifactId> -->
+	<!-- </dependency> -->
+	<!-- <dependency> -->
+	<!-- <groupId>org.springframework.boot</groupId> -->
+	<!-- <artifactId>spring-boot-autoconfigure</artifactId> -->
+	<!-- </dependency> -->
+	<!-- </dependencies> -->
 
 	<repositories>
 		<repository>
-			<id>spring-releases-repository</id>
-			<name>Spring Releases Repository</name>
-			<url>http://repo.spring.io/release</url>
+			<id>spring-snapshots</id>
+			<name>Spring Snapshots</name>
+			<url>https://repo.spring.io/libs-snapshot-local</url>
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
@@ -79,17 +91,17 @@
 		<repository>
 			<id>spring-milestones</id>
 			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
+			<url>https://repo.spring.io/libs-milestone-local</url>
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
 		<repository>
-			<id>spring-snapshots</id>
-			<name>Spring Snapshots</name>
-			<url>https://repo.spring.io/snapshot</url>
+			<id>spring-releases</id>
+			<name>Spring Releases</name>
+			<url>https://repo.spring.io/release</url>
 			<snapshots>
-				<enabled>true</enabled>
+				<enabled>false</enabled>
 			</snapshots>
 		</repository>
 	</repositories>
@@ -98,7 +110,7 @@
 		<pluginRepository>
 			<id>spring-snapshots</id>
 			<name>Spring Snapshots</name>
-			<url>https://repo.spring.io/snapshot</url>
+			<url>https://repo.spring.io/libs-snapshot-local</url>
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
@@ -106,7 +118,15 @@
 		<pluginRepository>
 			<id>spring-milestones</id>
 			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
+			<url>https://repo.spring.io/libs-milestone-local</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+			<id>spring-releases</id>
+			<name>Spring Releases</name>
+			<url>https://repo.spring.io/release</url>
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
@@ -114,10 +134,26 @@
 	</pluginRepositories>
 
 	<build>
+
+		<pluginManagement>
+			<plugins>
+
+			</plugins>
+		</pluginManagement>
+
 		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.10</version>
 				<configuration>
 					<downloadSources>true</downloadSources>
 					<downloadJavadocs>true</downloadJavadocs>
@@ -126,20 +162,17 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.0.0</version>
 				<configuration>
-<!-- 
 					<additionalJOption>-J-Xss2048m</additionalJOption>
 					<bootclasspath>${sun.boot.class.path}</bootclasspath>
- 					<useStandardDocletOptions>false</useStandardDocletOptions>
+					<useStandardDocletOptions>false</useStandardDocletOptions>
 					<doclet>com.google.doclava.Doclava</doclet>
 					<docletArtifact>
 						<groupId>com.google.doclava</groupId>
 						<artifactId>doclava</artifactId>
 						<version>1.0.6</version>
 					</docletArtifact>
- -->
-					<docencoding>UTF-8</docencoding>
-					<charset>UTF-8</charset>
 					<encoding>UTF-8</encoding>
 					<groups>
 						<group>

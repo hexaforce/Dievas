@@ -38,9 +38,9 @@ app.factory('ImplementsReference', ['Restangular', 'DievasConfig' , function (Re
       return $localStorage.ImplementsReference;
     }
     
-    /***************************************
-     *  angular標準でHTTPメソッドをコールする実装パターン
-     ***************************************/
+    /***************************************************************************
+	 * angular標準でHTTPメソッドをコールする実装パターン
+	 **************************************************************************/
     function DefaultAction($scope) {
     	
     	Restangular.all('profile').customGET().then(function (profile) {
@@ -49,8 +49,6 @@ app.factory('ImplementsReference', ['Restangular', 'DievasConfig' , function (Re
     	}, function errorCallback() {
     	  alert("Oops error from server :(");
     	})
-    	
-    	
     	
     	// GET to /user
         function loadAllUsers() {
@@ -113,46 +111,34 @@ app.factory('ImplementsReference', ['Restangular', 'DievasConfig' , function (Re
         
      }
 
-    /***************************************
-     *  RestangularでHTTPメソッドをコールする実装パターン
-     ***************************************/
+    /***************************************************************************
+	 * RestangularでHTTPメソッドをコールする実装パターン
+	 **************************************************************************/
     function PrimaryAction($scope) {
     	
 /**
-    	現在RestAPIは３タイプに分かれており、それぞれのRestangularインスタンスが容易されてきます。
-    	
-    	=================================================
-    	１．Restangularインスタンス
-    	=================================================
-    	BaseURL:/datarest
-    	Spring　Data RESTの実装です。
-    	対応するコントローラはio.hexaforce.dievas.webapp.datarestパッケージにあります。
-    	使い方は
-    	Restangular.all('DBのテーブル名')
-    	DBのテーブル名を指定するだけで直接DBへアクセスし基本的なCURD操作ができます。
-    	
-    	詳細は
-    	https://docs.spring.io/spring-data/rest/docs/current/reference/html/
-    	
-    	=================================================
-    	２．Batchインスタンス
-    	=================================================
-    	BaseURL:/batch/xxxxxxx
-    	Spring Boot Batch の起動サービスです。
-    	xxxxxxxにはジョブ名を指定して、パラメータ付きでコールしましす。
-    	対応するコントローラはio.hexaforce.dievas.batch.BatchControllerです。
-    	
-    	詳細は
-    	https://docs.spring.io/spring-batch/trunk/reference/html/
-    	
-    	=================================================
-    	３．サービス名　（このjsではImplementsReference）
-    	=================================================
-    	BaseURL:/api/v1/xxxxxxx
-    	独自実装のAPIをコールするためのものです。
-    	対応するコントローラはio.hexaforce.dievas.webapp.controllerパッケージにあります。
-    	
-**/
+ * 現在RestAPIは３タイプに分かれており、それぞれのRestangularインスタンスが容易されてきます。
+ * 
+ * ================================================= １．Restangularインスタンス
+ * ================================================= BaseURL:/datarest Spring
+ * Data RESTの実装です。 対応するコントローラはio.hexaforce.dievas.webapp.datarestパッケージにあります。
+ * 使い方は Restangular.all('DBのテーブル名') DBのテーブル名を指定するだけで直接DBへアクセスし基本的なCURD操作ができます。
+ * 
+ * 詳細は https://docs.spring.io/spring-data/rest/docs/current/reference/html/
+ * 
+ * ================================================= ２．Batchインスタンス
+ * ================================================= BaseURL:/batch/xxxxxxx
+ * Spring Boot Batch の起動サービスです。 xxxxxxxにはジョブ名を指定して、パラメータ付きでコールしましす。
+ * 対応するコントローラはio.hexaforce.dievas.batch.BatchControllerです。
+ * 
+ * 詳細は https://docs.spring.io/spring-batch/trunk/reference/html/
+ * 
+ * ================================================= ３．サービス名
+ * （このjsではImplementsReference） =================================================
+ * BaseURL:/api/v1/xxxxxxx 独自実装のAPIをコールするためのものです。
+ * 対応するコントローラはio.hexaforce.dievas.webapp.controllerパッケージにあります。
+ * 
+ */
     	
     	var baseExam = Restangular.all('user');
     	var newId = 1;
@@ -178,9 +164,9 @@ app.factory('ImplementsReference', ['Restangular', 'DievasConfig' , function (Re
     	// DELETE to /user/{id}
     	baseExam.delete(newId);
     	
-    	/////////////////////////
+    	// ///////////////////////
     	// Restangularの注意事項
-    	/////////////////////////
+    	// ///////////////////////
     	baseExam.getList().then(function (response) {
     		// angularの標準パターンにくらべ単体か配列かを明確にしなければなりません。Listで戻るときはgetList()です
     		$localStorage.users = response;
@@ -191,9 +177,9 @@ app.factory('ImplementsReference', ['Restangular', 'DievasConfig' , function (Re
     	
     }
     
-    /***************************************
-     *  Restangularでの様々なAPIをコールするパターン
-     ***************************************/
+    /***************************************************************************
+	 * Restangularでの様々なAPIをコールするパターン
+	 **************************************************************************/
     function SuccessAction($scope) {
     	
     	// Just ONE GET to /exam/123/buildings/456
@@ -223,14 +209,14 @@ app.factory('ImplementsReference', ['Restangular', 'DievasConfig' , function (Re
   	  // DELETE /exam/123 We don't have first exam anymore :(
   	  firstAccount.remove();
 
-    //////////////////////////////　
-  	// Spring　Data REST の注意事項
-  	//////////////////////////////
+    // ////////////////////////////
+  	// Spring Data REST の注意事項
+  	// ////////////////////////////
     }
 
-    /***************************************
-     *  バッチジョブ起動
-     ***************************************/
+    /***************************************************************************
+	 * バッチジョブ起動
+	 **************************************************************************/
     function InfoAction($scope) {
       
       var p = {lastname:"金田", firstname:"夕菜"};
@@ -244,22 +230,22 @@ app.factory('ImplementsReference', ['Restangular', 'DievasConfig' , function (Re
   	  });
     }
 
-    /***************************************
-     *  Restangularでの様々なAPIをコールするパターン
-     ***************************************/
+    /***************************************************************************
+	 * Restangularでの様々なAPIをコールするパターン
+	 **************************************************************************/
     function DangerAction($scope) {
     	ImplementsReference.one('test', 123).get();;
     }
 
-    /***************************************
-     *  独自実装APIパターン
-     ***************************************/
-    /***************************************
-     *  Spring Data RESTを利用するパターン
-     ***************************************/
-    /***************************************
-     *  Spring Data RESTを利用するパターン
-     ***************************************/
+    /***************************************************************************
+	 * 独自実装APIパターン
+	 **************************************************************************/
+    /***************************************************************************
+	 * Spring Data RESTを利用するパターン
+	 **************************************************************************/
+    /***************************************************************************
+	 * Spring Data RESTを利用するパターン
+	 **************************************************************************/
     function DarkAction($scope) {
     	// First way of creating a Restangular object. Just saying the base URL
     	var baseExam = Restangular.all('exam');
@@ -270,8 +256,10 @@ app.factory('ImplementsReference', ['Restangular', 'DievasConfig' , function (Re
     	});
 
     	// Does a GET to /exam
-    	// Returns an empty array by default. Once a value is returned from the server
-    	// that array is filled with those values. So you can use this in your template
+    	// Returns an empty array by default. Once a value is returned from the
+		// server
+    	// that array is filled with those values. So you can use this in your
+		// template
     	$scope.exam = Restangular.all('exam').getList().$object;
 
     	var newAccount = {name: "Gonto's exam"};
@@ -299,16 +287,19 @@ app.factory('ImplementsReference', ['Restangular', 'DievasConfig' , function (Re
     	  // Here we can continue fetching the tree :).
 
     	  var firstAccount = exam[0];
-    	  // This will query /exam/123/buildings considering 123 is the id of the firstAccount
+    	  // This will query /exam/123/buildings considering 123 is the id of
+			// the firstAccount
     	  $scope.buildings = firstAccount.getList("buildings");
 
-    	  // GET /exam/123/places?query=param with request header: x-user:mgonto
+    	  // GET /exam/123/places?query=param with request header:
+			// x-user:mgonto
     	  $scope.loggedInPlaces = firstAccount.getList("places", {query: 'param'}, {'x-user': 'mgonto'})
 
     	  // This is a regular JS object, we can change anything we want :)
     	  firstAccount.name = "Gonto"
 
-    	  // If we wanted to keep the original as it is, we can copy it to a new element
+    	  // If we wanted to keep the original as it is, we can copy it to a
+			// new element
     	  var editFirstAccount = Restangular.copy(firstAccount);
     	  editFirstAccount.name = "New Name";
 
@@ -337,7 +328,8 @@ app.factory('ImplementsReference', ['Restangular', 'DievasConfig' , function (Re
 
     	  // GET /exam/123/users?query=params
     	  firstAccount.getList("users", {query: params}).then(function(users) {
-    	    // Instead of posting nested element, a collection can post to itself
+    	    // Instead of posting nested element, a collection can post to
+			// itself
     	    // POST /exam/123/users
     	    users.post({userName: 'unknown'});
 
@@ -347,7 +339,8 @@ app.factory('ImplementsReference', ['Restangular', 'DievasConfig' , function (Re
 
     	    var firstUser = users[0];
 
-    	    // GET /exam/123/users/456. Just in case we want to update one user :)
+    	    // GET /exam/123/users/456. Just in case we want to update one user
+			// :)
     	    $scope.userFromServer = firstUser.get();
 
     	    // ALL http methods are available :)
@@ -366,13 +359,14 @@ app.factory('ImplementsReference', ['Restangular', 'DievasConfig' , function (Re
     	// GET /exam/123?single=true
     	$scope.exam = exam.get({single: true});
 
-    	// POST /exam/123/messages?param=myParam with the body of name: "My Message"
+    	// POST /exam/123/messages?param=myParam with the body of name: "My
+		// Message"
     	exam.customPOST({name: "My Message"}, "messages", {param: "myParam"}, {})
     }
 
-    /***************************************
-     *  Spring Data RESTを利用するパターン
-     ***************************************/
+    /***************************************************************************
+	 * Spring Data RESTを利用するパターン
+	 **************************************************************************/
     function LinkAction($scope) {
     	Restangular.all('UserProfile').getList().then(function (user_profile) {
     		$scope.user_profile = user_profile;

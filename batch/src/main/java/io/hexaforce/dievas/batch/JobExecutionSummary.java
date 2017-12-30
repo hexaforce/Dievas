@@ -13,11 +13,11 @@ import lombok.Data;
 public class JobExecutionSummary {
 	private JobParameters jobParameters;
 	private String jobConfigurationName;
-	private  Date startTime;
-	private  Date createTime;
+	private Date startTime;
+	private Date createTime;
 	private BatchStatus status;
-	private  Date endTime;
-	private  Date lastUpdated;
+	private Date endTime;
+	private Date lastUpdated;
 	private ExitStatus exitStatus;
 	private JobInstance jobInstance;
 }

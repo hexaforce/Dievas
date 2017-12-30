@@ -19,9 +19,32 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<configuration>
+					<!-- <additionalJOption>-J-Xss2048m</additionalJOption> -->
+					<bootclasspath>${sun.boot.class.path}</bootclasspath>
+					<useStandardDocletOptions>false</useStandardDocletOptions>
+					<doclet>com.google.doclava.Doclava</doclet>
+					<docletArtifact>
+						<groupId>com.google.doclava</groupId>
+						<artifactId>doclava</artifactId>
+						<version>1.0.6</version>
+					</docletArtifact>
 					<additionalOptions>
 						-hdf project.name "Dievas commons"
 					</additionalOptions>
+					<groups>
+						<group>
+							<title>Exception (Core Packages)</title>
+							<packages>io.hexaforce.dievas.commons.exception*</packages>
+						</group>
+						<group>
+							<title>Utiles (Core Packages)</title>
+							<packages>io.hexaforce.dievas.commons.utiles*</packages>
+						</group>
+						<group>
+							<title>Logic (Basic Packages)</title>
+							<packages>io.hexaforce.dievas.commons.logic*</packages>
+						</group>
+					</groups>
 				</configuration>
 			</plugin>
 		</plugins>

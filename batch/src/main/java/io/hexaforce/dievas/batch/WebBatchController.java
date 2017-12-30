@@ -8,6 +8,7 @@ import org.springframework.batch.core.JobParametersInvalidException;
 import org.springframework.batch.core.configuration.JobRegistry;
 import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.batch.core.launch.NoSuchJobException;
+import org.springframework.batch.core.launch.support.SimpleJobLauncher;
 import org.springframework.batch.core.repository.JobExecutionAlreadyRunningException;
 import org.springframework.batch.core.repository.JobInstanceAlreadyCompleteException;
 import org.springframework.batch.core.repository.JobRepository;
@@ -17,6 +18,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,42 +29,55 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * ランチアップコントローラ
- * @author T.Tantaka 
+ * 
+ * @author T.Tantaka
  *
  */
 @Slf4j
 @Controller
 public class WebBatchController implements ApplicationContextAware {
-	
-    @Autowired
-    private JobLauncher jobLauncher;
 
-    @Autowired
-    private JobRegistry jobRegistry;
+	@Autowired
+	private JobLauncher jobLauncher;
 
-    @Autowired
-    private JobRepository jobRepository;
+	@Autowired
+	private JobRegistry jobRegistry;
 
-    private ApplicationContext applicationContext;
-    
+	@Autowired
+	private JobRepository jobRepository;
+
+	private ApplicationContext applicationContext;
+
 	@ResponseBody
 	@RequestMapping("/batch/{jobName}")
 	public JobExecutionSummary batch(@PathVariable("jobName") String jobName, ModelMap modal) {
-		log.info("/batch/"+jobName);
-		
+		log.info("/batch/" + jobName);
+
 		// ジョブパラメータを作成
 		JobParameters jobParameters = buildJobParameter(modal);
-		
+
 		JobExecution jobExecution = null;
-		
+
 		// 実行履歴を確認
 		if (jobRepository.isJobInstanceExists(jobName, jobParameters)) {
 			jobExecution = jobRepository.getLastJobExecution(jobName, jobParameters);
+			log.info("すでにジョブが起動されています。");
 		} else {
-			// Jobを実行
+
 			try {
+
 				Job job = findJob(jobName, jobParameters);
+				
+//				// 同期実行
+//				jobExecution = jobLauncher.run(job, jobParameters);
+
+				// 非同期実行
+				SimpleJobLauncher jobLauncher = new SimpleJobLauncher();
+				jobLauncher.setTaskExecutor(new SimpleAsyncTaskExecutor());
+				jobLauncher.setJobRepository(jobRepository);
+				jobLauncher.afterPropertiesSet();
 				jobExecution = jobLauncher.run(job, jobParameters);
+
 			} catch (JobExecutionAlreadyRunningException | JobInstanceAlreadyCompleteException e) {
 				jobExecution = jobRepository.getLastJobExecution(jobName, jobParameters);
 			} catch (JobRestartException e) {
@@ -71,29 +86,31 @@ public class WebBatchController implements ApplicationContextAware {
 				e.printStackTrace();
 			} catch (NoSuchJobException e) {
 				e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		}
-		
+
 		// 結果をリターン
 		JobExecutionSummary jobResult = new JobExecutionSummary();
 		BeanUtils.copyProperties(jobExecution, jobResult);
 		return jobResult;
-		
+
 	}
 
 	@Override
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 		this.applicationContext = applicationContext;
 	}
-	
+
 	/**
 	 * @param modal
 	 * @return
 	 */
 	private JobParameters buildJobParameter(ModelMap modal) {
-		JobParametersBuilder jobParametersBuilder = new JobParametersBuilder()
-				.addLong("time",System.currentTimeMillis());
-		
+		JobParametersBuilder jobParametersBuilder = new JobParametersBuilder().addLong("time",
+				System.currentTimeMillis());
+
 		return jobParametersBuilder.toJobParameters();
 	}
 
@@ -104,7 +121,7 @@ public class WebBatchController implements ApplicationContextAware {
 	 * @throws NoSuchJobException
 	 */
 	private Job findJob(String jobName, JobParameters jobParameters) throws NoSuchJobException {
-		
+
 		Job job = null;
 		try {
 			job = jobRegistry.getJob(jobName);
@@ -123,5 +140,5 @@ public class WebBatchController implements ApplicationContextAware {
 		return job;
 
 	}
-	
+
 }

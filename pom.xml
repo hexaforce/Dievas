@@ -149,65 +149,88 @@
 
 		<pluginManagement>
 			<plugins>
-
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.7.0</version>
+					<configuration>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-eclipse-plugin</artifactId>
+					<version>2.10</version>
+					<configuration>
+						<downloadSources>true</downloadSources>
+						<downloadJavadocs>true</downloadJavadocs>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>3.0.0</version>
+					<configuration>
+						<encoding>UTF-8</encoding>
+						<failOnError>false</failOnError>
+						<groups>
+							<group>
+								<title>database (Core Packages)</title>
+								<packages>io.hexaforce.dievas.database*</packages>
+							</group>
+							<group>
+								<title>batch (Basic Packages)</title>
+								<packages>io.hexaforce.dievas.batch*</packages>
+							</group>
+							<group>
+								<title>service (Core Packages)</title>
+								<packages>io.hexaforce.dievas.service*</packages>
+							</group>
+							<group>
+								<title>entrance (Extension Packages)</title>
+								<packages>io.hexaforce.dievas.entrance*</packages>
+							</group>
+							<group>
+								<title>management (Basic Packages)</title>
+								<packages>io.hexaforce.dievas.management*</packages>
+							</group>
+							<group>
+								<title>system basic</title>
+								<packages>io.hexaforce.dievas.system*</packages>
+							</group>
+						</groups>
+					</configuration>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 
 		<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.7.0</version>
-				<configuration>
-					<source>${java.version}</source>
-					<target>${java.version}</target>
-					<encoding>UTF-8</encoding>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>2.10</version>
-				<configuration>
-					<downloadSources>true</downloadSources>
-					<downloadJavadocs>true</downloadJavadocs>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.0.0</version>
-				<configuration>
-					<encoding>UTF-8</encoding>
-					<failOnError>false</failOnError>
-					<groups>
-						<group>
-							<title>database (Core Packages)</title>
-							<packages>io.hexaforce.dievas.database*</packages>
-						</group>
-						<group>
-							<title>batch (Basic Packages)</title>
-							<packages>io.hexaforce.dievas.batch*</packages>
-						</group>
-						<group>
-							<title>service (Core Packages)</title>
-							<packages>io.hexaforce.dievas.service*</packages>
-						</group>
-						<group>
-							<title>entrance (Extension Packages)</title>
-							<packages>io.hexaforce.dievas.entrance*</packages>
-						</group>
-						<group>
-							<title>management (Basic Packages)</title>
-							<packages>io.hexaforce.dievas.management*</packages>
-						</group>
-						<group>
-							<title>system basic</title>
-							<packages>io.hexaforce.dievas.system*</packages>
-						</group>
-					</groups>
-				</configuration>
-			</plugin>
+
+
 		</plugins>
+
+		<extensions>
+			<extension>
+				<groupId>org.springframework.build</groupId>
+				<artifactId>aws-maven</artifactId>
+				<version>5.0.0.RELEASE</version>
+			</extension>
+		</extensions>
+
 	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>aws-release</id>
+			<name>AWS Release Repository</name>
+			<url>s3://repo.hexaforce.io/release</url>
+		</repository>
+		<snapshotRepository>
+			<id>aws-snapshot</id>
+			<name>AWS Snapshot Repository</name>
+			<url>s3://repo.hexaforce.io/release</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 </project>
